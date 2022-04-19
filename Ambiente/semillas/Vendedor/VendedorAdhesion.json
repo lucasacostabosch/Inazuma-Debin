@@ -1,0 +1,15 @@
+{
+  "vendedor": {
+    "cuit": "20000000028",
+    "sucursal": "4693",
+    "nombre_fantasia": "Las Totoras Materiales de Construcción",
+    "rubro": "Varios",
+    "endpoint": "TESTING2",
+    "cuenta": {
+      "cbu": "9984693800000000000086"
+    },
+    "contacto": {
+      "email": "testautomation@coelsa.com.ar"
+    }
+  }
+}

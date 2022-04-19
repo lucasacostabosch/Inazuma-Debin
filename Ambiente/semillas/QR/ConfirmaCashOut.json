@@ -1,0 +1,17 @@
+{
+  "operacion": {
+    "id": "",
+    "comprador": {
+      "cuit": "20000000222",
+      "cbu": "9981522200000000000192"
+    },
+    "detalle": {
+      "moneda": "032",
+      "importe": 5000
+    }
+  },
+  "respuesta": {
+    "codigo": "7600",
+    "descripcion": "OPERACION CORRECTA"
+  }
+}

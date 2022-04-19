@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>3.- qr_id_trx</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>b0ae5b02-fe39-4ff4-83b2-7d8eee36cdbb</testCaseGuid>
+   <variable>
+      <defaultValue>[:]</defaultValue>
+      <description></description>
+      <id>a884c1b7-7c2d-4195-88ba-a04e8eb251c8</id>
+      <masked>false</masked>
+      <name>Body</name>
+   </variable>
+</TestCaseEntity>

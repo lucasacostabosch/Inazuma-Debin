@@ -1,0 +1,19 @@
+{
+  "endpoint": {
+    "red": "red",
+    "descripcion": "descripcion",
+    "primario": "https://999.99.999.999/api/primarioPOST",
+    "secundario": "https://999.99.999.999/api/secundarioPOST",
+    "scoring": "scoring",
+    "default": true,
+    "activa": true,
+    "contracargo": "contra cargo",
+    "creditoti": "creditoti",
+    "aviso_cvu": "aviso cvu",
+    "tic": "tic",
+    "endpoint_forzado": true,
+    "credito_ti_respuesta": true,
+    "credito_cvu": true,
+    "cashout": "cashout"
+  }
+}

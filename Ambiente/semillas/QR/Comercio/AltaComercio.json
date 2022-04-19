@@ -1,0 +1,9 @@
+{
+  "comercio": {
+    "com_cvu": "0000001700000000008455",
+    "com_cuit": "20333048494",
+    "com_cbu": "9980001100000000000017",
+    "com_porcentaje": 0.999,
+    "com_habilitado": true
+  }
+}

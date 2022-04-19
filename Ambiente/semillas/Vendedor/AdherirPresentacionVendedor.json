@@ -1,0 +1,11 @@
+{
+   "vendedor":{
+      "cuit":"20000000028",
+      "presentaciones":{
+         "nombre":"Presentacion de Auto",
+         "ayuda_referencia":"Este es un texto de ayuda",
+         "min":0,
+         "max":5000
+      }
+   }
+}

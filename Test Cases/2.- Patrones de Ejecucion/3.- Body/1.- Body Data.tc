@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>1.- Body Data</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>83d26261-fab7-415d-ab7c-59f1686c52cc</testCaseGuid>
+   <variable>
+      <defaultValue>[:]</defaultValue>
+      <description></description>
+      <id>8ca33fd2-6a20-4c39-9820-27e1cd4d0439</id>
+      <masked>false</masked>
+      <name>Body</name>
+   </variable>
+</TestCaseEntity>

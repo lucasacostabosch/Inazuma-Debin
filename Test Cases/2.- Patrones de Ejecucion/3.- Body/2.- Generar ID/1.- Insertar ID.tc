@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>1.- Insertar ID</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>5fca75ff-420a-4a09-8da4-b95c56d4a202</testCaseGuid>
+   <variable>
+      <defaultValue>[:]</defaultValue>
+      <description></description>
+      <id>e43476fd-d2c6-47f0-8f52-7d200b0cdc00</id>
+      <masked>false</masked>
+      <name>Body</name>
+   </variable>
+</TestCaseEntity>

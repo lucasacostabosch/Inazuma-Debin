@@ -1,0 +1,51 @@
+{
+    "objeto": {
+        "tipo": "TRXISO",
+        "ori_trx_id": 3,
+        "ori_fecha_negocio": "10011809",
+        "ori_fecha_ejecucion": "10011809221100",
+        "ori_red": "L"
+    },
+    "credito": {
+        "cuit": "20201003009",
+        "banco": "998",
+        "sucursal": "0000",
+        "cuenta": {
+            "cbu": "9980000400000135724688"
+        },
+        "titular": "AltaLink998.1"
+    },
+    "debito": {
+        "cuit": "20201003009",
+        "banco": "998",
+        "sucursal": "0000",
+        "cuenta": {
+            "cbu": "9980000400000246813578"
+        },
+        "titular": "AltaLink998.1"
+    },
+    "concepto": "VAR",
+    "descripcion": "string",
+    "idUsuario": 0,
+    "idComprobante": 0,
+    "importe": {
+        "moneda": "032",
+        "importe": 10.98
+    },
+    "mismoTitular": "0",
+    "ori_trx": "",
+    "ori_terminal": "",
+    "ori_adicional": "",
+    "datosGenerador": {
+        "ipCliente": "",
+        "tipoDispositivo": "01",
+        "plataforma": "",
+        "imsi": "",
+        "imei": "",
+        "ubicacion": {
+            "lat": 0,
+            "lng": 0,
+            "precision": 0
+        }
+    }
+}

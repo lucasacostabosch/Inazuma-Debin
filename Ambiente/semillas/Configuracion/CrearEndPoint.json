@@ -1,0 +1,14 @@
+{
+  "endPointAlta": {
+    "id": "Aut20201117133700001",
+    "descripcion": "Autmatizacion prueba alta",
+    "primario": "https://999.99.999.999/api/testautomatizacion",
+    "secundario": "",
+    "red": "",
+    "default": true,
+    "creditoti": "",
+    "contraCargo": "",
+    "aviso_cvu": "",
+    "tic": ""
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "operacion": {
+    "comprador": {
+      "cuenta": {
+        "banco": "string",
+        "sucursal": "string",
+        "alias": "string",
+        "cbu": "string",
+        "esTitular": 0,
+        "moneda": "string",
+        "tipo": "string"
+      },
+      "codigo": "string",
+      "titular": "string",
+      "cuit": "string"
+    },
+    "vendedor": {
+      "cuenta": {
+        "banco": "string",
+        "sucursal": "string",
+        "terminal": "string",
+        "alias": "string",
+        "cbu": "string",
+        "esTitular": 0,
+        "moneda": "string",
+        "tipo": "string"
+      },
+      "codigo": "string",
+      "titular": "string",
+      "cuit": "string"
+    },
+    "detalle": {
+      "fecha": "2020-08-07T15:21:29.410Z",
+      "fechaExpiracion": "2020-08-07T15:21:29.410Z",
+      "concepto": "string",
+      "idUsuario": 0,
+      "idComprobante": 0,
+      "moneda": "string",
+      "importe": 0,
+      "mismoTitular": 0
+    }
+  },
+  "debin": {
+    "id": "string",
+    "estado": {
+      "codigo": "string",
+      "descripcion": "string"
+    },
+    "estadoComprador": {
+      "codigo": "string",
+      "descripcion": "string"
+    }
+  },
+  "preautorizado": true,
+  "evaluacion": {
+    "puntaje": 0,
+    "reglas": "string"
+  }
+}

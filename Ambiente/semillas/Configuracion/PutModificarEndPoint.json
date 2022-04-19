@@ -1,0 +1,19 @@
+{
+  "endpoint": {
+    "red": "PUT 1",
+    "descripcion": "PUT 2",
+    "primario": "https://999.99.999.999/api/primarioPUT",
+    "secundario": "https://999.99.999.999/api/secundarioPUT",
+    "scoring": "PUT 3",
+    "default": true,
+    "activa": true,
+    "contracargo": "PUT 4",
+    "creditoti": "PUT 5",
+    "aviso_cvu": "PUT 5",
+    "tic": "PUT 6",
+    "endpoint_forzado": true,
+    "credito_ti_respuesta": true,
+    "credito_cvu": true,
+    "cashout": "PUT 7"
+  }
+}

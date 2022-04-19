@@ -1,0 +1,21 @@
+{
+  "recurrencia": {
+    "vendedor": {
+      "cuit": "27375575847"
+    },
+    "comprador": {
+      "cuit": "20000000028",
+      "cbu": "9984693800000000000086"
+    },
+    "debin": {
+      "moneda": "032",
+      "detalle": "Test Auto",
+      "concepto": "VAR",
+      "prestacion": "PrestacionMica",
+      "referencia": "Mconenna"
+    },
+    "id": 12493,
+    "activo": true,
+    "tipo_adhesion": 0
+  }
+}

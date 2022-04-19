@@ -1,0 +1,18 @@
+{
+  "endPointAlta2": {
+    "id": "Aut20201117133700002",
+    "descripcion": "Descripcion POST 222",
+    "primario": "https://999.99.999.999/api/primarioPOST222",
+    "secundario": "https://999.99.999.999/api/secundarioPOST222",
+    "red": "red POST 2",
+    "default": true,
+    "endpoint_forzado": true,
+    "credito_ti_respuesta": true,
+    "credito_cvu": true,
+    "cashout": "cashout 222",
+    "creditoti": "creditoti 222",
+    "contraCargo": "contracorgo POST 222",
+    "aviso_cvu": "aviso cvu POST 222",
+    "tic": "tic POST 222"
+  }
+}

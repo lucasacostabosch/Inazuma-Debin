@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>1.- Orquestador</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>c5d53b52-08d0-43f7-a883-4a51cae0f2b1</testCaseGuid>
+   <variable>
+      <defaultValue>''</defaultValue>
+      <description>Id del Caso de Prueba.</description>
+      <id>82db791e-d9c2-4efa-a81b-db12417b11c2</id>
+      <masked>false</masked>
+      <name>IDCasoDePrueba</name>
+   </variable>
+   <variable>
+      <defaultValue>''</defaultValue>
+      <description>Cadena de Acciones que deberan ser ejecutadas.</description>
+      <id>371d56fb-ccbc-4c89-99c3-300b681419cb</id>
+      <masked>false</masked>
+      <name>Acciones</name>
+   </variable>
+   <variable>
+      <defaultValue>''</defaultValue>
+      <description>Lista de parámetros para las diferentes acciones a ejecutrar.</description>
+      <id>11549d36-c968-456f-977d-8d5e6ff88523</id>
+      <masked>false</masked>
+      <name>Parametros</name>
+   </variable>
+   <variable>
+      <defaultValue>''</defaultValue>
+      <description>Lista de espuestas esperadas para las diferentes acciones a ejecutrar.</description>
+      <id>3c04e80b-5d55-4a09-a21d-64f0ec41e584</id>
+      <masked>false</masked>
+      <name>Respuestas</name>
+   </variable>
+   <variable>
+      <defaultValue>''</defaultValue>
+      <description>Objetivo del Escenario o Caso de Prueba.</description>
+      <id>6e7299df-4c6d-4c27-a54d-6caf0310d98d</id>
+      <masked>false</masked>
+      <name>ObjetivoPrueba</name>
+   </variable>
+</TestCaseEntity>

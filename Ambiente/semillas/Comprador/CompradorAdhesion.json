@@ -1,0 +1,12 @@
+{
+  "comprador": {
+    "cuenta": {
+      "cbu": "9984693800000000000086"
+    },
+    "contacto": {
+      "email": "testautomation@coelsa.com.ar"
+    },
+    "cuit": "20000000028",
+    "endpoint": "TESTING2"
+  }
+}

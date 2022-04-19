@@ -1,0 +1,55 @@
+{
+	"Product": "debin",
+	"Bank" : "998",
+	"Firma" : false,
+	"Token":{
+		"URL" : "https://qaauth.coelsa.com.ar/apiAuthV1/auth",
+		"Authorization" : "Basic MldMOEdZeVVtd295RGdVRTQxajVGZzpPWldWNHFwSDhTOWJ3Q3cyTi45ZDM5bTZnUXVR",
+		"Durability": 25,
+		"Users" : [
+			{
+				"bank" : "998",
+				"product" : "debin",
+				"username" : "DEBIN998",
+				"password" : "Coelsa123"
+			},
+			{
+				"bank" : "998",
+				"product" : "iso",
+				"username" : "CoelsaISO8583",
+				"password" : "Coelsa123"
+			},
+			{
+				"bank" : "998",
+				"product" : "responder",
+				"username" : "DEBIN998",
+				"password" : "Coelsa123"
+			}
+		]
+	},
+	"API" : [
+		{
+		"name" : "debin",
+		"urlBase" : "https://qadebin.coelsa.com.ar"
+		},
+		{
+		"name" : "iso",
+		"urlBase" : "https://qadebin.coelsa.com.ar"
+		},
+		{
+		"name" : "responder",
+		"urlBase" : "http://10.66.0.10:3000"
+		}
+	],
+	"DataBase" : [
+		{
+		"alias" : "debin",
+		"server" : "10.36.0.4",
+		"port" : "1433",
+		"dbname" : "DEBIN_QA",
+		"username" : "test_sa",
+		"password" : "a70tiv67lzFviPtcLyWBzQ",
+		"driver" : "com.microsoft.sqlserver.jdbc.SQLServerDriver"
+		}
+	]
+}

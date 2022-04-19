@@ -1,0 +1,6 @@
+{
+  "vendedor": {
+    "url_callback_debin": "string",
+    "url_callback_contracargo": "string"
+  }
+}

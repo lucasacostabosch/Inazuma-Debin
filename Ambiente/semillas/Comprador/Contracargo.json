@@ -1,0 +1,23 @@
+{
+    "operacionOriginal": {
+        "id": "string",
+        "tipo": "debin",
+        "detalle": {
+            "importe": 10,
+            "moneda": "032",
+            "motivo": "prueba mica"
+        }
+    },
+    "comprador": {
+        "cuit": "20000000222",
+        "cuenta": {
+            "cbu": "9981522200000000000192"
+        }
+    },
+    "vendedor": {
+        "cuit": "27375575847",
+        "cuenta": {
+            "cbu": "9982879600000000000338"
+        }
+    }
+}

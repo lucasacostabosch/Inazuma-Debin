@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>2.- ori_trx_id</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>ef0df7b1-b000-4df3-8225-15543ecc6a3a</testCaseGuid>
+   <variable>
+      <defaultValue>[:]</defaultValue>
+      <description></description>
+      <id>d34a1fcf-5d4d-48eb-a6d6-ee886ffce696</id>
+      <masked>false</masked>
+      <name>Body</name>
+   </variable>
+</TestCaseEntity>

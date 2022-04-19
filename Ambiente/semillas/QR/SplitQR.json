@@ -1,0 +1,44 @@
+{
+  "operacion": {
+    "vendedor": {
+      "cuit": "20333048494",
+      "cbu": "9988851800000000000628",
+      "banco": "998",
+      "sucursal": "0000",
+      "terminal": "12345678",
+      "recurrencia": true,
+      "prestacion": "string"
+    },
+    "comprador": {
+      "cuenta": {
+        "cbu": "9982454100000000000819",
+        "alias": ""
+      },
+      "cuit": "20333048494"
+    },
+    "detalle": {
+      "concepto": "VAR",
+      "id_usuario": 0,
+      "id_comprobante": 0,
+      "moneda": "032",
+      "importe": 10,
+      "devolucion": true,
+      "tiempo_expiracion": 10,
+      "descripcion": "",
+      "mismoTitular": 0,
+      "idLote": 0
+    },
+    "datos_generador": {
+      "ubicacion": {
+        "lat": 0,
+        "lng": 0,
+        "precision": 0
+      },
+      "ip_cliente": "",
+      "tipo_dispositivo": "",
+      "plataforma": "",
+      "imsi": "",
+      "imei": ""
+    }
+  }
+}

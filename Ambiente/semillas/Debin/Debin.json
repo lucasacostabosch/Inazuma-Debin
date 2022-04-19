@@ -1,0 +1,43 @@
+{
+  "operacion": {
+    "vendedor": {
+      "cuit": "20201003009",
+      "cbu": "9980000400000135724688",
+      "banco": "998",
+      "sucursal": "0000",
+      "terminal": "2",
+      "recurrencia": false,
+      "prestacion":"PrestacionMica"
+    },
+    "comprador": {
+      "cuit": "20201003009",
+      "cuenta": {
+        "cbu": "9980000400000246813578",
+        "alias": ""
+      }
+    },
+    "detalle": {
+      "concepto": "ALQ",
+      "idUsuario": 11232,
+      "idComprobante": 922808,
+      "moneda": "032",
+      "importe": 10,
+      "devolucion": true,
+      "tiempoExpiracion": 360,
+      "descripción": "COMO",
+      "mismoTitular": 0
+    },
+    "datosGenerador": {
+      "ipCliente": "",
+      "tipoDispositivo": "",
+      "plataforma": "",
+      "imsi": "",
+      "imei": "",
+      "ubicacion": {
+        "lat": 0,
+        "lng": 0,
+        "precision": 0
+      }
+    }
+  }
+}

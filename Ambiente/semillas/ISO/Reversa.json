@@ -1,0 +1,11 @@
+{
+  "operacion_original": {
+    "id": "string",
+    "tipo": "REVERSAISO",
+    "detalle": {
+      "importe": 10.98,
+      "moneda": "032",
+      "motivo": "string"
+    }
+  }
+}

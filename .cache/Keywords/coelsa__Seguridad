@@ -1,0 +1,43 @@
+{
+  "keywordFileContentHash": "27773506B1D28A113C069F0500D0905E",
+  "keywordClasses": [
+    {
+      "name": "coelsa.Seguridad",
+      "keywordMethods": [
+        {
+          "name": "encriptar",
+          "parameters": [
+            {
+              "name": "datos",
+              "initialExpression": "",
+              "type": {
+                "fullClassName": "java.lang.String",
+                "unresolvedClassName": "String",
+                "isArray": false,
+                "isGnericsPlaceHolder": false,
+                "hasImmutableClassName": false,
+                "genericsTypes": [],
+                "errorOnParsing": false
+              }
+            },
+            {
+              "name": "claveSecreta",
+              "initialExpression": "",
+              "type": {
+                "fullClassName": "java.lang.String",
+                "unresolvedClassName": "String",
+                "isArray": false,
+                "isGnericsPlaceHolder": false,
+                "hasImmutableClassName": false,
+                "genericsTypes": [],
+                "errorOnParsing": false
+              }
+            }
+          ],
+          "javadoc": ""
+        }
+      ]
+    }
+  ],
+  "javadocParsed": true
+}

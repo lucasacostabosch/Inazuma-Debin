@@ -1,0 +1,12 @@
+{
+    "operacion_original": {
+        "vendedor": {
+            "cuit": "20333048494",
+            "cbu": "0000001700000000008455"
+        },
+        "id": "string",
+        "tipo": "DEBINQR",
+        "descripcion": "pruebas mica",
+        "qr_id_trx": "string"
+    }
+}

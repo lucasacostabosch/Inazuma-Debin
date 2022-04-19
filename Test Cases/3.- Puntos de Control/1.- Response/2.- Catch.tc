@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>2.- Catch</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>bccda0f4-1eff-4235-98e5-8ebe6b4c9414</testCaseGuid>
+   <variable>
+      <defaultValue>[:]</defaultValue>
+      <description></description>
+      <id>a524f75e-4244-4e6d-b905-3a59579ca30f</id>
+      <masked>false</masked>
+      <name>Response</name>
+   </variable>
+</TestCaseEntity>

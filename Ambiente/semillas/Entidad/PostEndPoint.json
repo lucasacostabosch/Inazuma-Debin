@@ -1,0 +1,14 @@
+{
+  "endPointAlta": {
+        "id": "0",
+        "descripcion": "PRUEBACOELSA",
+        "primario": "https://testdebin-02.coelsa.com.ar/apiDebinV1/CoelsaTest/",
+        "secundario": "https://testdebin-02.coelsa.com.ar/apiDebinV1/CoelsaTest/",
+        "red": "PRUEBACOELSA",
+        "default": false,
+        "creditoti": "https://testdebin-02.coelsa.com.ar/apiDebinV1/CoelsaTest/",
+        "contraCargo": "https://testdebin-02.coelsa.com.ar/apiDebinV1/CoelsaTest/",
+        "aviso_cvu": "https://testdebin-02.coelsa.com.ar/apiDebinV1/CoelsaTest/",
+        "tic": "https://testdebin-02.coelsa.com.ar/apiDebinV1/CoelsaTest/"
+  }
+}
