@@ -24,13 +24,12 @@ if (Body.operacion != null) {
         if (debin_qr_trx != null) {
             id_completo += debin_qr_trx
         } else if (qr_id_trx != null) {
+			String Where = 'dac_credito_bancocod = \'' + GlobalVariable.ejecucion.Bank + '\''
+				Where 	+= 'and DAC_QR_ID_TRX like \'Test Auto%\' and dac_tipo = \'DEBINQR\' and' 
+				Where	+= 'dac_debito_bancocod = \''  + GlobalVariable.ejecucion.Bank + '\''
             qr_id_trx = WebUI.callTestCase(findTestCase('3.- Puntos de Control/2.- Data Base/1.- Trx ID'),
-				[('SELECT') : ['TOP 1 DAC_ID'],
-					('WHERE') : [
-                        ('dac_credito_bancocod') : GlobalVariable.ejecucion.Bank,
-						('connector') : 'and DAC_QR_ID_TRX like \'Test Auto%\' and dac_tipo = \'DEBINQR\' and',
-						('dac_debito_bancocod') : GlobalVariable.ejecucion.Bank
-						],
+				[	('SELECT') : 'TOP 1 DAC_ID',
+					('WHERE') :  Where,
 					('ORDER_BY') : 'DAC_ID DESC',
 					('SQL_var_name') : 'DAC_ID'], 
                 FailureHandling.STOP_ON_FAILURE)

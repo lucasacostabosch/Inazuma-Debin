@@ -16,7 +16,7 @@ import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 
-select = CustomKeywords.'sql.DML.select'('DEBIN', SELECT, 'DEBIN_ACTIVAS', [:], WHERE, ORDER_BY)[0]
+select = CustomKeywords.'sql.DML.select'('DEBIN', SELECT, 'DEBIN_ACTIVAS', WHERE, ORDER_BY)[0]
 
 println SELECT
 switch (SQL_var_name) {
@@ -45,4 +45,3 @@ switch (SQL_var_name) {
 }
 
 return id
-

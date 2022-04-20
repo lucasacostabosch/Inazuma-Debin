@@ -40,8 +40,8 @@ if (Body.objeto != null) {
 		def debito_cbu = debito_cuenta.cbu
 		
 		ori_trx_id = WebUI.callTestCase(findTestCase('3.- Puntos de Control/2.- Data Base/1.- Trx ID'),
-			[('SELECT') : ['TOP 1 DAC_ORI_TRX_ID'],
-				('WHERE') : [('connector') : 'dac_tipo = \''+Body.objeto.tipo.toUpperCase()+'\''],
+			[	('SELECT') : 'TOP 1 DAC_ORI_TRX_ID',
+				('WHERE') : 'dac_tipo = \''+Body.objeto.tipo.toUpperCase()+'\'',
 				('ORDER_BY') : 'DAC_ORI_TRX_ID DESC',
 				('SQL_var_name') : 'DAC_ORI_TRX_ID'],
 			FailureHandling.STOP_ON_FAILURE)

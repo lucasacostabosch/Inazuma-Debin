@@ -6,21 +6,21 @@
    <comment></comment>
    <testCaseGuid>f3511838-674e-448c-a62d-d7872d789e89</testCaseGuid>
    <variable>
-      <defaultValue>['top 1 DAC_ORI_TRX_ID']</defaultValue>
+      <defaultValue>'TOP 1 DAC_ORI_TRX_ID'</defaultValue>
       <description></description>
       <id>3b9fc6d8-cc06-497f-9b42-24ed43cea63d</id>
       <masked>false</masked>
       <name>SELECT</name>
    </variable>
    <variable>
-      <defaultValue>[('dac_tipo') : 'DEBINQR']</defaultValue>
+      <defaultValue>'DAC_TIPO = \'DEBINQR\''</defaultValue>
       <description></description>
       <id>f474e419-f184-493c-b728-2215d1ad0a84</id>
       <masked>false</masked>
       <name>WHERE</name>
    </variable>
    <variable>
-      <defaultValue>'DAC_ORI_TRX_ID desc'</defaultValue>
+      <defaultValue>'DAC_ORI_TRX_ID DESC'</defaultValue>
       <description></description>
       <id>e3edba49-9e9f-4426-b3b5-f47a7c7b5d4c</id>
       <masked>false</masked>

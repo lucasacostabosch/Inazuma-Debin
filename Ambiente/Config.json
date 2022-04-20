@@ -41,15 +41,18 @@
 		"urlBase" : "http://10.66.0.10:3000"
 		}
 	],
-	"DataBase" : [
-		{
-		"alias" : "debin",
-		"server" : "10.36.0.4",
-		"port" : "1433",
-		"dbname" : "DEBIN_QA",
-		"username" : "test_sa",
-		"password" : "a70tiv67lzFviPtcLyWBzQ",
-		"driver" : "com.microsoft.sqlserver.jdbc.SQLServerDriver"
-		}
-	]
+	"DataBase" : {
+		"preprocessor": true,
+		"bases": [
+			{
+			"alias" : "debin",
+			"server" : "10.36.0.4",
+			"port" : "1433",
+			"dbname" : "DEBIN_QA",
+			"username" : "test_sa",
+			"password" : "a70tiv67lzFviPtcLyWBzQ",
+			"driver" : "com.microsoft.sqlserver.jdbc.SQLServerDriver"
+			}
+		]
+	}
 }
