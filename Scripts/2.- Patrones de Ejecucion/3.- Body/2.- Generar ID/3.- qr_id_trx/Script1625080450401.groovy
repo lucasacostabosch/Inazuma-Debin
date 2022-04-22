@@ -25,7 +25,7 @@ if (Body.operacion != null) {
             id_completo += debin_qr_trx
         } else if (qr_id_trx != null) {
 			String Where = 'dac_credito_bancocod = \'' + GlobalVariable.ejecucion.Bank + '\''
-				Where 	+= 'and DAC_QR_ID_TRX like \'Test Auto%\' and dac_tipo = \'DEBINQR\' and' 
+				Where 	+= ' and DAC_QR_ID_TRX like \'Test Auto%\' and dac_tipo = \'DEBINQR\' and ' 
 				Where	+= 'dac_debito_bancocod = \''  + GlobalVariable.ejecucion.Bank + '\''
             qr_id_trx = WebUI.callTestCase(findTestCase('3.- Puntos de Control/2.- Data Base/1.- Trx ID'),
 				[	('SELECT') : 'TOP 1 DAC_ID',
