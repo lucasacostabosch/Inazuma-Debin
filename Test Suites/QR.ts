@@ -21,10 +21,11 @@
          <id>0ad17699-ac49-45c9-890c-1b820170aca6</id>
          <iterationEntity>
             <iterationType>SPECIFIC</iterationType>
-            <value>3</value>
+            <value>9</value>
          </iterationEntity>
          <testDataId>Data Files/QR</testDataId>
       </testDataLink>
+      <usingDataBindingAtTestSuiteLevel>true</usingDataBindingAtTestSuiteLevel>
       <variableLink>
          <testDataLinkId>0ad17699-ac49-45c9-890c-1b820170aca6</testDataLinkId>
          <type>DATA_COLUMN</type>

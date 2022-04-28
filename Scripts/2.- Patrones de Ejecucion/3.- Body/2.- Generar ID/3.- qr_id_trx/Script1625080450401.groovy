@@ -29,7 +29,7 @@ if (Body.operacion != null) {
 				Where	+= 'dac_debito_bancocod = \''  + GlobalVariable.ejecucion.Bank + '\''
             qr_id_trx = WebUI.callTestCase(findTestCase('3.- Puntos de Control/2.- Data Base/1.- Trx ID'),
 				[	('SELECT') : 'TOP 1 DAC_ID',
-					('WHERE') :  Where,
+					('WHERE') :  '',
 					('ORDER_BY') : 'DAC_ID DESC',
 					('SQL_var_name') : 'DAC_ID'], 
                 FailureHandling.STOP_ON_FAILURE)
