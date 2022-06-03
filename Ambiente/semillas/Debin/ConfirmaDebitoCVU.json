@@ -1,0 +1,36 @@
+ {
+  "operacion": {
+    "comprador": { 
+      "cuit": "20000009963",
+      "cuenta": {
+        "cbu": "0000210500200000099637"
+      }
+    },
+    "detalle": {
+      "ori_trx": "00000307",
+      "ori_terminal": "",
+      "ori_adicional": "",
+      "moneda": "032",
+      "importe":100
+    }
+  },
+  "id": "G1LMP68NK6G1555NR7OEV4",
+  "respuesta": {
+    "codigo": "00"
+  },
+
+  "datosGenerador": {
+    "ipCliente": "",
+    "tipoDispositivo": "",
+    "plataforma": "",
+    "imsi": "",
+    "imei": "",
+    "ubicacion": {
+      "lat": 0,
+      "lng": 0,
+      "precision": 0
+    }
+
+  }
+
+}

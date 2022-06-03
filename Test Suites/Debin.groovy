@@ -41,7 +41,7 @@ def setUp() {
  */
 @TearDown(skipped = false) // Please change skipped to be false to activate this method.
 def tearDown() {
-//	azure.Service.runTests(GlobalVariable.Project + '\\Ambiente', GlobalVariable.ejecucion.log)
+azure.Service.runTests(GlobalVariable.Project + '\\Ambiente', GlobalVariable.ejecucion.log)
 	setup.Configuracion.end()
 }
 /**

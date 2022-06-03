@@ -18,6 +18,13 @@ switch (Accion) {
 
         'Corte, todo lo que cree debe ir por encima de esta sentencia.'
         break
+	case 'confirmadebitocvu':
+		'Configuracion rest:\r\n\t* Metodo: [POST, GET, DELETE, PUT]\r\n\t* Endpoint: url del metodo a ejecutar.\r\n\t* Semilla: Path donde se creo el archivo para el body. (Se debe usar contra barra \\ )\r\n\t* Respuesta Esperada: La respuesta que espero cuando el caso sale ok.\r\n'
+		CustomKeywords.'coelsa.Accion.rest'(Configuracion, 'POST', '/apiDebinV1/Debin/ConfirmaDebitoCVU', 'Debin\\ConfirmaDebitoCVU.json',
+			[('StatusCode') : 200, ('Mensaje') : '{"codigo":"00","descripcion":"SE ACEPTA EL DEBITO Y SE DA CURSO AL CREDITO"}'])
+
+		'Corte, todo lo que cree debe ir por encima de esta sentencia.'
+		break
     case 'credito':
         'Configuracion rest:\r\n\t* Metodo: [POST, GET, DELETE, PUT]\r\n\t* Endpoint: url del metodo a ejecutar.\r\n\t* Semilla: Path donde se creo el archivo para el body. (Se debe usar contra barra \\ )\r\n\t* Respuesta Esperada: La respuesta que espero cuando el caso sale ok.\r\n'
         CustomKeywords.'coelsa.Accion.rest'(Configuracion, 'POST', '/apiDebinV1/Debin/Credito', 'Debin\\Credito.json', [
