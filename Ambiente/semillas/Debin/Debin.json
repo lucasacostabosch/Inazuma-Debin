@@ -7,7 +7,7 @@
       "sucursal": "0000",
       "terminal": "2",
       "recurrencia": false,
-      "prestacion":"PrestacionMica"
+      "prestacion":""
     },
     "comprador": {
       "cuit": "20201003009",
@@ -24,7 +24,7 @@
       "importe": 10,
       "devolucion": true,
       "tiempoExpiracion": 360,
-      "descripción": "COMO",
+      "descripción": "Dedin Aut",
       "mismoTitular": 0
     },
     "datosGenerador": {

@@ -11,41 +11,18 @@ if (Body.objeto != null) {
 	if (debin_trx != null) {
 		Body.objeto.ori_trx_id = debin_trx
 	} else if (ori_trx_id != null) {
-		def credito = Body.credito
+		String tipo = ""
 
-		def cbanco = credito.banco
-		
-		String dac_credito = 'DAC_CREDITO_CBU'
-		
-		if(cbanco == '000'){
-			dac_credito = 'DAC_CREDITO_CVU'
-		}
-
-		def credito_cuenta = credito.cuenta
-
-		def credito_cbu = credito_cuenta.cbu
-
-		def debito = Body.debito
-
-		def debito_cuenta = debito.cuenta
-
-		def dbanco = debito.banco
-		
-		String dac_debito = 'DAC_DEBITO_CBU'
-		
-		if(dbanco == '000'){
-			dac_debito = 'DAC_DEBITO_CVU'
-		}
-
-		def debito_cbu = debito_cuenta.cbu
+		if(Body.objeto?.tipo != "") tipo = Body.objeto.tipo
+		if(Body.operacion_original?.tipo != "") tipo = Body.operacion_original.tipo
 		
 		ori_trx_id = WebUI.callTestCase(findTestCase('3.- Puntos de Control/2.- Data Base/1.- Trx ID'),
-			[	('SELECT') : 'TOP 1 DAC_ORI_TRX_ID',
-				('WHERE') : 'dac_tipo = \''+Body.objeto.tipo.toUpperCase()+'\'',
-				('ORDER_BY') : 'DAC_ORI_TRX_ID DESC',
-				('SQL_var_name') : 'DAC_ORI_TRX_ID'],
-			FailureHandling.STOP_ON_FAILURE)
-
+		[ ('SELECT') : 'TOP 1 DAC_ORI_TRX_ID',
+		('WHERE') : 'dac_tipo = \''+tipo.toUpperCase()+'\'',
+		('ORDER_BY') : 'DAC_ORI_TRX_ID DESC',
+		('SQL_var_name') : 'DAC_ORI_TRX_ID'],
+		FailureHandling.STOP_ON_FAILURE)
+		
 		Body.objeto.ori_trx_id = ori_trx_id
 	}
 	

@@ -1,0 +1,31 @@
+{
+    "operacion_original": {
+        "id": "PD4RO172V1XJGQD9KJ3QE6",
+        "tipo": "DEVOLUCION",
+        "detalle": {
+            "moneda": "032",
+            "importe": 500,
+            "motivo": "m"
+        },
+        "comprador": {
+            "cuit": "",
+            "cuenta": {
+                "cbu": ""
+            }
+        },
+        "comprador_virtual": {
+            "cuit": "20000000222",
+            "cvu": "0000207500000000000055"
+        },
+        "vendedor": {
+            "cuit": "",
+            "cuenta": {
+                "cbu": ""
+            }
+        },
+        "vendedor_virtual": {
+            "cuit": "20000000222",
+            "cvu": "0000004800000000014546"
+        }
+    }
+}

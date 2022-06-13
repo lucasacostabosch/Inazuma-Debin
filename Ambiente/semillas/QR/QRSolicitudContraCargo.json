@@ -1,15 +1,18 @@
 {
-    "operacion_original": {
-        "detalle": {
-            "moneda": "032",
-            "importe": "10",
-            "motivo": "Pruebas Mica"
-        },
-        "vendedor": {
-            "cuit": "20333048494",
-            "cbu": "0000001700000000008455"
-        },
-        "tipo": "contracargo",
-        "qr_id_trx": "00000307"
-    }
+  "operacion_original": {
+    "detalle": {
+      "moneda": "032",
+      "importe": 500,
+      "motivo": "string"
+    },
+    "vendedor": {
+      "cuit": "20956746117",
+      "cbu": "0000213699900070000000"
+    },
+    "tipo": "contracargo",
+    "qr_id_trx": "000006091426287"
+  },
+  "objeto": {
+    "ori_trx_id": "00000310"
+  }
 }
