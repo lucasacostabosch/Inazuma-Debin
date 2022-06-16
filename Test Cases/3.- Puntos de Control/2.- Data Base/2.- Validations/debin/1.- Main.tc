@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>1.- Main</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>314462ba-8dff-4efa-86db-76f42113c242</testCaseGuid>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>b4c5bb3b-d56a-4206-af07-787bbbe02ebe</variableId>
+   </variableLinks>
+   <variable>
+      <defaultValue>''</defaultValue>
+      <description></description>
+      <id>b4c5bb3b-d56a-4206-af07-787bbbe02ebe</id>
+      <masked>false</masked>
+      <name>response</name>
+   </variable>
+</TestCaseEntity>

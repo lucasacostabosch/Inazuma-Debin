@@ -25,6 +25,7 @@
          </iterationEntity>
          <testDataId>Data Files/ISO Credito</testDataId>
       </testDataLink>
+      <usingDataBindingAtTestSuiteLevel>true</usingDataBindingAtTestSuiteLevel>
       <variableLink>
          <testDataLinkId>0ba84989-509d-4b13-aa8d-4f91e48c63f5</testDataLinkId>
          <type>DATA_COLUMN</type>

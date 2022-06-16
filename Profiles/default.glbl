@@ -19,4 +19,14 @@
       <initValue>[:]</initValue>
       <name>Azure</name>
    </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>[:]</initValue>
+      <name>Body</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>''</initValue>
+      <name>Accion</name>
+   </GlobalVariableEntity>
 </GlobalVariableEntities>
