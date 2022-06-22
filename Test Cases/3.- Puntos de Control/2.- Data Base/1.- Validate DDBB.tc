@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>1.- Validate DDBB</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>2f351f03-5636-460d-bd29-e64fbceefb80</testCaseGuid>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>7cd5a1e5-be80-45dc-a151-15be7749faba</variableId>
+   </variableLinks>
+   <variable>
+      <defaultValue>''</defaultValue>
+      <description></description>
+      <id>7cd5a1e5-be80-45dc-a151-15be7749faba</id>
+      <masked>false</masked>
+      <name>response</name>
+   </variable>
+</TestCaseEntity>

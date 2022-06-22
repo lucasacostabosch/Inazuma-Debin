@@ -21,7 +21,11 @@
          <id>fefa74bc-c998-49c9-80e4-a3acb3630a0c</id>
          <iterationEntity>
             <iterationType>SPECIFIC</iterationType>
+<<<<<<< HEAD
             <value>42</value>
+=======
+            <value>1</value>
+>>>>>>> branch 'main' of https://matencio.externo@dev.azure.com/coelsa/Automatizaci%C3%B3n%20Framework/_git/Inazuma%203%20-%20Debin
          </iterationEntity>
          <testDataId>Data Files/Debin</testDataId>
       </testDataLink>

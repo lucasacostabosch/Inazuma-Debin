@@ -1,6 +1,7 @@
-
+import internal.GlobalVariable as GlobalVariable
 
 Map Configuracion = [:]
+GlobalVariable.Accion = Accion
 
 'Debin'
 switch (Accion) {

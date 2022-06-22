@@ -25,6 +25,7 @@
          </iterationEntity>
          <testDataId>Data Files/ISO Reversa</testDataId>
       </testDataLink>
+      <usingDataBindingAtTestSuiteLevel>true</usingDataBindingAtTestSuiteLevel>
       <variableLink>
          <testDataLinkId>1c335fab-e458-4984-8d36-d4b037bcf665</testDataLinkId>
          <type>DATA_COLUMN</type>

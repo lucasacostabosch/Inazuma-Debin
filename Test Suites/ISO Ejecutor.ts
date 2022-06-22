@@ -25,6 +25,7 @@
          </iterationEntity>
          <testDataId>Data Files/ISO Sanidad</testDataId>
       </testDataLink>
+      <usingDataBindingAtTestSuiteLevel>true</usingDataBindingAtTestSuiteLevel>
       <variableLink>
          <testDataLinkId>1103d712-25b2-4dda-82f4-edd933270954</testDataLinkId>
          <type>DATA_COLUMN</type>
