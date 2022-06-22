@@ -20,8 +20,8 @@
          <combinationType>ONE</combinationType>
          <id>ecbe1dcf-8387-4b68-b7ef-4cda582680e3</id>
          <iterationEntity>
-            <iterationType>SPECIFIC</iterationType>
-            <value>15</value>
+            <iterationType>RANGE</iterationType>
+            <value>15-28</value>
          </iterationEntity>
          <testDataId>Data Files/Garantia</testDataId>
       </testDataLink>
