@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>1.- Main</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>c7be309f-6fe1-4cc9-8d11-f857f79b838f</testCaseGuid>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>941ba260-b879-447d-9675-169dd4fd47cc</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>8718138f-4043-4130-8e58-fb2f6ecebdb2</variableId>
+   </variableLinks>
+   <variable>
+      <defaultValue>''</defaultValue>
+      <description></description>
+      <id>941ba260-b879-447d-9675-169dd4fd47cc</id>
+      <masked>false</masked>
+      <name>response</name>
+   </variable>
+   <variable>
+      <defaultValue>GlobalVariable.Data</defaultValue>
+      <description></description>
+      <id>8718138f-4043-4130-8e58-fb2f6ecebdb2</id>
+      <masked>false</masked>
+      <name>data</name>
+   </variable>
+</TestCaseEntity>

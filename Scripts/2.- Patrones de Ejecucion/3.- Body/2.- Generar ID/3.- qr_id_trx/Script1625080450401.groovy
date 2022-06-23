@@ -5,7 +5,10 @@ import internal.GlobalVariable as GlobalVariable
 
 String id_completo = 'Test Auto '
 
-if (Body.operacion?.detalle?.debin_qr_trx != null) {
+if (Body.operacion != null) {
+	
+	if (Body.operacion.detalle != null) {
+		if(Body.operacion.detalle.qr_id_trx != null) {
 	def debin_qr_trx = GlobalVariable.Debin.debin_qr_trx
 
 	def nxt = GlobalVariable.Debin.nxt_debin_qr_trx
@@ -39,7 +42,7 @@ if (Body.operacion?.detalle?.debin_qr_trx != null) {
 	}
 	
 	Body.operacion.detalle.qr_id_trx = id_completo
-}
+}}}
 
 
 operacion_original = Body.operacion_original
