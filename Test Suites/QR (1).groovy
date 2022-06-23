@@ -31,18 +31,19 @@ import com.kms.katalon.core.annotation.TearDownTestCase
 /**
  * Setup test suite environment.
  */
-@SetUp(skipped = false) // Please change skipped to be false to activate this method.
+@SetUp(skipped = true) // Please change skipped to be false to activate this method.
 def setUp() {
-	setup.Configuracion.start('Qr')
+	// Put your code here.
 }
 
 /**
  * Clean test suites environment.
  */
-@TearDown(skipped = false) // Please change skipped to be false to activate this method.
+@TearDown(skipped = true) // Please change skipped to be false to activate this method.
 def tearDown() {
-	azure.Service.runTests(GlobalVariable.Project + '\\Ambiente', GlobalVariable.ejecucion.log)
+	// Put your code here.
 }
+
 /**
  * Run before each test case starts.
  */
