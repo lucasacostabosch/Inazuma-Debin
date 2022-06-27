@@ -29,7 +29,7 @@ if (Body.operacion != null) {
 		String Where = 'dac_credito_bancocod = \'' + GlobalVariable.ejecucion.Bank + '\''
 			Where 	+= ' and DAC_QR_ID_TRX like \'Test Auto%\' and dac_tipo = \'DEBINQR\' and '
 			Where	+= 'dac_debito_bancocod = \''  + GlobalVariable.ejecucion.Bank + '\''
-		qr_id_trx = WebUI.callTestCase(findTestCase('3.- Puntos de Control/2.- Data Base/1.- Trx ID'),
+		qr_id_trx = WebUI.callTestCase(findTestCase('3.- Puntos de Control/3.- Funciones/1.- Trx ID'),
 			[	('SELECT') : 'TOP 1 DAC_ID',
 				('WHERE') :  '',
 				('ORDER_BY') : 'DAC_ID DESC',

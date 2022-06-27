@@ -18,7 +18,7 @@
          "concepto":"CCT",
          "id_usuario":44444444,
          "id_comprobante":56456456,
-         "moneda":"032",
+         "moneda":"string",
          "importe":10,
          "tiempo_expiracion":10,
          "descripcion":"string",
