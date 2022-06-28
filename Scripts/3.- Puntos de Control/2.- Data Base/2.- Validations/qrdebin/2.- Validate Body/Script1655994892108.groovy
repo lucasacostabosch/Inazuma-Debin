@@ -81,12 +81,19 @@ if (response != null) {
 			]
 		
 		def tiempoExpiracion = select.get('TIEMPOEXPIRACION')
+		def moneda 
+		
+		if(select.get('DAC_CREDITO_TIPO_MONEDA') == "str") {
+			moneda = "string"
+		}else {
+			moneda = select.get('DAC_CREDITO_TIPO_MONEDA')
+		}
 
 		Map detalle = [
 			('concepto'):			select.get('DAC_CONCEPTO'),
 			('id_usuario'):			select.get('DAC_USUARIO'),
 			('id_comprobante'):		select.get('DAC_COMPROBANTE'),
-			('moneda'):				select.get('DAC_CREDITO_TIPO_MONEDA'),
+			('moneda'):				moneda,
 			('importe'):			select.get('DAC_IMPORTE'),
 			//('devolucion'):			select.get('??'),
 			('tiempo_expiracion'):	tiempoExpiracion,
@@ -133,7 +140,7 @@ if (response != null) {
 		Body.operacion.vendedor.remove('sucursal')
 		
 		Body.operacion.detalle.remove('descripcion')
-							
+		
 		errores = coelsa.Util.validar(debin, Body)
 		
 		respuesta = [

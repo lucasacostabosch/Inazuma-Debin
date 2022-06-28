@@ -16,7 +16,7 @@ if (Body.objeto?.ori_trx_id != null) {
 		if(Body.objeto?.tipo != null) tipo = Body.objeto.tipo
 		if(Body.operacion_original?.tipo != null) tipo = Body.operacion_original.tipo
 		
-		ori_trx_id = WebUI.callTestCase(findTestCase('3.- Puntos de Control/2.- Data Base/1.- Trx ID'),
+		ori_trx_id = WebUI.callTestCase(findTestCase('3.- Puntos de Control/3.- Funciones/1.- Trx ID'),
 		[ ('SELECT') : 'TOP 1 DAC_ORI_TRX_ID',
 		('WHERE') : 'dac_tipo = \''+tipo.toUpperCase()+'\'',
 		('ORDER_BY') : 'DAC_ORI_TRX_ID DESC',

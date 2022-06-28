@@ -1,20 +1,20 @@
-{ 
-    "operacion":{ 
-        "vendedor":{ 
+{
+    "operacion":{
+        "vendedor":{
              "cuit":"20333048494",
              "cbu":"0000004800000000008622",
              "banco":"000",
              "sucursal":"0000",
              "terminal":12345678
         },
-        "comprador":{ 
-            "cuenta":{ 
+        "comprador":{
+            "cuenta":{
                 "cbu":"0000001700000000008455",
                 "alias":""
             },
             "cuit":"20333048494"
         },
-        "detalle":{ 
+        "detalle":{
              "concepto":"CCT",
              "id_usuario":0,
              "id_comprobante":0,
@@ -27,8 +27,8 @@
              "qr_id_trx":"00006091426212386",
              "id_billetera":1000
        },
-       "datos_generador":{ 
-            "ubicacion":{ 
+       "datos_generador":{
+            "ubicacion":{
                 "lat":0,
                 "lng":0,
                 "precision":0
@@ -37,7 +37,7 @@
             "tipo_dispositivo":"",
             "plataforma":"",
             "imsi":"",
-            "imei":""  
-        }   
+            "imei":""
+        }  
     }
 }
