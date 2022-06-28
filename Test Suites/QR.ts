@@ -22,6 +22,8 @@
          <iterationEntity>
             <iterationType>RANGE</iterationType>
             <value>1-43</value>
+            <iterationType>ALL</iterationType>
+            <value>2</value>
          </iterationEntity>
          <testDataId>Data Files/QR</testDataId>
       </testDataLink>
