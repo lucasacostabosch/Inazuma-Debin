@@ -7,7 +7,7 @@ String  Accion = GlobalVariable.Accion
 String TestCase = "3.- Puntos de Control/2.- Data Base/2.- Validations/$Accion/1.- Main"
 
 def dato = [('db'): [:], ('errores'): []]
-
+/*
 try {
 	dato = WebUI.callTestCase(findTestCase(TestCase),
 		[('response') : response], FailureHandling.STOP_ON_FAILURE)
@@ -23,5 +23,5 @@ catch (Exception e) {
 		throw e
 	}
 }
-
+*/
 return dato

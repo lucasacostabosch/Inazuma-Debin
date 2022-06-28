@@ -9,10 +9,10 @@
         },
         "comprador":{ 
             "cuenta":{ 
-                "cbu":"",
-                "alias":"CambioTESTCOELSA0094"
+                "cbu":"0000001700000000008455",
+                "alias":""
             },
-            "cuit":"20000000656"
+            "cuit":"20333048494"
         },
         "detalle":{ 
              "concepto":"CCT",
