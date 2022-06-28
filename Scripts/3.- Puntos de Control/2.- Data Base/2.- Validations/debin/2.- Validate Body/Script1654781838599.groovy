@@ -23,38 +23,38 @@ if (response != null) {
 			('ori_trx_id'):			select.get('DAC_ORI_TRX_ID'),
 			]
 			
-			String cbvu, cuit, banco, terminal
-			if(Body.operacion.vendedor.banco == "000") {
-				cuit = "DAC_CREDITO_CVU_CUIT"
-				cbvu = "DAC_CREDITO_CVU"
-				banco = "000"
-			}else {
-				cuit = "DAC_CREDITO_CUIT"
-				cbvu = "DAC_CREDITO_CBU"
-				banco = select.get('DAC_CREDITO_BANCOCOD')
-			}
-			
-			terminal = select.get('DAC_CREDITO_TERMINAL').toString()
-			
-			Map vendedor = [
-				('cuit'):				select.get(cuit),
-				('cbu'):				select.get(cbvu),
-				('banco'):				banco,
-				('sucursal'):			select.get('DAC_CREDITO_BANCOSUC'),
-				('terminal'):			terminal
-//			('prestacion'):			select.get('??')
-			]
-			
-		if(Body.operacion.comprador.cuenta.cbu.substring(0, 3) == "000") {
-			cuit = "DAC_DEBITO_CVU_CUIT"
-			cbvu = "DAC_DEBITO_CVU"
+		String cbvu, cuit, banco, terminal
+		if(Body.operacion.vendedor.banco == "000") {
+			cuit = "DAC_CREDITO_CVU_CUIT"
+			cbvu = "DAC_CREDITO_CVU"
+			banco = "000"
 		}else {
-			cuit = "DAC_DEBITO_CUIT"
-			cbvu = "DAC_DEBITO_CBU"
+			cuit = "DAC_CREDITO_CUIT"
+			cbvu = "DAC_CREDITO_CBU"
+			banco = select.get('DAC_CREDITO_BANCOCOD')
+		}
+		
+		terminal = select.get('DAC_CREDITO_TERMINAL').toString()
+			
+		Map vendedor = [
+			('cuit'):				cuit,
+			('cbu'):				cbvu,
+			('banco'):				banco,
+			('sucursal'):			select.get('DAC_CREDITO_BANCOSUC'),
+			('terminal'):			terminal
+			//('prestacion'):			select.get('??')
+		]
+		
+		String cuitcomprador, cbvucomprador
+		if(Body.operacion.comprador.cuenta.cbu.substring(0, 3) == "000") {
+			cuitcomprador = "DAC_DEBITO_CVU_CUIT"
+			cbvucomprador = "DAC_DEBITO_CVU"
+		}else {
+			cuitcomprador = "DAC_DEBITO_CUIT"
+			cuitcomprador = "DAC_DEBITO_CBU"
 		}
 		
 		//Lógica para comparar alias o cbu, según sea el caso.
-		
 		def cbuBody 	= Body.operacion.comprador.cuenta.cbu
 		def aliasBody	= Body.operacion.comprador.cuenta.alias
 		
@@ -62,12 +62,12 @@ if (response != null) {
 				
 		if(cbuBody != "" && aliasBody != "") {
 			datos_cuentas = [
-				('cbu'):			select.get(cbvu),
-				('alias'):			select.get('DAC_DEBITO_ALIAS')
+				('cbu'):		cbvucomprador,
+				('alias'):		select.get('DAC_DEBITO_ALIAS')
 				]
 		}else if(cbuBody != "" && aliasBody == ""){
 			datos_cuentas = [
-				('cbu'):		select.get(cbvu),
+				('cbu'):		cbvucomprador,
 				('alias'):		""
 			]
 		}else if(cbuBody == "" && aliasBody != "") {
@@ -78,11 +78,18 @@ if (response != null) {
 		}
 			
 		Map comprador = [
-			('cuit'):				select.get(cuit),
+			('cuit'):				cuitcomprador,
 			('cuenta'): 			datos_cuentas
 			]
 		
 		def tiempoExpiracion = select.get('TIEMPOEXPIRACION')
+		def moneda
+		
+		if(select.get('DAC_CREDITO_TIPO_MONEDA') == "str") {
+			moneda = "string"
+		}else {
+			moneda = select.get('DAC_CREDITO_TIPO_MONEDA')
+		}
 
 		Map detalle = [
 			('concepto'):			select.get('DAC_CONCEPTO'),

@@ -20,7 +20,7 @@
          <combinationType>ONE</combinationType>
          <id>0ad17699-ac49-45c9-890c-1b820170aca6</id>
          <iterationEntity>
-            <iterationType>SPECIFIC</iterationType>
+            <iterationType>ALL</iterationType>
             <value>2</value>
          </iterationEntity>
          <testDataId>Data Files/QR</testDataId>
