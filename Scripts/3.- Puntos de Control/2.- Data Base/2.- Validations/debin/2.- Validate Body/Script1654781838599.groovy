@@ -41,8 +41,8 @@ if (response != null) {
 			('cbu'):				cbvu,
 			('banco'):				banco,
 			('sucursal'):			select.get('DAC_CREDITO_BANCOSUC'),
-			('terminal'):			terminal
-			//('recurrencia'):   		select.get('???')
+			('terminal'):			terminal,
+			('recurrencia'):   		select.get('DAC_RECURRENTE')
 			//('prestacion'):			select.get('??')
 		]
 		
@@ -136,7 +136,7 @@ if (response != null) {
 		
 		//TODO
 		// Campos que faltan definir
-		Body.operacion.vendedor.remove('recurrencia')
+		//Body.operacion.vendedor.remove('recurrencia')
 		Body.operacion.vendedor.remove('prestacion')
 		Body.operacion.detalle.remove('moneda')
 		Body.operacion.detalle.remove('descripción')
