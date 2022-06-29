@@ -26,14 +26,27 @@ if (response != null) {
 		
 		def fecha2bd = select.get('DAC_FECHA_EXPIRACION').toString()
 		def dac_fecha_expiracion = fecha2bd.replaceAll(' -', '-')
+		
+		String dac_scoring1, dac_reglas
+		if(select.get('DAC_SCORING1') == null) {
+			dac_scoring1 = 0
+		}else {
+			dac_scoring1 = select.get('DAC_SCORING1')
+		}
+		
+		if(select.get('DAC_REGLAS') == null) {
+			dac_reglas = ""
+		}else {
+			dac_reglas = select.get('DAC_REGLAS')
+		}
 				
 		Map dato_db = [:]
 		
 		dato_db = [
 					('addDt'):dac_add_dt,
 					('fechaExpiracion'):dac_fecha_expiracion,
-					('puntaje'):select.get('DAC_SCORING1'),
-					('reglas'):select.get('DAC_REGLAS')
+					('puntaje'):dac_scoring1,
+					('reglas'):dac_reglas
 				]
 				
 		def fecha1response = response.debin.addDt.toString()

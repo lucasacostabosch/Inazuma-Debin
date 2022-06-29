@@ -31,9 +31,9 @@ if (response != null) {
 		
 		String dac_scoring1, dac_reglas 
 		if(select.get('DAC_SCORING1') == null) {
-			dac_scoring = 0
+			dac_scoring1 = 0
 		}else {
-			dac_scoring = select.get('DAC_SCORING1')
+			dac_scoring1 = select.get('DAC_SCORING1')
 		}
 		
 		if(select.get('DAC_REGLAS') == null) {
@@ -47,7 +47,7 @@ if (response != null) {
 		dato_db = [
 					('addDt'):dac_add_dt,
 					('fechaExpiracion'):dac_fecha_expiracion,
-					('puntaje'):dac_scoring,
+					('puntaje'):dac_scoring1,
 					('reglas'):dac_reglas
 				]
 				
