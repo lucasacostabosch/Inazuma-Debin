@@ -22,7 +22,7 @@ if (response != null) {
 		Map objeto = [
 			('ori_trx_id'):			select.get('DAC_ORI_TRX_ID'),
 			]
-			
+					
 		String cbvu, cuit, banco, terminal
 		if(Body.operacion.vendedor.banco == "000") {
 			cuit = select.get('DAC_CREDITO_CVU_CUIT')
@@ -33,7 +33,7 @@ if (response != null) {
 			cbvu = select.get('DAC_CREDITO_CBU')
 			banco = select.get('DAC_CREDITO_BANCOCOD')
 		}
-		
+				
 		terminal = select.get('DAC_CREDITO_TERMINAL').toString()
 			
 		Map vendedor = [
@@ -42,6 +42,7 @@ if (response != null) {
 			('banco'):				banco,
 			('sucursal'):			select.get('DAC_CREDITO_BANCOSUC'),
 			('terminal'):			terminal
+			//('recurrencia'):   		select.get('???')
 			//('prestacion'):			select.get('??')
 		]
 		
@@ -51,7 +52,7 @@ if (response != null) {
 			cbvucomprador = select.get('DAC_DEBITO_CVU')
 		}else {
 			cuitcomprador = select.get('DAC_DEBITO_CUIT')
-			cuitcomprador = select.get('DAC_DEBITO_CBU')
+			cbvucomprador = select.get('DAC_DEBITO_CBU')
 		}
 		
 		//Lógica para comparar alias o cbu, según sea el caso.
@@ -135,6 +136,7 @@ if (response != null) {
 		
 		//TODO
 		// Campos que faltan definir
+		Body.operacion.vendedor.remove('recurrencia')
 		Body.operacion.vendedor.remove('prestacion')
 		Body.operacion.detalle.remove('moneda')
 		Body.operacion.detalle.remove('descripción')
