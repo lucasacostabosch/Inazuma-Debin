@@ -52,6 +52,15 @@ if (response != null) {
 			cuit = "DAC_DEBITO_CUIT"
 		}
 		
+		String cuitcomprador, cbvucomprador
+		if(Body.operacion.comprador.cuenta.cbu.substring(0, 3) == "000") {
+			cuitcomprador = select.get('DAC_DEBITO_CVU_CUIT')
+			cbvucomprador = select.get('DAC_DEBITO_CVU')
+		}else {
+			cuitcomprador = select.get('DAC_DEBITO_CUIT')
+			cbvucomprador = select.get('DAC_DEBITO_CBU')
+		}
+		
 		//Lógica para comparar alias o cbu, según sea el caso.
 		def cbuBody 	= Body.operacion.comprador.cuenta.cbu
 		def aliasBody	= Body.operacion.comprador.cuenta.alias
@@ -60,12 +69,12 @@ if (response != null) {
 				
 		if(cbuBody != "" && aliasBody != "") {
 			datos_cuentas = [
-				('cbu'):			select.get(cbvu),
+				('cbu'):			cbvucomprador,
 				('alias'):			select.get('DAC_DEBITO_ALIAS')
 				]
 		}else if(cbuBody != "" && aliasBody == ""){
 			datos_cuentas = [
-				('cbu'):		select.get(cbvu),
+				('cbu'):		cbvucomprador,
 				('alias'):		""
 			]
 		}else if(cbuBody == "" && aliasBody != "") {
@@ -77,7 +86,7 @@ if (response != null) {
 			
 		Map comprador = [
 			('cuenta'): 			datos_cuentas,
-			('cuit'):				select.get(cuit),
+			('cuit'):				cuitcomprador,
 			]
 		
 		def tiempoExpiracion = select.get('TIEMPOEXPIRACION')
