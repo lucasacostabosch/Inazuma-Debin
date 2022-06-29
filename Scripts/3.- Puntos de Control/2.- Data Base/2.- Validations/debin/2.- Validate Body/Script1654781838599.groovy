@@ -25,12 +25,12 @@ if (response != null) {
 			
 		String cbvu, cuit, banco, terminal
 		if(Body.operacion.vendedor.banco == "000") {
-			cuit = "DAC_CREDITO_CVU_CUIT"
-			cbvu = "DAC_CREDITO_CVU"
+			cuit = select.get('DAC_CREDITO_CVU_CUIT')
+			cbvu = select.get('DAC_CREDITO_CVU')
 			banco = "000"
 		}else {
-			cuit = "DAC_CREDITO_CUIT"
-			cbvu = "DAC_CREDITO_CBU"
+			cuit = select.get('DAC_CREDITO_CUIT')
+			cbvu = select.get('DAC_CREDITO_CBU')
 			banco = select.get('DAC_CREDITO_BANCOCOD')
 		}
 		
@@ -47,11 +47,11 @@ if (response != null) {
 		
 		String cuitcomprador, cbvucomprador
 		if(Body.operacion.comprador.cuenta.cbu.substring(0, 3) == "000") {
-			cuitcomprador = "DAC_DEBITO_CVU_CUIT"
-			cbvucomprador = "DAC_DEBITO_CVU"
+			cuitcomprador = select.get('DAC_DEBITO_CVU_CUIT')
+			cbvucomprador = select.get('DAC_DEBITO_CVU')
 		}else {
-			cuitcomprador = "DAC_DEBITO_CUIT"
-			cuitcomprador = "DAC_DEBITO_CBU"
+			cuitcomprador = select.get('DAC_DEBITO_CUIT')
+			cuitcomprador = select.get('DAC_DEBITO_CBU')
 		}
 		
 		//Lógica para comparar alias o cbu, según sea el caso.
