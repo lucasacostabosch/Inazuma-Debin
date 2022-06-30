@@ -1,48 +1,48 @@
 {
-  "objeto": {
-    "tipo": "transferencia",
-    "ori_trx_id":6745255559
-  },
-  "debito": {
-    "cuit": "20333048494",
-    "banco": "000",
-    "sucursal": "0001",
-    "cuenta": {
-      "cbu": "0000001700000000008455"
-    },
-    "titular": "Prueba Automatizacion 1"
-  },
-  "credito": {
-    "cuit": "20000000222",
-    "banco": "000",
-    "sucursal": "0207",
-    "cuenta": {
-      "cbu": "0000207500000000000055" 
-    },
-    "titular": "Prueba Automatizacion 2"
-  },
-  "concepto": "ALQ",
-  "idUsuario": 11231,
-  "idComprobante": 9228098,
-  "importe": {
-    "moneda": "032",
-    "importe": 100
-  },
-  "mismoTitular": 0,
-  "ori_trx": "",
-  "ori_terminal": "",
-  "ori_adicional": "",
-  "datosGenerador": {
-    "ipCliente": "",
-    "tipoDispositivo": "",
-    "plataforma": "",
-    "imsi": "",
-    "imei": "",
-    "ubicacion": {
-      "lat": 0,
-      "lng": 0,
-      "precision": 0
-    }
-  },
-  "descripcion": "Descripcion"
+ 	"objeto": {
+    	"tipo": "transferencia",
+    	"ori_trx_id":6745255559
+  	},
+  	"debito": {
+    	"cuit": "20333048494",
+    	"banco": "000",
+    	"sucursal": "0001",
+    	"cuenta": {
+      		"cbu": "0000001700000000008455"
+    	},
+    	"titular": "Prueba Automatizacion 1"
+  	},
+  	"credito": {
+    	"cuit": "20000000222",
+    	"banco": "000",
+    	"sucursal": "0207",
+    	"cuenta": {
+      		"cbu": "0000207500000000000055" 
+    	},
+    	"titular": "Prueba Automatizacion 2"
+  	},
+  	"concepto": "ALQ",
+  	"idUsuario": 11231,
+  	"idComprobante": 9228098,
+  	"importe": {
+    	"moneda": "032",
+    	"importe": 100
+  	},
+  	"mismoTitular": 0,
+  	"ori_trx": "",
+  	"ori_terminal": "",
+  	"ori_adicional": "",
+  	"datosGenerador": {
+    	"ipCliente": "",
+    	"tipoDispositivo": "",
+    	"plataforma": "",
+    	"imsi": "",
+    	"imei": "",
+    	"ubicacion": {
+      		"lat": 0,
+      		"lng": 0,
+      		"precision": 0
+    	}
+  	},
+  	"descripcion": "Descripcion"
 }

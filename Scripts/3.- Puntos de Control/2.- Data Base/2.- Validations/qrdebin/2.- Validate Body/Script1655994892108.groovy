@@ -104,7 +104,7 @@ if (response != null) {
 			('id_comprobante'):		select.get('DAC_COMPROBANTE'),
 			('moneda'):				moneda,
 			('importe'):			select.get('DAC_IMPORTE'),
-			//('devolucion'):			select.get('??'),
+			//('devolucion'):		select.get('??'),
 			('tiempo_expiracion'):	tiempoExpiracion,
 			//('descripcion'):		select.get(''),
 			('qr'):					select.get('DAC_QR'),
