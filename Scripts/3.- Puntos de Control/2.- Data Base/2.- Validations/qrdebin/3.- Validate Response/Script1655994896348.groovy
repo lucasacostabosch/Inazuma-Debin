@@ -27,20 +27,23 @@ if (response != null) {
 		def fecha2bd = select.get('DAC_FECHA_EXPIRACION').toString()
 		def dac_fecha_expiracion = fecha2bd.replaceAll(' -', '-')
 		
-		String dac_scoring1, dac_reglas
-		if(select.get('DAC_SCORING1') == null) {
+		String dac_scoring1, dac_reglas 
+		if(select.get('DAC_SCORING1') == null || select.get('DAC_SCORING1') == 0) {
 			dac_scoring1 = 0
 		}else {
-			dac_scoring1 = select.get('DAC_SCORING1')
+			dac_scoring1 = select.get('DAC_SCORING1').toString()
 		}
 		
-		if(select.get('DAC_REGLAS') == null) {
+		if(select.get('DAC_REGLAS') == null || select.get('DAC_REGLAS') == "") {
 			dac_reglas = ""
 		}else {
-			dac_reglas = select.get('DAC_REGLAS')
+			dac_reglas = select.get('DAC_REGLAS').toString()
 		}
 				
 		Map dato_db = [:]
+		
+		println dac_scoring1
+		println dac_reglas
 		
 		dato_db = [
 					('addDt'):dac_add_dt,
@@ -71,6 +74,7 @@ if (response != null) {
 		reglas = response.evaluacion.reglas
 =======
 		String puntaje, reglas 
+<<<<<<< HEAD
 		if(response.evaluacion.puntaje == 0 && response.evaluacion.reglas == "") {
 			puntaje = null
 			reglas = null
@@ -79,6 +83,11 @@ if (response != null) {
 			reglas = response.evaluacion.reglas.toString()
 		}
 >>>>>>> 4d0d5f5528a361f854eab89f0f9d24168331d3a6
+=======
+
+		puntaje = response.evaluacion.puntaje.toString()
+		reglas = response.evaluacion.reglas.toString()
+>>>>>>> 937461e54dd78cb0a913b3e43c90a130a3c021c9
 		
 		Map response1 = [:]
 		
