@@ -27,20 +27,23 @@ if (response != null) {
 		def fecha2bd = select.get('DAC_FECHA_EXPIRACION').toString()
 		def dac_fecha_expiracion = fecha2bd.replaceAll(' -', '-')
 		
-		String dac_scoring1, dac_reglas
-		if(select.get('DAC_SCORING1') == null) {
+		String dac_scoring1, dac_reglas 
+		if(select.get('DAC_SCORING1') == null || select.get('DAC_SCORING1') == 0) {
 			dac_scoring1 = 0
 		}else {
-			dac_scoring1 = select.get('DAC_SCORING1')
+			dac_scoring1 = select.get('DAC_SCORING1').toString()
 		}
 		
-		if(select.get('DAC_REGLAS') == null) {
+		if(select.get('DAC_REGLAS') == null || select.get('DAC_REGLAS') == "") {
 			dac_reglas = ""
 		}else {
-			dac_reglas = select.get('DAC_REGLAS')
+			dac_reglas = select.get('DAC_REGLAS').toString()
 		}
 				
 		Map dato_db = [:]
+		
+		println dac_scoring1
+		println dac_reglas
 		
 		dato_db = [
 					('addDt'):dac_add_dt,
@@ -56,13 +59,9 @@ if (response != null) {
 		def fechaExpiracionB = fecha2response.replaceAll('T', ' ')
 		
 		String puntaje, reglas 
-		if(response.evaluacion.puntaje == 0 && response.evaluacion.reglas == "") {
-			puntaje = null
-			reglas = null
-		}else {
-			puntaje = response.evaluacion.puntaje.toString()
-			reglas = response.evaluacion.reglas.toString()
-		}
+
+		puntaje = response.evaluacion.puntaje.toString()
+		reglas = response.evaluacion.reglas.toString()
 		
 		Map response1 = [:]
 		

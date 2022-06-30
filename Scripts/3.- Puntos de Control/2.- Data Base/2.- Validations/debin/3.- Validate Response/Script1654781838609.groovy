@@ -30,14 +30,14 @@ if (response != null) {
 		def dac_fecha_expiracion = fecha2bd.replaceAll(' -', '-')
 		
 		String dac_scoring1, dac_reglas 
-		if(select.get('DAC_SCORING1') == null) {
-			dac_scoring1 = null
+		if(select.get('DAC_SCORING1') == null || select.get('DAC_SCORING1') == 0) {
+			dac_scoring1 = 0
 		}else {
 			dac_scoring1 = select.get('DAC_SCORING1').toString()
 		}
 		
-		if(select.get('DAC_REGLAS') == null) {
-			dac_reglas = null
+		if(select.get('DAC_REGLAS') == null || select.get('DAC_REGLAS') == "") {
+			dac_reglas = ""
 		}else {
 			dac_reglas = select.get('DAC_REGLAS').toString()
 		}
@@ -58,13 +58,9 @@ if (response != null) {
 		def fechaExpiracionB = fecha2response.replaceAll('T', ' ')
 		
 		String puntaje, reglas 
-		if(response.evaluacion.puntaje == 0 && response.evaluacion.reglas == "") {
-			puntaje = null
-			reglas = null
-		}else {
-			puntaje = response.evaluacion.puntaje.toString()
-			reglas = response.evaluacion.reglas.toString()
-		}
+		
+		puntaje = response.evaluacion.puntaje.toString()
+		reglas = response.evaluacion.reglas.toString()
 		
 		Map response1 = [:]
 		
