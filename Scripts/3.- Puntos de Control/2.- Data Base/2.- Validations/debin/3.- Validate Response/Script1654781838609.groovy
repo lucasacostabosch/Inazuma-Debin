@@ -32,16 +32,14 @@ if (response != null) {
 		String dac_scoring1, dac_reglas 
 		if(select.get('DAC_SCORING1') == null) {
 			dac_scoring1 = null
-			println dac_scoring1
 		}else {
-			dac_scoring1 = select.get('DAC_SCORING1')
+			dac_scoring1 = select.get('DAC_SCORING1').toString()
 		}
 		
 		if(select.get('DAC_REGLAS') == null) {
 			dac_reglas = null
-			println dac_reglas
 		}else {
-			dac_reglas = select.get('DAC_REGLAS')
+			dac_reglas = select.get('DAC_REGLAS').toString()
 		}
 		
 		Map dato_db = [:]
