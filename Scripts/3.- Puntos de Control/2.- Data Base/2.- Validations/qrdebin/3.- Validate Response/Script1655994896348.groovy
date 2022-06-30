@@ -55,6 +55,7 @@ if (response != null) {
 		def fecha2response = response.debin.fechaExpiracion.toString()
 		def fechaExpiracionB = fecha2response.replaceAll('T', ' ')
 		
+<<<<<<< HEAD
 		def puntaje
 		def reglas
 		
@@ -68,6 +69,16 @@ if (response != null) {
 		
 		puntaje = response.evaluacion.puntaje
 		reglas = response.evaluacion.reglas
+=======
+		String puntaje, reglas 
+		if(response.evaluacion.puntaje == 0 && response.evaluacion.reglas == "") {
+			puntaje = null
+			reglas = null
+		}else {
+			puntaje = response.evaluacion.puntaje.toString()
+			reglas = response.evaluacion.reglas.toString()
+		}
+>>>>>>> 4d0d5f5528a361f854eab89f0f9d24168331d3a6
 		
 		Map response1 = [:]
 		

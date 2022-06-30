@@ -20,7 +20,7 @@
          <combinationType>ONE</combinationType>
          <id>fefa74bc-c998-49c9-80e4-a3acb3630a0c</id>
          <iterationEntity>
-            <iterationType>RANGE</iterationType>
+            <iterationType>ALL</iterationType>
             <value>1-41</value>
          </iterationEntity>
          <testDataId>Data Files/Debin</testDataId>

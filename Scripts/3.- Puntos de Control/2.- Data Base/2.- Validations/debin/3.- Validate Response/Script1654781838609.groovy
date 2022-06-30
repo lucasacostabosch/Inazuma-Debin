@@ -57,13 +57,22 @@ if (response != null) {
 		def fecha2response = response.debin.fechaExpiracion.toString()
 		def fechaExpiracionB = fecha2response.replaceAll('T', ' ')
 		
+		String puntaje, reglas 
+		if(response.evaluacion.puntaje == 0 && response.evaluacion.reglas == "") {
+			puntaje = null
+			reglas = null
+		}else {
+			puntaje = response.evaluacion.puntaje.toString()
+			reglas = response.evaluacion.reglas.toString()
+		}
+		
 		Map response1 = [:]
 		
 		response1 = [
 						('addDt'):addDTB,
 						('fechaExpiracion'):fechaExpiracionB,
-						('puntaje'):response.evaluacion.puntaje,
-						('reglas'):response.evaluacion.reglas
+						('puntaje'):puntaje,
+						('reglas'):reglas
 					]
 						
 		errores = coelsa.Util.validar(response1, dato_db)
