@@ -21,7 +21,7 @@ select = CustomKeywords.'sql.DML.select'('DEBIN', SELECT, 'DEBIN_ACTIVAS', WHERE
 println SELECT
 switch (SQL_var_name) {
     case 'DAC_ORI_TRX_ID':
-        if (select == null) {
+        if (select == null || select.get(SQL_var_name) == null) {
             id = 0
         } else {
             id = select.get(SQL_var_name)
