@@ -136,7 +136,7 @@ if (response != null) {
 		
 		//TODO
 		// Campos que faltan definir
-		//Body.operacion.vendedor.remove('recurrencia')
+		Body.operacion.vendedor.remove('recurrencia')
 		Body.operacion.vendedor.remove('prestacion')
 		Body.operacion.detalle.remove('moneda')
 		Body.operacion.detalle.remove('descripción')
