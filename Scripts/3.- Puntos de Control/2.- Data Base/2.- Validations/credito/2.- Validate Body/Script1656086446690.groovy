@@ -15,7 +15,9 @@ Map respuesta
 
 if (response != null) {
 	
-	Map select = CustomKeywords.'sql.DML.select'('DEBIN', '*, DATEDIFF (Minute, DAC_ADD_DT, DAC_FECHA_EXPIRACION) as TIEMPOEXPIRACION', 'DEBIN_ACTIVAS', 'DAC_ID_HASH =\''+response.debin.id+'\'', '')[0]
+	//println response.objeto.id
+	
+	Map select = CustomKeywords.'sql.DML.select'('DEBIN', '*, DATEDIFF (Minute, DAC_ADD_DT, DAC_FECHA_EXPIRACION) as TIEMPOEXPIRACION', 'DEBIN_ACTIVAS', 'DAC_ID_HASH =\''+response.objeto.id+'\'', '')[0]
 			
 	if(select != null) {
 		
@@ -25,7 +27,7 @@ if (response != null) {
 			]
 		
 		String cbvu, cuit, banco, terminal
-		if(Body.operacion.vendedor.banco == "000") {
+		if(Body.credito.banco == "000") {
 			cuit = 	select.get('DAC_CREDITO_CVU_CUIT')
 			cbvu = 	select.get('DAC_CREDITO_CVU')
 			banco = "000"
@@ -46,7 +48,7 @@ if (response != null) {
 			]
 		
 		String cuitdebito, cbvudebito
-		if(Body.operacion.comprador.cuenta.cbu.substring(0, 3) == "000") {
+		if(Body.debito.cuenta.cbu.substring(0, 3) == "000") {
 			cuitdebito = select.get('DAC_DEBITO_CVU_CUIT')
 			cbvudebito = select.get('DAC_DEBITO_CVU')
 		}else {
@@ -74,7 +76,6 @@ if (response != null) {
 		ori_terminal = 		select.get('DAC_ORI_TERMINAL')
 		ori_adicional = 	select.get('DAC_ORI_ADICIONAL')
 		//descripcion =		select.get('???')	
-		//(''):		
 		
 		Map importe = [
 			//('moneda'):				select.get('DAC_CREDITO_TIPO_MONEDA'),
@@ -89,7 +90,7 @@ if (response != null) {
 			
 		Map datosGenerador = [
 			('ipCliente'):			select.get('DAC_IP'),
-			('tipoDispositivo'):	select.get('DAC_DISPOSITIVO?'),
+			('tipoDispositivo'):	select.get('DAC_DISPOSITIVO'),
 			('plataforma'):			select.get('DAC_PLATAFORMA'),
 			('imsi'):				select.get('DAC_IMSI'),
 			('imei'):				select.get('DAC_IMEI'),
@@ -133,8 +134,8 @@ if (response != null) {
 		
 		//TODO
 		// Campos que faltan definir
-		Body.operacion.detalle.remove('moneda')
-		Body.operacion.detalle.remove('descripción')
+		Body.importe.remove('moneda')
+		Body.remove('descripción')
 
 		println credin
 		
@@ -142,11 +143,12 @@ if (response != null) {
 		
 		respuesta = [
 				db: [
-					querybody:	"SELECT * FROM DEBIN_ACTIVAS WHERE DAC_ID_HASH =\'$response.debin.id\'",
+					querybody:	"SELECT * FROM DEBIN_ACTIVAS WHERE DAC_ID_HASH =\'$response.objeto.id\'",
 					selectbody:	select
 					],
 				errores:	errores
 			]
+
 	}
 		
 }
