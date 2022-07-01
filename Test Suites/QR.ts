@@ -20,15 +20,8 @@
          <combinationType>ONE</combinationType>
          <id>fefa74bc-c998-49c9-80e4-a3acb3630a0c</id>
          <iterationEntity>
-<<<<<<< HEAD
             <iterationType>RANGE</iterationType>
-            <value>1-43</value>
-            <iterationType>ALL</iterationType>
-            <value>2</value>
-=======
-            <iterationType>SPECIFIC</iterationType>
-            <value>1</value>
->>>>>>> 937461e54dd78cb0a913b3e43c90a130a3c021c9
+            <value>1-3</value>
          </iterationEntity>
          <testDataId>Data Files/QR</testDataId>
       </testDataLink>
