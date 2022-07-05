@@ -134,8 +134,8 @@ if (response != null) {
 	}
 
 }else {
-	errores = ''
-	db = 'No hubo respuesta'
+	errores = 'No hubo respuesta'
+	db = ''
 	respuesta = [
 					db:db,
 					errores: errores

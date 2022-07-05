@@ -164,8 +164,8 @@ if (response != null) {
 	}
 		
 }else {
-	errores = ''
-	db = 'Respuesta vacia'
+	errores = 'Respuesta vacia'
+	db = ''
 	respuesta = [
 					db:db,
 					errores: errores
