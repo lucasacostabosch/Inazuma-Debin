@@ -123,7 +123,7 @@ if (response != null) {
 	
 	}else {
 		
-		errores = ''
+		errores = 'Response: Consulta sin resultados'
 		respuesta = [
 						db: [
 							querybody:	"SELECT * FROM DEBIN_ACTIVAS WHERE DAC_ID_HASH =\'$response.debin.id\'",

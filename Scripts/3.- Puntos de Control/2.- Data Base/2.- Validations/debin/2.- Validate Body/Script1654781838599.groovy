@@ -20,19 +20,19 @@ if (response != null) {
 	if(select != null) {
 		
 		Map objeto = [
-			('ori_trx_id'):			select.get('DAC_ORI_TRX_ID'),
+			('ori_trx_id'):			select.get('DAC_ORI_TRX_ID').toString(),
 			]
 					
 		String cbvu, cuit, banco, terminal
 		
 		if(Body.operacion.vendedor.cbu.substring(0, 3) == "000") {
-			cuit = 	select.get('DAC_CREDITO_CVU_CUIT')
-			cbvu = 	select.get('DAC_CREDITO_CVU')
+			cuit = 	select.get('DAC_CREDITO_CVU_CUIT').toString()
+			cbvu = 	select.get('DAC_CREDITO_CVU').toString()
 			banco = "000"
 		}else {
-			cuit = 	select.get('DAC_CREDITO_CUIT')
-			cbvu = 	select.get('DAC_CREDITO_CBU')
-			banco = select.get('DAC_CREDITO_BANCOCOD')
+			cuit = 	select.get('DAC_CREDITO_CUIT').toString()
+			cbvu = 	select.get('DAC_CREDITO_CBU').toString()
+			banco = select.get('DAC_CREDITO_BANCOCOD').toString()
 		 }
 				
 		terminal = select.get('DAC_CREDITO_TERMINAL').toString()
@@ -41,19 +41,19 @@ if (response != null) {
 			('cuit'):				cuit,
 			('cbu'):				cbvu,
 			('banco'):				banco,
-			('sucursal'):			select.get('DAC_CREDITO_BANCOSUC'),
+			('sucursal'):			select.get('DAC_CREDITO_BANCOSUC').toString(),
 			('terminal'):			terminal,
-			('recurrencia'):   		select.get('DAC_RECURRENTE')
+			('recurrencia'):   		select.get('DAC_RECURRENTE').toString()
 			//('prestacion'):			select.get('??')
 		]
 		
 		String cuitcomprador, cbvucomprador
 		if(Body.operacion.comprador.cuenta.cbu.substring(0, 3) == "000") {
-			cuitcomprador = select.get('DAC_DEBITO_CVU_CUIT')
-			cbvucomprador = select.get('DAC_DEBITO_CVU')
+			cuitcomprador = select.get('DAC_DEBITO_CVU_CUIT').toString()
+			cbvucomprador = select.get('DAC_DEBITO_CVU').toString()
 		}else {
-			cuitcomprador = select.get('DAC_DEBITO_CUIT')
-			cbvucomprador = select.get('DAC_DEBITO_CBU')
+			cuitcomprador = select.get('DAC_DEBITO_CUIT').toString()
+			cbvucomprador = select.get('DAC_DEBITO_CBU').toString()
 		}
 		
 		//Lógica para comparar alias o cbu, según sea el caso.
@@ -65,7 +65,7 @@ if (response != null) {
 		if(cbuBody != "" && aliasBody != "") {
 			datos_cuentas = [
 				('cbu'):		cbvucomprador,
-				('alias'):		select.get('DAC_DEBITO_ALIAS')
+				('alias'):		select.get('DAC_DEBITO_ALIAS').toString()
 				]
 		}else if(cbuBody != "" && aliasBody == ""){
 			datos_cuentas = [
@@ -75,7 +75,7 @@ if (response != null) {
 		}else if(cbuBody == "" && aliasBody != "") {
 			datos_cuentas = [
 				('cbu'):		"",
-				('alias'):		select.get('DAC_DEBITO_ALIAS')
+				('alias'):		select.get('DAC_DEBITO_ALIAS').toString()
 			]
 		}
 			
@@ -84,38 +84,38 @@ if (response != null) {
 			('cuenta'): 			datos_cuentas
 			]
 		
-		def tiempoExpiracion = select.get('TIEMPOEXPIRACION')
+		def tiempoExpiracion = select.get('TIEMPOEXPIRACION').toString()
 		def moneda
 		
 		if(select.get('DAC_CREDITO_TIPO_MONEDA') == "str") {
 			moneda = "string"
 		}else {
-			moneda = select.get('DAC_CREDITO_TIPO_MONEDA')
+			moneda = select.get('DAC_CREDITO_TIPO_MONEDA').toString()
 		}
 
 		Map detalle = [
-			('concepto'):			select.get('DAC_CONCEPTO'),
-			('idUsuario'):			select.get('DAC_USUARIO'),
-			('idComprobante'):		select.get('DAC_COMPROBANTE'),
+			('concepto'):			select.get('DAC_CONCEPTO').toString(),
+			('idUsuario'):			select.get('DAC_USUARIO').toString(),
+			('idComprobante'):		select.get('DAC_COMPROBANTE').toString(),
 //			('moneda'):				select.get('??'),
-			('importe'):			select.get('DAC_IMPORTE'),
+			('importe'):			select.get('DAC_IMPORTE').toString(),
 //			('devolucion'):			select.get('DAC_DEVOLUCION'),
 			('tiempoExpiracion'):	tiempoExpiracion,
 //			('descripción'):		"",
-			('mismoTitular'):		select.get('DAC_MISMO_TITULAR'),
-			('idLote'):				select.get('DAC_LOTE_ID')
+			('mismoTitular'):		select.get('DAC_MISMO_TITULAR').toString(),
+			('idLote'):				select.get('DAC_LOTE_ID').toString()
 			]
 		
 		Map datosGenerador = [
-			('ipCliente'):			select.get('DAC_IP'),
-			('tipoDispositivo'):	select.get('DAC_DISPOSITIVO'),
-			('plataforma'):			select.get('DAC_PLATAFORMA'),
-			('imsi'):				select.get('DAC_IMSI'),
-			('imei'):				select.get('DAC_IMEI'),
+			('ipCliente'):			select.get('DAC_IP').toString(),
+			('tipoDispositivo'):	select.get('DAC_DISPOSITIVO').toString(),
+			('plataforma'):			select.get('DAC_PLATAFORMA').toString(),
+			('imsi'):				select.get('DAC_IMSI').toString(),
+			('imei'):				select.get('DAC_IMEI').toString(),
 			('ubicacion'): [
-					"lat":			select.get('DAC_LATITUD'),
-					"lng":			select.get('DAC_LONGITUD'),
-					"precision":	select.get('DAC_PRECISION')
+					"lat":			select.get('DAC_LATITUD').toString(),
+					"lng":			select.get('DAC_LONGITUD').toString(),
+					"precision":	select.get('DAC_PRECISION').toString()
 				]
 			]
 			
@@ -153,7 +153,7 @@ if (response != null) {
 				errores:	errores
 			]
 	}else {
-		errores = 'Consulta sin resultados'
+		errores = 'Request: Consulta sin resultados '
 		respuesta = [
 						db: [
 							querybody:	"SELECT * FROM DEBIN_ACTIVAS WHERE DAC_ID_HASH =\'$response.debin.id\'",
