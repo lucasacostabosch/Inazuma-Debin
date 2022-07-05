@@ -24,7 +24,8 @@ if (response != null) {
 			]
 					
 		String cbvu, cuit, banco, terminal
-		if(Body.operacion.vendedor.banco == "000") {
+		
+		if(Body.operacion.vendedor.cbu.substring(0, 3) == "000") {
 			cuit = 	select.get('DAC_CREDITO_CVU_CUIT')
 			cbvu = 	select.get('DAC_CREDITO_CVU')
 			banco = "000"
@@ -32,7 +33,7 @@ if (response != null) {
 			cuit = 	select.get('DAC_CREDITO_CUIT')
 			cbvu = 	select.get('DAC_CREDITO_CBU')
 			banco = select.get('DAC_CREDITO_BANCOCOD')
-		}
+		 }
 				
 		terminal = select.get('DAC_CREDITO_TERMINAL').toString()
 			

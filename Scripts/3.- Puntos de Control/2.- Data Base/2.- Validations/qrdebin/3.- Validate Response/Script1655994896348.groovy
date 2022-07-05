@@ -41,10 +41,7 @@ if (response != null) {
 		}
 				
 		Map dato_db = [:]
-		
-		println dac_scoring1
-		println dac_reglas
-		
+
 		dato_db = [
 					('addDt'):dac_add_dt,
 					('fechaExpiracion'):dac_fecha_expiracion,
@@ -53,46 +50,18 @@ if (response != null) {
 				]
 				
 		def fecha1response = response.debin.addDt.toString()
-		def addDTB = fecha1response.replaceAll('T', ' ')
+		def addDtB = fecha1response.replaceAll('T', ' ')
 		
 		def fecha2response = response.debin.fechaExpiracion.toString()
 		def fechaExpiracionB = fecha2response.replaceAll('T', ' ')
 		
-<<<<<<< HEAD
-		def puntaje
-		def reglas
-		
-		/*if(response.evaluacion.puntaje == 0 && response.evaluacion.reglas == "") {
-			puntaje = null
-			reglas = null
-		}else {
-			puntaje = response.evaluacion.puntaje
-			reglas = response.evaluacion.reglas
-		}*/
-		
-		puntaje = response.evaluacion.puntaje
-		reglas = response.evaluacion.reglas
-=======
-		String puntaje, reglas 
-<<<<<<< HEAD
-		if(response.evaluacion.puntaje == 0 && response.evaluacion.reglas == "") {
-			puntaje = null
-			reglas = null
-		}else {
-			puntaje = response.evaluacion.puntaje.toString()
-			reglas = response.evaluacion.reglas.toString()
-		}
->>>>>>> 4d0d5f5528a361f854eab89f0f9d24168331d3a6
-=======
-
-		puntaje = response.evaluacion.puntaje.toString()
-		reglas = response.evaluacion.reglas.toString()
->>>>>>> 937461e54dd78cb0a913b3e43c90a130a3c021c9
+		def puntaje = response.evaluacion.puntaje.toString()
+		def reglas = response.evaluacion.reglas.toString()
 		
 		Map response1 = [:]
 		
 		response1 = [
-						('addDt'):addDTB,
+						('addDt'):addDtB,
 						('fechaExpiracion'):fechaExpiracionB,
 						('puntaje'):puntaje,
 						('reglas'):reglas

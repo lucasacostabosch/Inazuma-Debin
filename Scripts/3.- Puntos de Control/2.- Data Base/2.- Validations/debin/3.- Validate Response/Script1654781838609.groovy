@@ -52,20 +52,18 @@ if (response != null) {
 				]
 				
 		def fecha1response = response.debin.addDt.toString()
-		def addDTB = fecha1response.replaceAll('T', ' ')
+		def addDtB = fecha1response.replaceAll('T', ' ')
 		
 		def fecha2response = response.debin.fechaExpiracion.toString()
 		def fechaExpiracionB = fecha2response.replaceAll('T', ' ')
 		
-		String puntaje, reglas 
-		
-		puntaje = response.evaluacion.puntaje.toString()
-		reglas = response.evaluacion.reglas.toString()
+		def puntaje = response.evaluacion.puntaje.toString()
+		def reglas = response.evaluacion.reglas.toString()
 		
 		Map response1 = [:]
 		
 		response1 = [
-						('addDt'):addDTB,
+						('addDt'):addDtB,
 						('fechaExpiracion'):fechaExpiracionB,
 						('puntaje'):puntaje,
 						('reglas'):reglas

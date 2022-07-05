@@ -20,7 +20,7 @@ if (response != null) {
 	if(select != null) {
 				
 		String cbvu, cuit, banco, terminal
-		if(Body.operacion.vendedor.banco == "000") {
+		if(Body.operacion.vendedor.cbu.substring(0, 3) == "000") {
 			cuit = "DAC_CREDITO_CVU_CUIT"
 			cbvu = "DAC_CREDITO_CVU"
 			banco = "000"
