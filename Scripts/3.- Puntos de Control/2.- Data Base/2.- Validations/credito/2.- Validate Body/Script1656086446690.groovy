@@ -14,96 +14,94 @@ Map Body = GlobalVariable.Body
 Map respuesta
 
 if (response != null) {
-	
-	//println response.objeto.id
-	
+
 	Map select = CustomKeywords.'sql.DML.select'('DEBIN', '*, DATEDIFF (Minute, DAC_ADD_DT, DAC_FECHA_EXPIRACION) as TIEMPOEXPIRACION', 'DEBIN_ACTIVAS', 'DAC_ID_HASH =\''+response.objeto.id+'\'', '')[0]
 			
 	if(select != null) {
 		
 		Map objeto = [
-			('tipo'):				select.get('DAC_TIPO'),
-			('ori_trx_id'):			select.get('DAC_ORI_TRX_ID')
+			('tipo'):				select.get('DAC_TIPO').toString(),
+			('ori_trx_id'):			select.get('DAC_ORI_TRX_ID').toString()
 			]
 		
 		String cbvu, cuit, banco, terminal
 		if(Body.credito.banco == "000") {
-			cuit = 	select.get('DAC_CREDITO_CVU_CUIT')
-			cbvu = 	select.get('DAC_CREDITO_CVU')
+			cuit = 	select.get('DAC_CREDITO_CVU_CUIT').toString()
+			cbvu = 	select.get('DAC_CREDITO_CVU').toString()
 			banco = "000"
 		}else {
-			cuit = 	select.get('DAC_CREDITO_CUIT')
-			cbvu = 	select.get('DAC_CREDITO_CBU')
-			banco = select.get('DAC_CREDITO_BANCOCOD')
+			cuit = 	select.get('DAC_CREDITO_CUIT').toString()
+			cbvu = 	select.get('DAC_CREDITO_CBU').toString()
+			banco = select.get('DAC_CREDITO_BANCOCOD').toString()
 		}
 		
 		Map credito = [
 			('cuit'):					cuit,
 			('banco'):					banco,
-			('sucursal'):				select.get('DAC_CREDITO_BANCOSUC'),
+			('sucursal'):				select.get('DAC_CREDITO_BANCOSUC').toString(),
 			('cuenta'): [
 				('cbu'):				cbvu
 				],
-			('titular'):				select.get('DAC_CREDITO_CVU_TITULAR')
+			('titular'):				select.get('DAC_CREDITO_TITULAR').toString()
 			]
 		
 		String cuitdebito, cbvudebito
 		if(Body.debito.cuenta.cbu.substring(0, 3) == "000") {
-			cuitdebito = select.get('DAC_DEBITO_CVU_CUIT')
-			cbvudebito = select.get('DAC_DEBITO_CVU')
+			cuitdebito = select.get('DAC_DEBITO_CVU_CUIT').toString()
+			cbvudebito = select.get('DAC_DEBITO_CVU').toString()
 		}else {
-			cuitdebito = select.get('DAC_DEBITO_CUIT')
-			cbvudebito = select.get('DAC_DEBITO_CBU')
+			cuitdebito = select.get('DAC_DEBITO_CUIT').toString()
+			cbvudebito = select.get('DAC_DEBITO_CBU').toString()
 		}
 			
 		Map debito = [
 			('cuit'):					cuitdebito,
-			('banco'):					select.get('DAC_DEBITO_BANCOCOD'),
-			('sucursal'):				select.get('DAC_DEBITO_BANCOSUC'),
+			('banco'):					select.get('DAC_DEBITO_BANCOCOD').toString(),
+			('sucursal'):				select.get('DAC_DEBITO_BANCOSUC').toString(),
 			('cuenta'): [
 				('cbu'):				cbvudebito
 				],
-			('titular'):				select.get('DAC_DEBITO_TITULAR')	
+			('titular'):				select.get('DAC_DEBITO_TITULAR').toString()	
 			]
 			
 		String concepto, idUsuario, idComprobante, mismoTitular, ori_trx, ori_terminal, ori_adicional
 		
-		concepto = 			select.get('DAC_CONCEPTO')
-		idUsuario = 		select.get('DAC_USUARIO')
-		idComprobante = 	select.get('DAC_COMPROBANTE')
-		mismoTitular = 		select.get('DAC_MISMO_TITULAR')
-		ori_trx = 			select.get('DAC_ORI_TRX')
-		ori_terminal = 		select.get('DAC_ORI_TERMINAL')
-		ori_adicional = 	select.get('DAC_ORI_ADICIONAL')
+		concepto = 			select.get('DAC_CONCEPTO').toString()
+		idUsuario = 		select.get('DAC_USUARIO').toString()
+		idComprobante = 	select.get('DAC_COMPROBANTE').toString()
+		mismoTitular = 		select.get('DAC_MISMO_TITULAR').toString()
+		ori_trx = 			select.get('DAC_ORI_TRX').toString()
+		ori_terminal = 		select.get('DAC_ORI_TERMINAL').toString()
+		ori_adicional = 	select.get('DAC_ORI_ADICIONAL').toString()
 		//descripcion =		select.get('???')	
 		
 		Map importe = [
-			//('moneda'):				select.get('DAC_CREDITO_TIPO_MONEDA'),
-			('importe'):			select.get('DAC_IMPORTE')
+			//('moneda'):			select.get('DAC_CREDITO_TIPO_MONEDA'),
+			('importe'):			select.get('DAC_IMPORTE').toString()
 			]
 			
 		Map ubicacion = [
-			('lat'):			select.get('DAC_LATITUD'),
-			('lng'):			select.get('DAC_LONGITUD'),
-			('precision'):		select.get('DAC_PRECISION')
+			('lat'):			select.get('DAC_LATITUD').toString(),
+			('lng'):			select.get('DAC_LONGITUD').toString(),
+			('precision'):		select.get('DAC_PRECISION').toString()
 			]
 			
 		Map datosGenerador = [
-			('ipCliente'):			select.get('DAC_IP'),
-			('tipoDispositivo'):	select.get('DAC_DISPOSITIVO'),
-			('plataforma'):			select.get('DAC_PLATAFORMA'),
-			('imsi'):				select.get('DAC_IMSI'),
-			('imei'):				select.get('DAC_IMEI'),
+			('ipCliente'):			select.get('DAC_IP').toString(),
+			('tipoDispositivo'):	select.get('DAC_DISPOSITIVO').toString(),
+			('plataforma'):			select.get('DAC_PLATAFORMA').toString(),
+			('imsi'):				select.get('DAC_IMSI').toString(),
+			('imei'):				select.get('DAC_IMEI').toString(),
 			('ubicacion'):			ubicacion
 			]
 		
-		def tiempoExpiracion = select.get('TIEMPOEXPIRACION')
+		def tiempoExpiracion = select.get('TIEMPOEXPIRACION').toString()
 		def moneda
 		
 		if(select.get('DAC_CREDITO_TIPO_MONEDA') == "str") {
 			moneda = "string"
 		}else {
-			moneda = select.get('DAC_CREDITO_TIPO_MONEDA')
+			moneda = select.get('DAC_CREDITO_TIPO_MONEDA').toString()
 		}
 		
 		// Normalizar los datos del generador
@@ -111,13 +109,7 @@ if (response != null) {
 		if(datosGenerador.plataforma		== "  ")	datosGenerador.plataforma = ""
 		if(datosGenerador.imsi == "               ")	datosGenerador.imsi = ""
 		if(datosGenerador.imei == "               ")	datosGenerador.imei = ""
-				
-		/*Map operacion = [:]
-		objeto			= objeto
-		credito			= credito
-		debito			= debito
-		detalle 			= detalle*/	
-		
+						
 		Map credin = [:]
 		credin.objeto				= objeto
 		credin.debito				= debito
@@ -136,8 +128,6 @@ if (response != null) {
 		// Campos que faltan definir
 		Body.importe.remove('moneda')
 		Body.remove('descripción')
-
-		println credin
 		
 		errores = coelsa.Util.validar(credin, Body)
 		
@@ -149,8 +139,24 @@ if (response != null) {
 				errores:	errores
 			]
 
+	}else {
+		errores = 'Consulta sin resultados'
+		respuesta = [
+						db: [
+							querybody:	"SELECT * FROM DEBIN_ACTIVAS WHERE DAC_ID_HASH =\'$response.debin.id\'",
+							selectbody:	select
+							],
+						errores: errores
+					]
 	}
 		
+}else {
+	errores = 'Respuesta vacia'
+	db = ''
+	respuesta = [
+					db:db,
+					errores: errores
+				]
 }
 
 return respuesta
