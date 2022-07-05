@@ -19,66 +19,128 @@ if (response != null) {
 	
 	def codigo = response.respuesta.codigo
 							
-	Map select = CustomKeywords.'sql.DML.select'('DEBIN', '*', 'DEBIN_ACTIVAS', 'DAC_ID_HASH =\''+response.debin.id.toUpperCase()+'\'', '')[0]
+	Map select = CustomKeywords.'sql.DML.select'('DEBIN', '*', 'DEBIN_ACTIVAS', 'DAC_ID_HASH =\''+response.objeto.id.toUpperCase()+'\'', '')[0]
 	
-	def fecha1bd = select.get('DAC_ADD_DT').toString()
-	def dac_add_dt = fecha1bd.replaceAll(' -', '-')
+	if (select != null) {
 	
-	def fecha2bd = select.get('DAC_FECHA_EXPIRACION').toString()
-	def dac_fecha_expiracion = fecha2bd.replaceAll(' -', '-')
+		String cuitDB, bancoDB, sucursalDB, cbvuDB, monedaDB, importeDB, fechaHoraEjecucionDB, fechaNegocioDB, dest_trxDB, dest_terminalDB, dest_ori_trx_idDB, tipoDB, idDB, codigoDB, descripcionDB, puntajeDB, reglasDB
+		
+		cuitDB = 					select.get('DAC_CREDITO_CUIT').toString()
+		bancoDB = 					select.get('DAC_CREDITO_BANCOCOD').toString()
+		sucursalDB = 				select.get('DAC_CREDITO_BANCOSUC').toString()
+		cbvuDB = 					select.get('DAC_CREDITO_CBU').toString()
+		monedaDB = 					select.get('DAC_CREDITO_TIPO_MONEDA').toString()
+		importeDB = 				select.get('DAC_IMPORTE').toString()
+		//fechaHoraEjecucion = 		select.get('DAC_IMPORTE')
+		fechaNegocioDB = 			select.get('DAC_FECHA_NEGOCIO').toString()
+		//dest_trx = 				select.get('DAC_IMPORTE')
+		//dest_terminal = 			select.get('DAC_IMPORTE')
+		dest_ori_trx_idDB = 		select.get('DAC_ORI_TRX').toString()
+		tipoDB = 					select.get('DAC_TIPO').toString()
+		idDB = 						select.get('DAC_ID_HASH').toString()
+		//codigo = 					select.get('DAC_IMPORTE')
+		//descripcion = 			select.get('DAC_IMPORTE')
+		
+		if(select.get('DAC_SCORING1') == null || select.get('DAC_SCORING1') == 0) {
+			puntajeDB = 0
+		}else {
+			puntajeDB = select.get('DAC_SCORING1').toString()
+		}
+		
+		if(select.get('DAC_REGLAS') == null || select.get('DAC_REGLAS') == "") {
+			reglasDB = ""
+		}else {
+			reglasDB = select.get('DAC_REGLAS').toString()
+		}
+		
+		fechaNegocioDB = fechaNegocioDB.replaceAll(' -', '-')
+		
+		Map dato_db = [:]
 	
-	String dac_scoring1, dac_reglas 
-	if(select.get('DAC_SCORING1') == null || select.get('DAC_SCORING1') == 0) {
-		dac_scoring1 = 0
-	}else {
-		dac_scoring1 = select.get('DAC_SCORING1').toString()
-	}
-	
-	if(select.get('DAC_REGLAS') == null || select.get('DAC_REGLAS') == "") {
-		dac_reglas = ""
-	}else {
-		dac_reglas = select.get('DAC_REGLAS').toString()
-	}
-			
-	Map dato_db = [:]
-
-	dato_db = [
-				('addDt'):dac_add_dt,
-				('fechaExpiracion'):dac_fecha_expiracion,
-				('puntaje'):dac_scoring1,
-				('reglas'):dac_reglas
-			]
-			
-	def fecha1response = response.debin.addDt.toString()
-	def addDtB = fecha1response.replaceAll('T', ' ')
-	
-	def fecha2response = response.debin.fechaExpiracion.toString()
-	def fechaExpiracionB = fecha2response.replaceAll('T', ' ')
-	
-	def puntaje = response.evaluacion.puntaje.toString()
-	def reglas = response.evaluacion.reglas.toString()
-	
-	Map response1 = [:]
-	
-	response1 = [
-					('addDt'):addDtB,
-					('fechaExpiracion'):fechaExpiracionB,
-					('puntaje'):puntaje,
-					('reglas'):reglas
-				]
-					
-	errores = coelsa.Util.validar(response1, dato_db)
+		dato_db = [
+					('cuit'):cuitDB,
+					('banco'):bancoDB,
+					('sucursal'):sucursalDB,
+					('cbvu'):cbvuDB,
+					('moneda'):monedaDB,
+					('importe'):importeDB,
+					('fechaNegocio'):fechaNegocioDB,
+					('dest_ori_trx_id'):dest_ori_trx_idDB,
+					('tipo'):tipoDB,
+					('id'):idDB,
+					('puntaje'):puntajeDB,
+					('reglas'):reglasDB
+				]	
 				
-	respuesta = [
-			db:[
-				querybody:	"SELECT * FROM DEBIN_ACTIVAS WHERE DAC_ID_HASH =\'$response.debin.id\'",
-				selectresponse: select
-				],
-				errores: errores
-			]
+		String cuitR, bancoR, sucursalR, cbvuR, monedaR, importeR, fechaHoraEjecucionR, fechaNegocioR, dest_trxR, dest_terminalR, dest_adicionalR, dest_ori_trx_idR, tipoR, idR, codigoR, descripcionR, puntajeR, reglasR
+							
+		cuitR = 					response.credito.cuit.toString()
+		bancoR = 					response.credito.banco.toString()
+		sucursalR = 				response.credito.sucursal.toString()
+		cbvuR = 					response.credito.cuenta.cbu.toString()
+		monedaR = 					response.importe.moneda.toString()
+		importeR = 					response.importe.importe.toString()
+		//fechaHoraEjecucionR = 	select.get('DAC_IMPORTE')
+		fechaNegocioR = 			response.fechaNegocio.toString()
+		//dest_trxR = 				select.get('DAC_IMPORTE')
+		//dest_terminalR = 			select.get('DAC_IMPORTE')
+		dest_ori_trx_idR = 			response.dest_ori_trx_id.toString()
+		tipoR = 					response.objeto.tipo.toString()
+		idR = 						response.objeto.id.toString()
+		//codigoR = 				select.get('DAC_IMPORTE')
+		//descripcionR = 			select.get('DAC_IMPORTE')
+		puntajeR = 					response.evaluacion.puntaje.toString()
+		reglasR = 					response.evaluacion.reglas.toString()
+		
+		fechaNegocioR = fechaNegocioR.replaceAll('T', ' ')
+			
+		Map response1 = [:]
+		
+		response1 = [
+						('cuit'):cuitR,
+						('banco'):bancoR,
+						('sucursal'):sucursalR,
+						('cbvu'):cbvuR,
+						('moneda'):monedaR,
+						('importe'):importeR,
+						('fechaNegocio'):fechaNegocioR,
+						('dest_ori_trx_id'):dest_ori_trx_idR,
+						('tipo'):tipoR,
+						('id'):idR,
+						('puntaje'):puntajeR,
+						('reglas'):reglasR					
+					]
+						
+		errores = coelsa.Util.validar(response1, dato_db)
+					
+		respuesta = [
+				db:[
+					querybody:	"SELECT * FROM DEBIN_ACTIVAS WHERE DAC_ID_HASH =\'$response.objeto.id\'",
+					selectresponse: select
+					],
+					errores: errores
+				]
 	
-	return respuesta
+	}else {
+		
+		errores = ''
+		respuesta = [
+						db: [
+							querybody:	"SELECT * FROM DEBIN_ACTIVAS WHERE DAC_ID_HASH =\'$response.debin.id\'",
+							selectbody:	select
+							],
+						errores: errores
+					]
+	}
 
+}else {
+	errores = ''
+	db = 'No hubo respuesta'
+	respuesta = [
+					db:db,
+					errores: errores
+				]
 }
-
+	
+return respuesta
 

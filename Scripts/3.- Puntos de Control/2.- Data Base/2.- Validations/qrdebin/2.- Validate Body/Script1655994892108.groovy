@@ -159,8 +159,24 @@ if (response != null) {
 					],
 				errores:	errores
 			]
+	}else {
+		errores = 'Consulta sin resultados'
+		respuesta = [
+						db: [
+							querybody:	"SELECT * FROM DEBIN_ACTIVAS WHERE DAC_ID_HASH =\'$response.debin.id\'",
+							selectbody:	select
+							],
+						errores: errores
+					]
 	}
 		
+}else {
+	errores = ''
+	db = 'Respuesta vacia'
+	respuesta = [
+					db:db,
+					errores: errores
+				]
 }
 
 return respuesta
