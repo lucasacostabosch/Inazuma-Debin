@@ -88,8 +88,8 @@ if (response != null) {
 			('cuenta'): 			datos_cuentas,
 			('cuit'):				cuitcomprador,
 			]
-		
-		def tiempoExpiracion = select.get('TIEMPOEXPIRACION').toString()
+					
+		def tiempoExpiracion = select.get('TIEMPOEXPIRACION')
 		def moneda 
 		
 		if(select.get('DAC_CREDITO_TIPO_MONEDA') == "str") {
@@ -97,27 +97,33 @@ if (response != null) {
 		}else {
 			moneda = select.get('DAC_CREDITO_TIPO_MONEDA').toString()
 		}
-
+		
+		String importe = select.get('DAC_IMPORTE')
+		String[] s = importe.split("\\.")
+		String d = s[1]
+		String[] decimal = d.split("0")
+		String importe = s[0]+'.'+decimal[0] 
+				
 		Map detalle = [
 			('concepto'):			select.get('DAC_CONCEPTO').toString(),
-			('id_usuario'):			select.get('DAC_USUARIO').toString(),
-			('id_comprobante'):		select.get('DAC_COMPROBANTE').toString(),
+			('id_usuario'):			select.get('DAC_USUARIO'),
+			('id_comprobante'):		select.get('DAC_COMPROBANTE'),
 			('moneda'):				moneda,
-			('importe'):			select.get('DAC_IMPORTE').toString(),
+			('importe'):			importe,
 			//('devolucion'):		select.get('??'),
 			('tiempo_expiracion'):	tiempoExpiracion,
 			//('descripcion'):		select.get(''),
 			('qr'):					select.get('DAC_QR').toString(),
 			('qr_hash'):			select.get('DAC_QR_HASH').toString(),
 			('qr_id_trx'):			select.get('DAC_QR_ID_TRX').toString(),
-			('id_billetera'):		select.get('DAC_QR_ID_BILLETERA').toString()
+			('id_billetera'):		select.get('DAC_QR_ID_BILLETERA')
 			]
 		
 		Map datos_generador = [
 			('ubicacion'): [
-				"lat":			select.get('DAC_LATITUD').toString(),
-				"lng":			select.get('DAC_LONGITUD').toString(),
-				"precision":	select.get('DAC_PRECISION').toString()
+				"lat":			select.get('DAC_LATITUD'),
+				"lng":			select.get('DAC_LONGITUD'),
+				"precision":	select.get('DAC_PRECISION')
 			],
 			('ip_cliente'):			select.get('DAC_IP').toString(),
 			('tipo_dispositivo'):	select.get('DAC_DISPOSITIVO').toString(),
@@ -146,8 +152,7 @@ if (response != null) {
 		// Se remueve hasta encontrar como normalizar body contra bd
 		Body.operacion.vendedor.remove('terminal')
 		// Se remueve debido a que posible exista un bug con relación a la columnba sucursal en la BD
-		Body.operacion.vendedor.remove('sucursal')
-		
+		Body.operacion.vendedor.remove('sucursal')	
 		Body.operacion.detalle.remove('descripcion')
 		
 		errores = coelsa.Util.validar(debin, Body)
@@ -160,7 +165,7 @@ if (response != null) {
 				errores:	errores
 			]
 	}else {
-		errores = 'Request: Consulta sin resultados '
+		errores = 'Request: Consulta sin resultados. '
 		respuesta = [
 						db: [
 							querybody:	"SELECT * FROM DEBIN_ACTIVAS WHERE DAC_ID_HASH =\'$response.debin.id\'",
@@ -171,7 +176,7 @@ if (response != null) {
 	}
 		
 }else {
-	errores = 'Respuesta vacia'
+	errores = 'Respuesta vacia. '
 	db = ''
 	respuesta = [
 					db:db,

@@ -91,19 +91,25 @@ if (response != null) {
 			moneda = "string"
 		}else {
 			moneda = select.get('DAC_CREDITO_TIPO_MONEDA').toString()
-		}
-
+		} 
+		
+		String importe = select.get('DAC_IMPORTE')
+		String[] s = importe.split("\\.")
+		String d = s[1]
+		String[] decimal = d.split("0")
+		String importe = s[0]+'.'+decimal[0]
+		
 		Map detalle = [
 			('concepto'):			select.get('DAC_CONCEPTO').toString(),
-			('idUsuario'):			select.get('DAC_USUARIO').toString(),
-			('idComprobante'):		select.get('DAC_COMPROBANTE').toString(),
+			('idUsuario'):			select.get('DAC_USUARIO'),
+			('idComprobante'):		select.get('DAC_COMPROBANTE'),
 //			('moneda'):				select.get('??'),
-			('importe'):			select.get('DAC_IMPORTE').toString(),
+			('importe'):			select.get('DAC_IMPORTE'),
 //			('devolucion'):			select.get('DAC_DEVOLUCION'),
 			('tiempoExpiracion'):	tiempoExpiracion,
 //			('descripción'):		"",
 			('mismoTitular'):		select.get('DAC_MISMO_TITULAR').toString(),
-			('idLote'):				select.get('DAC_LOTE_ID').toString()
+			('idLote'):				select.get('DAC_LOTE_ID')
 			]
 		
 		Map datosGenerador = [
@@ -113,9 +119,9 @@ if (response != null) {
 			('imsi'):				select.get('DAC_IMSI').toString(),
 			('imei'):				select.get('DAC_IMEI').toString(),
 			('ubicacion'): [
-					"lat":			select.get('DAC_LATITUD').toString(),
-					"lng":			select.get('DAC_LONGITUD').toString(),
-					"precision":	select.get('DAC_PRECISION').toString()
+					"lat":			select.get('DAC_LATITUD'),
+					"lng":			select.get('DAC_LONGITUD'),
+					"precision":	select.get('DAC_PRECISION')
 				]
 			]
 			
@@ -153,7 +159,7 @@ if (response != null) {
 				errores:	errores
 			]
 	}else {
-		errores = 'Request: Consulta sin resultados '
+		errores = 'Request: Consulta sin resultados. '
 		respuesta = [
 						db: [
 							querybody:	"SELECT * FROM DEBIN_ACTIVAS WHERE DAC_ID_HASH =\'$response.debin.id\'",
@@ -164,7 +170,7 @@ if (response != null) {
 	}
 		
 }else {
-	errores = 'Respuesta vacia'
+	errores = 'Respuesta vacia. '
 	db = ''
 	respuesta = [
 					db:db,
