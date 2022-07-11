@@ -95,8 +95,22 @@ if (response != null) {
 		
 		String importe1 = select.get('DAC_IMPORTE')
 		String[] s = importe1.split("\\.")
-		String decimal = s[1].substring(0, 2)
-		String importe = s[0]+"."+decimal
+		String[] dec = s[1]		
+		Integer i = 0
+		Integer a = s[1].length()
+		String decimal = ''
+			
+		for(i = 0; i < a; i++) {
+			if(dec[i]!=0)
+				decimal += dec[i] 
+		}
+		
+		String importe
+		if(decimal=='0000') {
+			importe = s[0]
+		}else {
+			importe = s[0]+"."+decimal
+		}
 		
 		Map detalle = [
 			('concepto'):			select.get('DAC_CONCEPTO').toString(),
@@ -147,6 +161,25 @@ if (response != null) {
 		Body.operacion.detalle.remove('moneda')
 		Body.operacion.detalle.remove('descripción')
 		Body.operacion.detalle.remove('devolucion')
+		
+		String importeBody = Body.operacion.detalle.importe
+		String importeB
+	
+		if(importeBody.contains(".")) {
+			String[] e = importeBody.split("\\.")
+			String r = e[1]
+			String t
+			if(r.length()<=2) {
+				t = r+'00'
+			}else {
+				t = r
+			}
+			importeB = e[0]+'.'+t			
+		}else {
+			importeB = importeBody
+		}
+		
+		Body.operacion.detalle.importe = importeB
 
 		errores = coelsa.Util.validar(debin, Body)
 		

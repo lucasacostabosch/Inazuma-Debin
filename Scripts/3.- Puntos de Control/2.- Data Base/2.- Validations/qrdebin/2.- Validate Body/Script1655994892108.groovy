@@ -30,13 +30,14 @@ if (response != null) {
 			banco = select.get('DAC_CREDITO_BANCOCOD').toString()
 		}
 		
-		terminal = select.get('DAC_CREDITO_TERMINAL').toString()
+		sucursal = select.get('DAC_CREDITO_BANCOSUC').toString()
+		terminal = select.get('DAC_CREDITO_TERMINAL')
 		
 		Map vendedor = [
 			('cuit'):				cuit,
 			('cbu'):				cbvu,
 			('banco'):				banco,
-			('sucursal'):			select.get('DAC_CREDITO_BANCOSUC').toString(),
+			('sucursal'):			sucursal,
 			('terminal'):			terminal
 			]
 						
@@ -52,15 +53,8 @@ if (response != null) {
 			cuit = select.get('DAC_DEBITO_CUIT').toString()
 		}
 		
-		String cuitcomprador, cbvucomprador
-		if(Body.operacion.comprador.cuenta.cbu.substring(0, 3) == "000") {
-			cuitcomprador = select.get('DAC_DEBITO_CVU_CUIT').toString()
-			cbvucomprador = select.get('DAC_DEBITO_CVU').toString()
-		}else {
-			cuitcomprador = select.get('DAC_DEBITO_CUIT').toString()
-			cbvucomprador = select.get('DAC_DEBITO_CBU').toString()
-		}
-		
+		def alias = select.get('DAC_DEBITO_ALIAS').toString()
+
 		//Lógica para comparar alias o cbu, según sea el caso.
 		def cbuBody 	= Body.operacion.comprador.cuenta.cbu
 		def aliasBody	= Body.operacion.comprador.cuenta.alias
@@ -69,24 +63,24 @@ if (response != null) {
 				
 		if(cbuBody != "" && aliasBody != "") {
 			datos_cuentas = [
-				('cbu'):			cbvucomprador,
-				('alias'):			select.get('DAC_DEBITO_ALIAS').toString()
+				('cbu'):			cbvu,
+				('alias'):			alias
 				]
 		}else if(cbuBody != "" && aliasBody == ""){
 			datos_cuentas = [
-				('cbu'):		cbvucomprador,
+				('cbu'):		cbvu,
 				('alias'):		""
 			]
 		}else if(cbuBody == "" && aliasBody != "") {
 			datos_cuentas = [
 				('cbu'):		"",
-				('alias'):		select.get('DAC_DEBITO_ALIAS').toString()
+				('alias'):		alias
 			]
 		}	
 			
 		Map comprador = [
 			('cuenta'): 			datos_cuentas,
-			('cuit'):				cuitcomprador,
+			('cuit'):				cuit,
 			]
 					
 		def tiempoExpiracion = select.get('TIEMPOEXPIRACION')
@@ -96,13 +90,27 @@ if (response != null) {
 			moneda = "string"
 		}else {
 			moneda = select.get('DAC_CREDITO_TIPO_MONEDA').toString()
-		}
-		
+		}		
+				
 		String importe1 = select.get('DAC_IMPORTE')
 		String[] s = importe1.split("\\.")
-		String decimal = s[1].substring(0, 2)
-		String importe = s[0]+"."+decimal
-				
+		String[] dec = s[1]		
+		Integer i = 0
+		Integer a = s[1].length()
+		String decimal = ''
+			
+		for(i = 0; i < a; i++) {
+			if(dec[i]!=0)
+				decimal += dec[i] 
+		}
+		
+		String importe
+		if(decimal=='0000') {
+			importe = s[0]
+		}else {
+			importe = s[0]+"."+decimal
+		}
+							
 		Map detalle = [
 			('concepto'):			select.get('DAC_CONCEPTO').toString(),
 			('id_usuario'):			select.get('DAC_USUARIO'),
@@ -153,6 +161,29 @@ if (response != null) {
 		// Se remueve debido a que posible exista un bug con relación a la columnba sucursal en la BD
 		Body.operacion.vendedor.remove('sucursal')	
 		Body.operacion.detalle.remove('descripcion')
+		//Body.operacion.detalle.remove('importe')
+		
+		String importeBody = Body.operacion.detalle.importe
+		String importeB
+	
+		if(importeBody.contains(".")) {
+			String[] e = importeBody.split("\\.")
+			String r = e[1]
+			String t
+			
+			if(r.length()<=2) {
+				t = r+'00'
+			}else {
+				t = r
+			}
+			
+			importeB = e[0]+'.'+t
+						
+		}else {
+			importeB = importeBody
+		}
+		
+		Body.operacion.detalle.importe = importeB
 		
 		errores = coelsa.Util.validar(debin, Body)
 		

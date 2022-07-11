@@ -79,17 +79,20 @@ if (response != null) {
 		ori_adicional = 	select.get('DAC_ORI_ADICIONAL').toString()
 		//descripcion =		select.get('???')	
 		
-		/*String importe1 = select.get('DAC_IMPORTE')
+		String importe1 = select.get('DAC_IMPORTE')
 		String[] s = importe1.split("\\.")
 		String decimal = s[1].substring(0, 2)
-		String importe2 = s[0]+"."+decimal*/
 		
-		// Esto es para probar
-		Integer importe2 = select.get('DAC_IMPORTE')
+		String importe
+		if(decimal=='00') {
+			importe = s[0] 
+		}else {
+			importe = s[0]+"."+decimal
+		}
 		
 		Map importe = [
 			//('moneda'):			select.get('DAC_CREDITO_TIPO_MONEDA'),
-			('importe'):			importe2
+			('importe'):			importe
 			]
 			
 		Integer lat, lng, precision  
@@ -146,6 +149,8 @@ if (response != null) {
 		// Campos que faltan definir
 		Body.importe.remove('moneda')
 		Body.remove('descripción')
+		
+		Body.operacion.detalle.importe = Body.operacion.detalle.importe.toString()
 		
 		errores = coelsa.Util.validar(credin, Body)
 		
