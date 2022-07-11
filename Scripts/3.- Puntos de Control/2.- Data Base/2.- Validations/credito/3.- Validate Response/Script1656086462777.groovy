@@ -23,19 +23,21 @@ if (response != null) {
 	
 	if (select != null) {
 	
-		String cuitDB, bancoDB, sucursalDB, cbvuDB, monedaDB, importeDB, fechaHoraEjecucionDB, fechaNegocioDB, dest_trxDB, dest_terminalDB, dest_ori_trx_idDB, tipoDB, idDB, codigoDB, descripcionDB, puntajeDB, reglasDB
+		String cuitDB, bancoDB, sucursalDB, cbvuDB, monedaDB, fechaHoraEjecucionDB, fechaNegocioDB, dest_trxDB, dest_terminalDB, dest_ori_trx_idDB, tipoDB, idDB, codigoDB, descripcionDB, puntajeDB, reglasDB
+		Integer importeDB
 		
 		cuitDB = 					select.get('DAC_CREDITO_CUIT').toString()
 		bancoDB = 					select.get('DAC_CREDITO_BANCOCOD').toString()
 		sucursalDB = 				select.get('DAC_CREDITO_BANCOSUC').toString()
 		cbvuDB = 					select.get('DAC_CREDITO_CBU').toString()
 		monedaDB = 					select.get('DAC_CREDITO_TIPO_MONEDA').toString()
-		importeDB = 				select.get('DAC_IMPORTE').toString()
+		// Esto es una prueba
+		importeDB = 				select.get('DAC_IMPORTE')
 		//fechaHoraEjecucion = 		select.get('DAC_IMPORTE')
 		fechaNegocioDB = 			select.get('DAC_FECHA_NEGOCIO').toString()
 		//dest_trx = 				select.get('DAC_IMPORTE')
 		//dest_terminal = 			select.get('DAC_IMPORTE')
-		dest_ori_trx_idDB = 		select.get('DAC_ORI_TRX').toString()
+		dest_ori_trx_idDB = 		select.get('DAC_ORI_TRX_ID').toString()
 		tipoDB = 					select.get('DAC_TIPO').toString()
 		idDB = 						select.get('DAC_ID_HASH').toString()
 		//codigo = 					select.get('DAC_IMPORTE')
@@ -72,20 +74,22 @@ if (response != null) {
 					('reglas'):reglasDB
 				]	
 				
-		String cuitR, bancoR, sucursalR, cbvuR, monedaR, importeR, fechaHoraEjecucionR, fechaNegocioR, dest_trxR, dest_terminalR, dest_adicionalR, dest_ori_trx_idR, tipoR, idR, codigoR, descripcionR, puntajeR, reglasR
-							
+		String cuitR, bancoR, sucursalR, cbvuR, monedaR, fechaHoraEjecucionR, fechaNegocioR, dest_trxR, dest_terminalR, dest_adicionalR, dest_ori_trx_idR, tipoR, idR, codigoR, descripcionR, puntajeR, reglasR
+		Integer importeR
+		def tipo = response.objeto.tipo.toString()
+									
 		cuitR = 					response.credito.cuit.toString()
 		bancoR = 					response.credito.banco.toString()
 		sucursalR = 				response.credito.sucursal.toString()
 		cbvuR = 					response.credito.cuenta.cbu.toString()
 		monedaR = 					response.importe.moneda.toString()
-		importeR = 					response.importe.importe.toString()
+		importeR = 					response.importe.importe
 		//fechaHoraEjecucionR = 	select.get('DAC_IMPORTE')
 		fechaNegocioR = 			response.fechaNegocio.toString()
 		//dest_trxR = 				select.get('DAC_IMPORTE')
 		//dest_terminalR = 			select.get('DAC_IMPORTE')
 		dest_ori_trx_idR = 			response.dest_ori_trx_id.toString()
-		tipoR = 					response.objeto.tipo.toString()
+		tipoR = 					tipo.toUpperCase()
 		idR = 						response.objeto.id.toString()
 		//codigoR = 				select.get('DAC_IMPORTE')
 		//descripcionR = 			select.get('DAC_IMPORTE')

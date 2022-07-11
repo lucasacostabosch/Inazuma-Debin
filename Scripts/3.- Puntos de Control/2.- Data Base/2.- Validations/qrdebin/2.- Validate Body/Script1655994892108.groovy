@@ -98,11 +98,10 @@ if (response != null) {
 			moneda = select.get('DAC_CREDITO_TIPO_MONEDA').toString()
 		}
 		
-		String importe = select.get('DAC_IMPORTE')
-		String[] s = importe.split("\\.")
-		String d = s[1]
-		String[] decimal = d.split("0")
-		String importe = s[0]+'.'+decimal[0] 
+		String importe1 = select.get('DAC_IMPORTE')
+		String[] s = importe1.split("\\.")
+		String decimal = s[1].substring(0, 2)
+		String importe = s[0]+"."+decimal
 				
 		Map detalle = [
 			('concepto'):			select.get('DAC_CONCEPTO').toString(),
