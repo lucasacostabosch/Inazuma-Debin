@@ -69,7 +69,6 @@ if (response != null) {
 		String concepto, ori_trx, ori_terminal, ori_adicional
 		Integer idUsuario, idComprobante, mismoTitular
 		
-		
 		concepto = 			select.get('DAC_CONCEPTO').toString()
 		idUsuario = 		select.get('DAC_USUARIO')
 		idComprobante = 	select.get('DAC_COMPROBANTE')
@@ -79,13 +78,19 @@ if (response != null) {
 		ori_adicional = 	select.get('DAC_ORI_ADICIONAL').toString()
 		//descripcion =		select.get('???')	
 		
-		String importe1 = select.get('DAC_IMPORTE')
-		String[] s = importe1.split("\\.")
-		String decimal = s[1].substring(0, 2)
+		String importe = select.get('DAC_IMPORTE')	//Importe traido desde la consulta a BD
+		String[] s = importe.split("\\.")			//Split para tomar los decimales  
+		String[] dec = s[1]							//Valores de los decimales del importe
+		Integer a = s[1].length()					//Cantidad de caracteres en los decimales
+		String decimal = ''							//Variable creada para inicializar los decimales 
+			
+		for(i = 0; i < a; i++) {					//Bucle para recorrer los decimales
+			if(dec[i]!=0)							//Validacion si el digito decimal es diferente a 0
+				decimal += dec[i] 					//Variable que concatena los digitos decamles dentro del bucle
+		}
 		
-		String importe
-		if(decimal=='00') {
-			importe = s[0] 
+		if(decimal=='0000') {
+			importe = s[0]
 		}else {
 			importe = s[0]+"."+decimal
 		}
