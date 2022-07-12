@@ -20,8 +20,8 @@
          <combinationType>ONE</combinationType>
          <id>4ec48e0a-978b-419b-a639-39f546d904f8</id>
          <iterationEntity>
-            <iterationType>SPECIFIC</iterationType>
-            <value>1</value>
+            <iterationType>RANGE</iterationType>
+            <value>1-5</value>
          </iterationEntity>
          <testDataId>Data Files/Credin</testDataId>
       </testDataLink>

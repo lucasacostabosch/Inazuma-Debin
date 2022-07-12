@@ -25,6 +25,25 @@ if (response != null) {
 			('tipo'):				tipo.toUpperCase(),
 			('ori_trx_id'):			select.get('DAC_ORI_TRX_ID')
 			]
+			
+		String cuitdebito, cbvudebito
+		if(Body.debito.cuenta.cbu.substring(0, 3) == "000") {
+			cuitdebito = select.get('DAC_DEBITO_CVU_CUIT').toString()
+			cbvudebito = select.get('DAC_DEBITO_CVU').toString()
+		}else {
+			cuitdebito = select.get('DAC_DEBITO_CUIT').toString()
+			cbvudebito = select.get('DAC_DEBITO_CBU').toString()
+		}
+			
+		Map debito = [
+			('cuit'):					cuitdebito,
+			('banco'):					select.get('DAC_DEBITO_BANCOCOD').toString(),
+			('sucursal'):				select.get('DAC_DEBITO_BANCOSUC').toString(),
+			('cuenta'): [
+				('cbu'):				cbvudebito
+				],
+			('titular'):				select.get('DAC_DEBITO_TITULAR').toString()
+			]
 		
 		String cbvu, cuit, banco, terminal
 		if(Body.credito.banco == "000") {
@@ -46,26 +65,7 @@ if (response != null) {
 				],
 			('titular'):				select.get('DAC_CREDITO_TITULAR').toString()
 			]
-		
-		String cuitdebito, cbvudebito
-		if(Body.debito.cuenta.cbu.substring(0, 3) == "000") {
-			cuitdebito = select.get('DAC_DEBITO_CVU_CUIT').toString()
-			cbvudebito = select.get('DAC_DEBITO_CVU').toString()
-		}else {
-			cuitdebito = select.get('DAC_DEBITO_CUIT').toString()
-			cbvudebito = select.get('DAC_DEBITO_CBU').toString()
-		}
-			
-		Map debito = [
-			('cuit'):					cuitdebito,
-			('banco'):					select.get('DAC_DEBITO_BANCOCOD').toString(),
-			('sucursal'):				select.get('DAC_DEBITO_BANCOSUC').toString(),
-			('cuenta'): [
-				('cbu'):				cbvudebito
-				],
-			('titular'):				select.get('DAC_DEBITO_TITULAR').toString()	
-			]
-			
+					
 		String concepto, ori_trx, ori_terminal, ori_adicional
 		Integer idUsuario, idComprobante, mismoTitular
 		
@@ -76,10 +76,10 @@ if (response != null) {
 		ori_trx = 			select.get('DAC_ORI_TRX').toString()
 		ori_terminal = 		select.get('DAC_ORI_TERMINAL').toString()
 		ori_adicional = 	select.get('DAC_ORI_ADICIONAL').toString()
-		//descripcion =		select.get('???')	
+		descripcion =		select.get('DAC_DETALLE').toString()	
 		
-		String importe = select.get('DAC_IMPORTE')	//Importe traido desde la consulta a BD
-		String[] s = importe.split("\\.")			//Split para tomar los decimales  
+		String importe1 = select.get('DAC_IMPORTE')	//Importe traido desde la consulta a BD
+		String[] s = importe1.split("\\.")			//Split para tomar los decimales  
 		String[] dec = s[1]							//Valores de los decimales del importe
 		Integer a = s[1].length()					//Cantidad de caracteres en los decimales
 		String decimal = ''							//Variable creada para inicializar los decimales 
@@ -90,14 +90,14 @@ if (response != null) {
 		}
 		
 		if(decimal=='0000') {
-			importe = s[0]
+			importe1 = s[0]
 		}else {
-			importe = s[0]+"."+decimal
+			importe1 = s[0]+"."+decimal
 		}
 		
 		Map importe = [
 			//('moneda'):			select.get('DAC_CREDITO_TIPO_MONEDA'),
-			('importe'):			importe
+			('importe'):			importe1
 			]
 			
 		Integer lat, lng, precision  
@@ -148,14 +148,16 @@ if (response != null) {
 		credin.ori_trx				= ori_trx
 		credin.ori_terminal			= ori_terminal
 		credin.ori_adicional		= ori_adicional
-		credin.datosGenerador		= datosGenerador	
+		credin.datosGenerador		= datosGenerador
+		credin.descripcion			= descripcion
+		
+		println credin							
 		
 		//TODO
 		// Campos que faltan definir
 		Body.importe.remove('moneda')
-		Body.remove('descripción')
 		
-		Body.operacion.detalle.importe = Body.operacion.detalle.importe.toString()
+		Body.importe.importe = Body.importe.importe.toString()
 		
 		errores = coelsa.Util.validar(credin, Body)
 		

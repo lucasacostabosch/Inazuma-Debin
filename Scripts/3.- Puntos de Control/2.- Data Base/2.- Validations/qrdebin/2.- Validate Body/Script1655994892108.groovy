@@ -160,7 +160,7 @@ if (response != null) {
 		Body.operacion.vendedor.remove('sucursal')	
 		Body.operacion.detalle.remove('descripcion')
 		//Body.operacion.detalle.remove('importe')
-		
+	
 		String importeBody = Body.operacion.detalle.importe		//Valor del importe enviado desde el body
 		String importeB
 	
@@ -170,12 +170,12 @@ if (response != null) {
 			String f = e[1]										//Valor de los decimales del importe
 			Integer y = e[1].length()							//Cantidad de digitos de decimales
 			Integer dif											//Variable inicializada para la diferencia de los digitos enviados contra los esperados 
-			String t = '' 										//Variable inicializada para el valor final de los decimales despues de recorrerlos
+			String t = ''										//Variable inicializada para el valor final de los decimales despues de recorrerlos
+			String z = ''										
 			
-			if(y<4) {											//Se valida si la cantidad de decimales es inferior es a 4 (la cantidad esperada)
+			if(y<4) {											//Se valida si la cantidad de decimales es inferior es a 4 (la cantidad esperada)	
 				dif = 4-y										//Resta entre los digitos esperados y los enviados desde el body. Esto servirá para determinar cuantos se necesitarán para cumplir con lo necesario
-				z = 0 											//Varibale inicalizada en 0 para cargar la concatenación de 0 según los digitos faltantes
-				for (i = y; i < dif; i++) {						//Bucle para cargar los digitos necesarios
+				for (i = dif; i < 4; i++) {					//Bucle para cargar los digitos necesarios
 					z += 0										//Se irán concatenado 0, según las veces que se pase por el bucle
 				}
 				t = f+z											//Variable donde se concatena los digitos enviados, con los 0 necesarios para completar los 4 digitos

@@ -23,30 +23,31 @@ if (response != null) {
 	
 	if (select != null) {
 	
-		String cuitDB, bancoDB, sucursalDB, cbvuDB, monedaDB, fechaHoraEjecucionDB, fechaNegocioDB, dest_trxDB, dest_terminalDB, dest_ori_trx_idDB, tipoDB, idDB, codigoDB, descripcionDB, puntajeDB, reglasDB
-		Integer importeDB
+		String cuitDB, bancoDB, sucursalDB, cbvuDB, monedaDB, fechaHoraEjecucionDB, fechaNegocioDB, dest_trxDB, dest_terminalDB, tipoDB, idDB, codigoDB, descripcionDB, reglasDB
+		Integer importeDB, dest_ori_trx_idDB, puntajeDB
 		
-		cuitDB = 					select.get('DAC_CREDITO_CUIT').toString()
-		bancoDB = 					select.get('DAC_CREDITO_BANCOCOD').toString()
-		sucursalDB = 				select.get('DAC_CREDITO_BANCOSUC').toString()
-		cbvuDB = 					select.get('DAC_CREDITO_CBU').toString()
-		monedaDB = 					select.get('DAC_CREDITO_TIPO_MONEDA').toString()
+		cuitDB = 					select.get('DAC_CREDITO_CUIT')
+		bancoDB = 					select.get('DAC_CREDITO_BANCOCOD')
+		sucursalDB = 				select.get('DAC_CREDITO_BANCOSUC')
+		cbvuDB = 					select.get('DAC_CREDITO_CBU')
+		monedaDB = 					select.get('DAC_CREDITO_TIPO_MONEDA')
 		// Esto es una prueba
 		importeDB = 				select.get('DAC_IMPORTE')
+		/////////
 		//fechaHoraEjecucion = 		select.get('DAC_IMPORTE')
-		fechaNegocioDB = 			select.get('DAC_FECHA_NEGOCIO').toString()
+		fechaNegocioDB = 			select.get('DAC_FECHA_NEGOCIO')
 		//dest_trx = 				select.get('DAC_IMPORTE')
 		//dest_terminal = 			select.get('DAC_IMPORTE')
-		dest_ori_trx_idDB = 		select.get('DAC_ORI_TRX_ID').toString()
-		tipoDB = 					select.get('DAC_TIPO').toString()
-		idDB = 						select.get('DAC_ID_HASH').toString()
+		dest_ori_trx_idDB = 		select.get('DAC_ORI_TRX_ID')
+		tipoDB = 					select.get('DAC_TIPO')
+		idDB = 						select.get('DAC_ID_HASH')
 		//codigo = 					select.get('DAC_IMPORTE')
 		//descripcion = 			select.get('DAC_IMPORTE')
-		
+				
 		if(select.get('DAC_SCORING1') == null || select.get('DAC_SCORING1') == 0) {
 			puntajeDB = 0
 		}else {
-			puntajeDB = select.get('DAC_SCORING1').toString()
+			puntajeDB = select.get('DAC_SCORING1')
 		}
 		
 		if(select.get('DAC_REGLAS') == null || select.get('DAC_REGLAS') == "") {
@@ -55,7 +56,7 @@ if (response != null) {
 			reglasDB = select.get('DAC_REGLAS').toString()
 		}
 		
-		fechaNegocioDB = fechaNegocioDB.replaceAll(' -', '-')
+		//fechaNegocioDB = fechaNegocioDB.replaceAll(' -', '-')
 		
 		Map dato_db = [:]
 	
@@ -74,30 +75,32 @@ if (response != null) {
 					('reglas'):reglasDB
 				]	
 				
-		String cuitR, bancoR, sucursalR, cbvuR, monedaR, fechaHoraEjecucionR, fechaNegocioR, dest_trxR, dest_terminalR, dest_adicionalR, dest_ori_trx_idR, tipoR, idR, codigoR, descripcionR, puntajeR, reglasR
-		Integer importeR
+		String cuitR, bancoR, sucursalR, cbvuR, monedaR, fechaHoraEjecucionR, dest_trxR, dest_terminalR, dest_adicionalR, tipoR, idR, codigoR, descripcionR, reglasR
+		Integer importeR, dest_ori_trx_idR, puntajeR 
+		
 		def tipo = response.objeto.tipo.toString()
 									
-		cuitR = 					response.credito.cuit.toString()
-		bancoR = 					response.credito.banco.toString()
-		sucursalR = 				response.credito.sucursal.toString()
-		cbvuR = 					response.credito.cuenta.cbu.toString()
-		monedaR = 					response.importe.moneda.toString()
+		cuitR = 					response.credito.cuit
+		bancoR = 					response.credito.banco
+		sucursalR = 				response.credito.sucursal
+		cbvuR = 					response.credito.cuenta.cbu
+		monedaR = 					response.importe.moneda
 		importeR = 					response.importe.importe
 		//fechaHoraEjecucionR = 	select.get('DAC_IMPORTE')
-		fechaNegocioR = 			response.fechaNegocio.toString()
+		//fechaNegocioR1 = 			response.fechaNegocio
 		//dest_trxR = 				select.get('DAC_IMPORTE')
 		//dest_terminalR = 			select.get('DAC_IMPORTE')
-		dest_ori_trx_idR = 			response.dest_ori_trx_id.toString()
+		dest_ori_trx_idR = 			response.dest_ori_trx_id
 		tipoR = 					tipo.toUpperCase()
-		idR = 						response.objeto.id.toString()
+		idR = 						response.objeto.id
 		//codigoR = 				select.get('DAC_IMPORTE')
 		//descripcionR = 			select.get('DAC_IMPORTE')
-		puntajeR = 					response.evaluacion.puntaje.toString()
-		reglasR = 					response.evaluacion.reglas.toString()
+		puntajeR = 					response.evaluacion.puntaje
+		reglasR = 					response.evaluacion.reglas
 		
-		fechaNegocioR = fechaNegocioR.replaceAll('T', ' ')
-			
+		String[] fechaNegocioR1 = response.fechaNegocio.split("T")
+		String fechaNegocioR = fechaNegocioR1[0]
+					
 		Map response1 = [:]
 		
 		response1 = [
