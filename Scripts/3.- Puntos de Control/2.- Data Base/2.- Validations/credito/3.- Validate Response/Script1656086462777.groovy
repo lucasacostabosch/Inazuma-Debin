@@ -55,9 +55,7 @@ if (response != null) {
 		}else {
 			reglasDB = select.get('DAC_REGLAS').toString()
 		}
-		
-		//fechaNegocioDB = fechaNegocioDB.replaceAll(' -', '-')
-		
+				
 		Map dato_db = [:]
 	
 		dato_db = [
@@ -98,8 +96,14 @@ if (response != null) {
 		puntajeR = 					response.evaluacion.puntaje
 		reglasR = 					response.evaluacion.reglas
 		
-		String[] fechaNegocioR1 = response.fechaNegocio.split("T")
-		String fechaNegocioR = fechaNegocioR1[0]
+		String fechaNegocioR
+		
+		if(response.fechaNegocio!='0001-01-01T00:00:00') {
+			String[] fechaNegocioR1 = response.fechaNegocio.split("T")
+			fechaNegocioR = fechaNegocioR1[0]
+		}else {
+			fechaNegocioR = null
+		}	
 					
 		Map response1 = [:]
 		
