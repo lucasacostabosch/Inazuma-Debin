@@ -21,7 +21,7 @@
          <id>fefa74bc-c998-49c9-80e4-a3acb3630a0c</id>
          <iterationEntity>
             <iterationType>ALL</iterationType>
-            <value>45</value>
+            <value>2</value>
          </iterationEntity>
          <testDataId>Data Files/Debin</testDataId>
       </testDataLink>
