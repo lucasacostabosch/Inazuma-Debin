@@ -1,0 +1,37 @@
+{
+  "authorization_code": "string",
+  "qr_id": "string",
+  "qr_raw": "string",
+  "amount": {
+    "value": 0,
+    "currency": "ARS"
+  },
+  "payer": {
+    "name": "string",
+    "identification_number": "string",
+    "document": {
+      "type": "DNI",
+      "number": "string"
+    },
+    "account": {
+      "cbu": "string",
+      "cvu": "string"
+    },
+    "wallet": {
+      "name": "string",
+      "cuit": "string",
+      "bcra_id": "string"
+    }
+  },
+  "acquirer": {
+    "reverse_domain": "string",
+    "cuit": "string"
+  },
+  "merchant": {
+    "cuit": "string",
+    "account": {
+      "cbu": "string",
+      "cvu": "string"
+    }
+  }
+}

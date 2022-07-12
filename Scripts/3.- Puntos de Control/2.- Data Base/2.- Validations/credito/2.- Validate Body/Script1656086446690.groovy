@@ -19,9 +19,11 @@ if (response != null) {
 			
 	if(select != null) {
 		
+		def tipo = select.get('DAC_TIPO').toString()
+		
 		Map objeto = [
-			('tipo'):				select.get('DAC_TIPO').toString(),
-			('ori_trx_id'):			select.get('DAC_ORI_TRX_ID').toString()
+			('tipo'):				tipo.toUpperCase(),
+			('ori_trx_id'):			select.get('DAC_ORI_TRX_ID')
 			]
 		
 		String cbvu, cuit, banco, terminal
@@ -64,26 +66,42 @@ if (response != null) {
 			('titular'):				select.get('DAC_DEBITO_TITULAR').toString()	
 			]
 			
-		String concepto, idUsuario, idComprobante, mismoTitular, ori_trx, ori_terminal, ori_adicional
+		String concepto, ori_trx, ori_terminal, ori_adicional
+		Integer idUsuario, idComprobante, mismoTitular
+		
 		
 		concepto = 			select.get('DAC_CONCEPTO').toString()
-		idUsuario = 		select.get('DAC_USUARIO').toString()
-		idComprobante = 	select.get('DAC_COMPROBANTE').toString()
-		mismoTitular = 		select.get('DAC_MISMO_TITULAR').toString()
+		idUsuario = 		select.get('DAC_USUARIO')
+		idComprobante = 	select.get('DAC_COMPROBANTE')
+		mismoTitular = 		select.get('DAC_MISMO_TITULAR')
 		ori_trx = 			select.get('DAC_ORI_TRX').toString()
 		ori_terminal = 		select.get('DAC_ORI_TERMINAL').toString()
 		ori_adicional = 	select.get('DAC_ORI_ADICIONAL').toString()
 		//descripcion =		select.get('???')	
 		
+		/*String importe1 = select.get('DAC_IMPORTE')
+		String[] s = importe1.split("\\.")
+		String decimal = s[1].substring(0, 2)
+		String importe2 = s[0]+"."+decimal*/
+		
+		// Esto es para probar
+		Integer importe2 = select.get('DAC_IMPORTE')
+		
 		Map importe = [
 			//('moneda'):			select.get('DAC_CREDITO_TIPO_MONEDA'),
-			('importe'):			select.get('DAC_IMPORTE').toString()
+			('importe'):			importe2
 			]
 			
+		Integer lat, lng, precision  
+		
+		lat = 			select.get('DAC_LATITUD')
+		lng = 			select.get('DAC_LONGITUD')	
+		precision = 	select.get('DAC_PRECISION')
+			
 		Map ubicacion = [
-			('lat'):			select.get('DAC_LATITUD').toString(),
-			('lng'):			select.get('DAC_LONGITUD').toString(),
-			('precision'):		select.get('DAC_PRECISION').toString()
+			('lat'):			lat,
+			('lng'):			lng,
+			('precision'):		precision
 			]
 			
 		Map datosGenerador = [
