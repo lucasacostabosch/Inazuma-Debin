@@ -21,6 +21,7 @@
       <name>Content-Type</name>
       <type>Main</type>
       <value>application/json</value>
+      <webElementGuid>4312e2ea-21d1-4295-8533-ab816923774e</webElementGuid>
    </httpHeaderProperties>
    <httpHeaderProperties>
       <isSelected>true</isSelected>
@@ -28,6 +29,23 @@
       <name>Authorization</name>
       <type>Main</type>
       <value>${GlobalVariable.ejecucion.token}</value>
+      <webElementGuid>8a9e2e5f-2387-47a5-81d4-37cc41566036</webElementGuid>
+   </httpHeaderProperties>
+   <httpHeaderProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>X-B3-TraceId</name>
+      <type>Main</type>
+      <value>${GlobalVariable.ejecucion.InterOperable}</value>
+      <webElementGuid>4949d128-1aa1-405d-b858-d7d023566749</webElementGuid>
+   </httpHeaderProperties>
+   <httpHeaderProperties>
+      <isSelected>true</isSelected>
+      <matchCondition>equals</matchCondition>
+      <name>X-B3-SpanId</name>
+      <type>Main</type>
+      <value>${GlobalVariable.ejecucion.InterOperable}</value>
+      <webElementGuid>e205a70d-580e-49ca-a283-af7581fdb80a</webElementGuid>
    </httpHeaderProperties>
    <katalonVersion>8.0.1</katalonVersion>
    <maxResponseSize>-1</maxResponseSize>
