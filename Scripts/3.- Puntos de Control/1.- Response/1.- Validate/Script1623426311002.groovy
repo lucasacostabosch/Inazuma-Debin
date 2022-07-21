@@ -23,7 +23,17 @@ if (Obtenido.equals('Error de firma de mensaje. "ERROR ERROR DE FIRMA: "')) {
 } else {
     Obtenido = jsonSlurper.parseText(Obtenido)
 
-    errores = coelsa.Util.validar(Obtenido, Esperado)
+	try {
+		errores = coelsa.Util.validar(Obtenido, Esperado)		
+	} catch (Exception e) {
+		String error = e.toString()
+		
+		if(e.message.equals("Cannot invoke method get() on null object")) {
+			errores += [" No se encontro lo esperado en lo recibido"] 		
+		}
+		
+		errores += [error]
+	}
 }
 
 def bd = WebUI.callTestCase(findTestCase('3.- Puntos de Control/2.- Data Base/1.- Validate DDBB'), [('response') : Obtenido],
