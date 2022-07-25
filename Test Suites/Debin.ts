@@ -20,8 +20,13 @@
          <combinationType>ONE</combinationType>
          <id>fefa74bc-c998-49c9-80e4-a3acb3630a0c</id>
          <iterationEntity>
+<<<<<<< HEAD
             <iterationType>RANGE</iterationType>
             <value>1-5</value>
+=======
+            <iterationType>SPECIFIC</iterationType>
+            <value>12</value>
+>>>>>>> 7a2b1345c59284d593cef6530e0c3ee873e6b520
          </iterationEntity>
          <testDataId>Data Files/Debin</testDataId>
       </testDataLink>
