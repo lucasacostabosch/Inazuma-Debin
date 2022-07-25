@@ -70,7 +70,7 @@ if (response != null) {
 		def codigo = '00'
 					
 		Map respuesta = [
-			('codigo'):					codigo
+			//('codigo'):					codigo
 			]
 						
 		Map datosGenerador = [
@@ -99,7 +99,7 @@ if (response != null) {
 		Map confirmadebitocvu = [:]
 		confirmadebitocvu.operacion					= operacion
 		confirmadebitocvu.id						= id
-		confirmadebitocvu.respuesta					= respuesta
+		//confirmadebitocvu.respuesta					= respuesta
 		confirmadebitocvu.datosGenerador			= datosGenerador	
 				
 		//TODO
