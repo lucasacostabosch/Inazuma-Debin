@@ -156,7 +156,6 @@ if (response != null) {
 		//TODO
 		// Campos que faltan definir
 		Body.importe.remove('moneda')
-		
 		Body.importe.importe = Body.importe.importe.toString()
 		
 		errores = coelsa.Util.validar(credin, Body)

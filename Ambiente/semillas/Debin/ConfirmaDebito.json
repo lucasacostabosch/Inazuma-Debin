@@ -1,33 +1,33 @@
 {
-  "operacion": {
-    "comprador": {
-      "cuit": "20201003009",
-      "cuenta": {
-        "cbu": "9980000400000246813578"
-      }
-    },
-    "detalle": {
-      "ori_trx": "string",
-      "ori_terminal": "string",
-      "ori_adicional": "string",
-      "moneda": "032",
-      "importe": 10
-    }
-  },
-  "id": "string",
-  "respuesta": {
-    "codigo": "00"
-  },
-  "datosGenerador": {
-    "ipCliente": "string",
-    "tipoDispositivo": "string",
-    "plataforma": "string",
-    "imsi": "string",
-    "imei": "string",
-    "ubicacion": {
-      "lat": 0,
-      "lng": 0,
-      "precision": 0
-    }
-  }
+	"operacion": {
+    	"comprador": {
+      		"cuit": "20201003009",
+      		"cuenta": {
+        		"cbu": "9980000400000246813578"
+      		}
+    	},
+    	"detalle": {
+	      	"ori_trx": "string",
+	      	"ori_terminal": "string",
+	      	"ori_adicional": "string",
+	      	"moneda": "032",
+	      	"importe": 10
+		}
+	},
+	"id": "string",
+	"respuesta": {
+		"codigo": "00"
+	},
+	"datosGenerador": {
+		"ipCliente": "string",
+		"tipoDispositivo": "string",
+		"plataforma": "string",
+		"imsi": "string",
+		"imei": "string",
+		"ubicacion": {
+			"lat": 0,
+    		"lng": 0,
+    		"precision": 0
+    	}
+  	}
 }

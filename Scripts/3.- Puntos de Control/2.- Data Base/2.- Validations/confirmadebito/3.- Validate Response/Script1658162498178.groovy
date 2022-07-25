@@ -15,7 +15,7 @@ def Body = GlobalVariable.Body
 def Accion = GlobalVariable.Accion
 Map respuesta
 
-if (response != null) {
+/*if (response != null) {
 	
 	def codigo = response.respuesta.codigo
 							
@@ -151,7 +151,14 @@ if (response != null) {
 					db:db,
 					errores: errores
 				]
-}
+}*/
+
+errores = ''
+db = ''
+respuesta = [
+				db:db,
+				errores: errores
+			]
 	
 return respuesta
 
