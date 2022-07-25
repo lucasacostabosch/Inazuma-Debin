@@ -67,7 +67,7 @@ if (response != null) {
 			]
 			
 		def id = select.get('DAC_ID_HASH').toString()
-		def codigo = '00'
+		//def codigo = '00'
 					
 		Map respuesta = [
 			//('codigo'):					codigo
