@@ -25,8 +25,8 @@ if (response != null) {
 		cuitcomprador = select.get('DAC_DEBITO_CUIT').toString()
 		cbvucomprador = select.get('DAC_DEBITO_CBU').toString()
 		
-		Map datos_cuentas	
-		datos_cuentas = [
+		//Map datos_cuentas	
+		Map datos_cuentas = [
 			('cbu'):		cbvucomprador
 			]
 			
@@ -41,15 +41,15 @@ if (response != null) {
 			moneda = select.get('DAC_CREDITO_TIPO_MONEDA').toString()
 		} 
 		
-		String importe = select.get('DAC_IMPORTE')	//Importe traido desde la consulta a BD
-		String[] s = importe.split("\\.")			//Split para tomar los decimales  
-		String[] dec = s[1]							//Valores de los decimales del importe
-		Integer a = s[1].length()					//Cantidad de caracteres en los decimales
-		String decimal = ''							//Variable creada para inicializar los decimales 
+		String importe = select.get('DAC_IMPORTE')	
+		String[] s = importe.split("\\.")			
+		String[] dec = s[1]							
+		Integer a = s[1].length()					
+		String decimal = ''							
 			
-		for(i = 0; i < a; i++) {					//Bucle para recorrer los decimales
-			if(dec[i]!=0)							//Validacion si el digito decimal es diferente a 0
-				decimal += dec[i] 					//Variable que concatena los digitos decamles dentro del bucle
+		for(i = 0; i < a; i++) {					
+			if(dec[i]!=0)							
+				decimal += dec[i] 					
 		}
 		
 		if(decimal=='0000') {
@@ -67,10 +67,10 @@ if (response != null) {
 			]
 			
 		def id = select.get('DAC_ID_HASH').toString()
-		//def codigo = '00'
+		def codigo = '00'
 					
 		Map respuesta = [
-			//('codigo'):					codigo
+			('codigo'):					codigo
 			]
 						
 		Map datosGenerador = [
@@ -106,26 +106,26 @@ if (response != null) {
 		//TODO
 		// Campos que faltan definir
 		
-		String importeBody = Body.operacion.detalle.importe		//Valor del importe enviado desde el body
+		String importeBody = Body.operacion.detalle.importe		
 		String importeB
 	
 		if(importeBody.contains(".")) {
-			String[] e = importeBody.split("\\.")				//Split para tomar el valor de los decimales del importe	
-			String[] r = e[1]									//Array de los digitos de los decimales
-			String f = e[1]										//Valor de los decimales del importe
-			Integer y = e[1].length()							//Cantidad de digitos de decimales
-			Integer dif											//Variable inicializada para la diferencia de los digitos enviados contra los esperados 
-			String t = ''										//Variable inicializada para el valor final de los decimales despues de recorrerlos
+			String[] e = importeBody.split("\\.")					
+			String[] r = e[1]									
+			String f = e[1]										
+			Integer y = e[1].length()							
+			Integer dif											 
+			String t = ''										
 			String z = ''										
 			
-			if(y<4) {											//Se valida si la cantidad de decimales es inferior es a 4 (la cantidad esperada)	
-				dif = 4-y										//Resta entre los digitos esperados y los enviados desde el body. Esto servirá para determinar cuantos se necesitarán para cumplir con lo necesario
-				for (i = dif; i < 4; i++) {					//Bucle para cargar los digitos necesarios
-					z += 0										//Se irán concatenado 0, según las veces que se pase por el bucle
+			if(y<4) {												
+				dif = 4-y	
+				for (i = dif; i < 4; i++) {					
+					z += 0										
 				}
-				t = f+z											//Variable donde se concatena los digitos enviados, con los 0 necesarios para completar los 4 digitos
-			}else {												//Si los digitos decimales enviados son los necesarios 4
-				for(i = 0; i < a; i++) {						//Bucle para cargar cada digito de los decimales					
+				t = f+z											
+			}else {												
+				for(i = 0; i < a; i++) {											
 					if(r[i]!=0)
 						t += r[i]
 				}
@@ -136,7 +136,7 @@ if (response != null) {
 		}
 		
 		Body.operacion.detalle.importe = importeB
-		Body.respuesta.remove('codigo')
+		Body.remove('respuesta')
 
 		errores = coelsa.Util.validar(confirmadebito, Body)				
 		respuesta1 = [
