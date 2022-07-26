@@ -11,10 +11,6 @@
    <isInternalPath>true</isInternalPath>
    <query></query>
    <secureUserAccount>false</secureUserAccount>
-<<<<<<< HEAD
-   <sheetName>Debin</sheetName>
-=======
    <sheetName>ConfirmaDebito</sheetName>
->>>>>>> 7a2b1345c59284d593cef6530e0c3ee873e6b520
    <usingGlobalDBSetting>false</usingGlobalDBSetting>
 </DataFileEntity>
