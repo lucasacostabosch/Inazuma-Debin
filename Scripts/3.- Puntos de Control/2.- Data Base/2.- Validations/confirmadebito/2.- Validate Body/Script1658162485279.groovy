@@ -67,10 +67,10 @@ if (response != null) {
 			]
 			
 		def id = select.get('DAC_ID_HASH').toString()
-		def codigo = '00'
+		//def codigo = '00'
 					
 		Map respuesta = [
-			('codigo'):					codigo
+			//('codigo'):					codigo
 			]
 						
 		Map datosGenerador = [
@@ -100,7 +100,7 @@ if (response != null) {
 		Map confirmadebito = [:]
 		confirmadebito.operacion				= operacion
 		confirmadebito.id						= id
-		confirmadebito.respuesta				= respuesta
+		//confirmadebito.respuesta				= respuesta
 		confirmadebito.datosGenerador			= datosGenerador	
 				
 		//TODO

@@ -121,7 +121,7 @@ if (response != null) {
 			('ubicacion'):			ubicacion
 			]
 		
-		def tiempoExpiracion = select.get('TIEMPOEXPIRACION').toString()
+		//def tiempoExpiracion = select.get('TIEMPOEXPIRACION').toString()
 		def moneda
 		
 		if(select.get('DAC_CREDITO_TIPO_MONEDA') == "str") {
