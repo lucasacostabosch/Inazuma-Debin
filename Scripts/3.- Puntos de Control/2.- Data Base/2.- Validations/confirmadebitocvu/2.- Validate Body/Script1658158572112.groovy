@@ -22,11 +22,10 @@ if (response != null) {
 										
 		String cuitcomprador, cbvucomprador, moneda
 		
-		cuitcomprador = select.get('DAC_DEBITO_CVU_CUIT').toString()
-		cbvucomprador = select.get('DAC_DEBITO_CVU').toString()
+		cuitcomprador = select.get('DAC_DEBITO_CVU_CUIT')
+		cbvucomprador = select.get('DAC_DEBITO_CVU')
 		
-		Map datos_cuentas	
-		datos_cuentas = [
+		Map datos_cuentas = [
 			('cbu'):		cbvucomprador
 			]
 			
