@@ -19,47 +19,58 @@ if (response != null) {
 	Map select = CustomKeywords.'sql.DML.select'('DEBIN', '*, DATEDIFF (Minute, DAC_ADD_DT, DAC_FECHA_EXPIRACION) as TIEMPOEXPIRACION', 'DEBIN_ACTIVAS', 'DAC_ID_HASH =\''+DebinId+'\'', '')[0]
 				
 	if(select != null) {
-										
-		String cuitcomprador, cbvucomprador, moneda
 		
-		cuitcomprador = select.get('DAC_DEBITO_CVU_CUIT').toString()
-		cbvucomprador = select.get('DAC_DEBITO_CVU').toString()
+		println response
+											
+		String cuitcomprador, cbvucomprador, moneda, ori_trx
+		if(Body.operacion.comprador.cuenta.cbu.substring(0, 3) == "000") {
+			cuitcomprador 	= 	select.get('DAC_DEBITO_CVU_CUIT')
+			cbvucomprador 	= 	select.get('DAC_DEBITO_CVU')
+		}else {
+			cuitcomprador 	= 	Body.operacion.comprador.cuit
+			cbvucomprador 	= 	Body.operacion.comprador.cuenta.cbu
+		}
 		
-		Map datos_cuentas	
-		datos_cuentas = [
+		Map datos_cuentas = [
 			('cbu'):		cbvucomprador
 			]
 			
 		Map comprador = [
-			('cuit'):				cuitcomprador,
-			('cuenta'): 			datos_cuentas
+			('cuit'):		cuitcomprador,
+			('cuenta'): 	datos_cuentas
 			]
 				
 		if(select.get('DAC_CREDITO_TIPO_MONEDA') == "str") {
-			moneda = "string"
+			moneda 			= 	"string"
 		}else {
-			moneda = select.get('DAC_CREDITO_TIPO_MONEDA').toString()
+			moneda 			= 	select.get('DAC_CREDITO_TIPO_MONEDA')
 		} 
 		
-		String importe = select.get('DAC_IMPORTE')	
-		String[] s = importe.split("\\.")			  
-		String[] dec = s[1]							
-		Integer a = s[1].length()					
-		String decimal = ''							 
+		String importe 		= 	select.get('DAC_IMPORTE')	
+		String[] s 			= 	importe.split("\\.")			  
+		String[] dec 		= 	s[1]							
+		Integer a 			= 	s[1].length()					
+		String decimal 		= 	''							 
 			
 		for(i = 0; i < a; i++) {					
 			if(dec[i]!=0)							
-				decimal += dec[i] 					
+				decimal 	+= 	dec[i] 					
 		}
 		
 		if(decimal=='0000') {
-			importe = s[0]
+			importe 		= 	s[0]
 		}else {
-			importe = s[0]+"."+decimal
+			importe 		= 	s[0]+"."+decimal
+		}
+		
+		if(response.descripcion == 'EL DEBIN SE ENCUENTRA EN UN ESTADO QUE NO SE PUEDE MODIFICAR') {
+			ori_trx = Body.operacion.detalle.ori_trx
+		}else {
+			ori_trx = select.get('DAC_ORI_TRX')
 		}
 		
 		Map detalle = [
-			('ori_trx'):			select.get('DAC_ORI_TRX').toString(),		
+			('ori_trx'):			ori_trx,		
 			('ori_terminal'):		select.get('DAC_ORI_TERMINAL').toString(),
 			('ori_adicional'):		select.get('DAC_ORI_ADICIONAL').toString(),
 			('moneda'):				moneda,
@@ -70,7 +81,7 @@ if (response != null) {
 		def codigo = '00'
 					
 		Map respuesta = [
-			('codigo'):					codigo
+			('codigo'):				codigo
 			]
 						
 		Map datosGenerador = [

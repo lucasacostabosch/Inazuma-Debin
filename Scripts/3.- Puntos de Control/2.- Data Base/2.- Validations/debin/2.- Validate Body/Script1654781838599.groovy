@@ -24,7 +24,6 @@ if (response != null) {
 			]
 					
 		String cbvu, cuit, banco, terminal
-		
 		if(Body.operacion.vendedor.cbu.substring(0, 3) == "000") {
 			cuit = 	select.get('DAC_CREDITO_CVU_CUIT').toString()
 			cbvu = 	select.get('DAC_CREDITO_CVU').toString()
@@ -93,15 +92,15 @@ if (response != null) {
 			moneda = select.get('DAC_CREDITO_TIPO_MONEDA').toString()
 		} 
 		
-		String importe = select.get('DAC_IMPORTE')	//Importe traido desde la consulta a BD
-		String[] s = importe.split("\\.")			//Split para tomar los decimales  
-		String[] dec = s[1]							//Valores de los decimales del importe
-		Integer a = s[1].length()					//Cantidad de caracteres en los decimales
-		String decimal = ''							//Variable creada para inicializar los decimales 
+		String importe = select.get('DAC_IMPORTE')	
+		String[] s = importe.split("\\.")			 
+		String[] dec = s[1]							
+		Integer a = s[1].length()					
+		String decimal = ''							
 			
-		for(i = 0; i < a; i++) {					//Bucle para recorrer los decimales
-			if(dec[i]!=0)							//Validacion si el digito decimal es diferente a 0
-				decimal += dec[i] 					//Variable que concatena los digitos decamles dentro del bucle
+		for(i = 0; i < a; i++) {					
+			if(dec[i]!=0)							
+				decimal += dec[i] 					
 		}
 		
 		if(decimal=='0000') {
