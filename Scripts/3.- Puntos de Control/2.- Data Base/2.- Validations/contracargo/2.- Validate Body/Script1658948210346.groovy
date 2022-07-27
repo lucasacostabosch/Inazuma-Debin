@@ -80,7 +80,7 @@ if (response != null) {
 			]
 		
 		String cuitvendedor, cbvucvendedor	
-		if(Body.vendedor.cbu.substring(0, 3) == "000") {
+		if(Body.vendedor.cuenta.cbu.substring(0, 3) == "000") {
 			cuitvendedor = 		select.get('DAC_CREDITO_CVU_CUIT')
 			cbvucvendedor = 	select.get('DAC_CREDITO_CVU')
 		}else {
