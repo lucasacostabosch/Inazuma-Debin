@@ -31,18 +31,11 @@ if (response != null) {
 		sucursalDB = 				select.get('DAC_CREDITO_BANCOSUC')
 		cbvuDB = 					select.get('DAC_CREDITO_CBU')
 		monedaDB = 					select.get('DAC_CREDITO_TIPO_MONEDA')
-		// Esto es una prueba
 		importeDB = 				select.get('DAC_IMPORTE')
-		/////////
-			//fechaHoraEjecucion = 		select.get('DAC_IMPORTE')
 		fechaNegocioDB = 			select.get('DAC_FECHA_NEGOCIO')
-			//dest_trx = 				select.get('DAC_IMPORTE')
-			//dest_terminal = 			select.get('DAC_IMPORTE')
 		dest_ori_trx_idDB = 		select.get('DAC_ORI_TRX_ID')
 		tipoDB = 					select.get('DAC_TIPO')
 		idDB = 						select.get('DAC_ID_HASH')
-			//codigo = 					select.get('DAC_IMPORTE')
-			//descripcion = 			select.get('DAC_IMPORTE')
 				
 		if(select.get('DAC_SCORING1') == null || select.get('DAC_SCORING1') == 0) {
 			puntajeDB = 0
@@ -84,15 +77,9 @@ if (response != null) {
 		cbvuR = 					response.credito.cuenta.cbu
 		monedaR = 					response.importe.moneda
 		importeR = 					response.importe.importe
-			//fechaHoraEjecucionR = 	response.importe.importe
-			//fechaNegocioR1 = 			response.fechaNegocio
-			//dest_trxR = 				response.importe.importe
-			//dest_terminalR = 			response.importe.importe
 		dest_ori_trx_idR = 			response.dest_ori_trx_id
 		tipoR = 					tipo.toUpperCase()
 		idR = 						response.objeto.id
-			//codigoR = 				response.importe.importe
-			//descripcionR = 			response.importe.importe
 		puntajeR = 					response.evaluacion.puntaje
 		reglasR = 					response.evaluacion.reglas
 		
