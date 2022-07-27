@@ -60,10 +60,16 @@ if (response != null) {
 				('tipo'):		tipo,
 				('detalle'):	detalle	
 			]
-			
-		cuitcomprador = select.get('DAC_DEBITO_CUIT')
-		cbvucomprador = select.get('DAC_DEBITO_CBU')
 		
+		String cuitcomprador, cbvucomprador		
+		if(Body.comprador.cuenta.cbu.substring(0, 3) == "000") {
+			cuitcomprador = select.get('DAC_DEBITO_CVU_CUIT')
+			cbvucomprador = select.get('DAC_DEBITO_CVU')
+		}else {
+			cuitcomprador = select.get('DAC_DEBITO_CUIT')
+			cbvucomprador = select.get('DAC_DEBITO_CBU')
+		}
+			
 		Map cuenta = [
 				('cbu'):		cbvucomprador
 			]
@@ -72,9 +78,15 @@ if (response != null) {
 				('cuit'):				cuitcomprador,
 				('cuenta'): 			cuenta
 			]
-						
-		cuitvendedor = 	select.get('DAC_CREDITO_CVU_CUIT')
-		cbvucvendedor = select.get('DAC_CREDITO_CVU')
+		
+		String cuitvendedor, cbvucvendedor	
+		if(Body.vendedor.cbu.substring(0, 3) == "000") {
+			cuitvendedor = 		select.get('DAC_CREDITO_CVU_CUIT')
+			cbvucvendedor = 	select.get('DAC_CREDITO_CVU')
+		}else {
+			cuitvendedor = 		select.get('DAC_CREDITO_CUIT')
+			cbvucvendedor = 	select.get('DAC_CREDITO_CBU')
+		 }
 			
 		Map cuenta1 = [
 				('cbu'):		cbvucvendedor
