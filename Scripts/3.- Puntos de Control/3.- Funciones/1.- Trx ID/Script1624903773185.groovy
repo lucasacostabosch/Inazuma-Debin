@@ -18,7 +18,6 @@ import internal.GlobalVariable as GlobalVariable
 
 select = CustomKeywords.'sql.DML.select'('DEBIN', SELECT, 'DEBIN_ACTIVAS', WHERE, ORDER_BY)[0]
 
-println SELECT
 switch (SQL_var_name) {
     case 'DAC_ORI_TRX_ID':
         if (select == null || select.get(SQL_var_name) == null) {
