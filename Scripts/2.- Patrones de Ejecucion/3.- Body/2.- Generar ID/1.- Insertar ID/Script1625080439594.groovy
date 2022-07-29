@@ -8,11 +8,13 @@ if (Body.id != null) {
 }
 
 if (Body.operacion_original != null) {
-    Body.operacion_original.id = GlobalVariable.Debin.id
+	if(Body.operacion_original.id != null)
+		Body.operacion_original.id = GlobalVariable.Debin.id
 }
 
 if (Body.operacionOriginal != null) {
-	Body.operacionOriginal.id = GlobalVariable.Debin.id
+	if(Body.operacionOriginal.id != null)
+		Body.operacionOriginal.id = GlobalVariable.Debin.id
 }
 
 if (Body.operacion != null) { 

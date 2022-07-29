@@ -41,14 +41,6 @@ switch (Accion) {
         'Corte, todo lo que cree debe ir por encima de esta sentencia.'
         break
 		
-	 case 'debindebin2':
-        'Configuracion rest:\r\n\t* Metodo: [POST, GET, DELETE, PUT]\r\n\t* Endpoint: url del metodo a ejecutar.\r\n\t* Semilla: Path donde se creo el archivo para el body. (Se debe usar contra barra \\ )\r\n\t* Respuesta Esperada: La respuesta que espero cuando el caso sale ok.\r\n'
-        CustomKeywords.'coelsa.Accion.rest'(Configuracion, 'GET', '/apiDebinV1/Debin/Debin2/{id}', '', [('StatusCode') : 200
-                , ('Mensaje') : '{"respuesta": {"codigo": "00","descripcion": "DEBIN ENCONTRADO"}}'])
-
-        'Corte, todo lo que cree debe ir por encima de esta sentencia.'
-        break
-		
 	case 'debindebinid':
 		'Configuracion rest:\r\n\t* Metodo: [POST, GET, DELETE, PUT]\r\n\t* Endpoint: url del metodo a ejecutar.\r\n\t* Semilla: Path donde se creo el archivo para el body. (Se debe usar contra barra \\ )\r\n\t* Respuesta Esperada: La respuesta que espero cuando el caso sale ok.\r\n'
 		CustomKeywords.'coelsa.Accion.rest'(Configuracion, 'GET', '/apiDebinV1/Debin/Debin/{id}', '', [('StatusCode') : 200
@@ -57,9 +49,33 @@ switch (Accion) {
 		'Corte, todo lo que cree debe ir por encima de esta sentencia.'
 		break
 		
+	 case 'debindebin2':
+        'Configuracion rest:\r\n\t* Metodo: [POST, GET, DELETE, PUT]\r\n\t* Endpoint: url del metodo a ejecutar.\r\n\t* Semilla: Path donde se creo el archivo para el body. (Se debe usar contra barra \\ )\r\n\t* Respuesta Esperada: La respuesta que espero cuando el caso sale ok.\r\n'
+        CustomKeywords.'coelsa.Accion.rest'(Configuracion, 'GET', '/apiDebinV1/Debin/Debin2/{id}', '', [('StatusCode') : 200
+                , ('Mensaje') : '{"respuesta": {"codigo": "00","descripcion": "DEBIN ENCONTRADO"}}'])
+
+        'Corte, todo lo que cree debe ir por encima de esta sentencia.'
+        break
+		
+	case 'debindebin3':
+		'Configuracion rest:\r\n\t* Metodo: [POST, GET, DELETE, PUT]\r\n\t* Endpoint: url del metodo a ejecutar.\r\n\t* Semilla: Path donde se creo el archivo para el body. (Se debe usar contra barra \\ )\r\n\t* Respuesta Esperada: La respuesta que espero cuando el caso sale ok.\r\n'
+		CustomKeywords.'coelsa.Accion.rest'(Configuracion, 'GET', '/apiDebinV1/Debin/Debin3/{ori_trx_id}', '', [('StatusCode') : 200
+				, ('Mensaje') : '{"respuesta": {"codigo": "00","descripcion": "DEBIN ENCONTRADO"}}'])
+
+		'Corte, todo lo que cree debe ir por encima de esta sentencia.'
+		break
+		
 	case 'debindebin4':
 		'Configuracion rest:\r\n\t* Metodo: [POST, GET, DELETE, PUT]\r\n\t* Endpoint: url del metodo a ejecutar.\r\n\t* Semilla: Path donde se creo el archivo para el body. (Se debe usar contra barra \\ )\r\n\t* Respuesta Esperada: La respuesta que espero cuando el caso sale ok.\r\n'
 		CustomKeywords.'coelsa.Accion.rest'(Configuracion, 'GET', '/apiDebinV1/Debin/Debin4/{id}', '', [('StatusCode') : 200
+				, ('Mensaje') : '{"respuesta": {"codigo": "00","descripcion": "DEBIN ENCONTRADO"}}'])
+
+		'Corte, todo lo que cree debe ir por encima de esta sentencia.'
+		break
+		
+	case 'debindebin5':
+		'Configuracion rest:\r\n\t* Metodo: [POST, GET, DELETE, PUT]\r\n\t* Endpoint: url del metodo a ejecutar.\r\n\t* Semilla: Path donde se creo el archivo para el body. (Se debe usar contra barra \\ )\r\n\t* Respuesta Esperada: La respuesta que espero cuando el caso sale ok.\r\n'
+		CustomKeywords.'coelsa.Accion.rest'(Configuracion, 'GET', '/apiDebinV1/Debin/Debin5/{id}', '', [('StatusCode') : 200
 				, ('Mensaje') : '{"respuesta": {"codigo": "00","descripcion": "DEBIN ENCONTRADO"}}'])
 
 		'Corte, todo lo que cree debe ir por encima de esta sentencia.'

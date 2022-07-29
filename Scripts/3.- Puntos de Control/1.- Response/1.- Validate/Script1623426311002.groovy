@@ -36,8 +36,14 @@ if (Obtenido.equals('Error de firma de mensaje. "ERROR ERROR DE FIRMA: "')) {
 	}
 }
 
-def bd = WebUI.callTestCase(findTestCase('3.- Puntos de Control/2.- Data Base/1.- Validate DDBB'), [('response') : Obtenido],
+Map bd = WebUI.callTestCase(findTestCase('3.- Puntos de Control/2.- Data Base/1.- Validate DDBB'), [('response') : Obtenido],
 	FailureHandling.STOP_ON_FAILURE)
+if(bd == null) {
+	bd = [:]
+	bd.db = ""
+	//bd.errores = ["Error al validar base de datos"]
+	bd.errores = []
+}
 
 errores += bd.errores
 
