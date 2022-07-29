@@ -25,7 +25,11 @@ Map dato = [db:[:],errores:[]]
 Map dato1 = WebUI.callTestCase(findTestCase('3.- Puntos de Control/2.- Data Base/2.- Validations/'+ Accion + '/2.- Validate Body'), 
     [('response') : response], FailureHandling.STOP_ON_FAILURE)
 
-dato.db = dato1.db
+'Validar datos del request contra DDBB'
+//Map dato2 = WebUI.callTestCase(findTestCase('3.- Puntos de Control/2.- Data Base/2.- Validations/'+ Accion + '/3.- Validate Response'),
+	//[('response') : response], FailureHandling.STOP_ON_FAILURE)
+
+dato.db = dato1.db 
 dato.errores = dato1.errores
 
 return dato
