@@ -22,7 +22,7 @@ if (response != null) {
 	
 	if (select != null) {
 	
-		String id, tipo, fechaNegocio, 
+		String id, tipo, fechaNegocio
 				
 		id 				= 		select.get('DAC_ID_HASH')
 		tipo 			= 		select.get('DAC_TIPO').toLowerCase()
@@ -34,13 +34,14 @@ if (response != null) {
 		dato_db.tipo			= 	tipo
 		dato_db.fechaNegocio	=	fechaNegocio	
 		
-		String tipoB, idB, fechaNegocioB1
+		String tipoB, idB
 		
 		tipoB 						= 	response.tipo
 		idB 						= 	response.id
-		fecha_negocioB1 			= 	response.fecha_negocio
-		String[] fechaNegocioB2		= 	fechaNegocioB1.split("T")
-		String fechaNegocioB		= 	fechaNegocioB2[0]	
+		String[] fechaNegocioB1 	= 	response.fechaNegocio.split("T")
+		String fechaNegocioB		= 	fechaNegocioB1[0]	
+		
+		//println fechaNegocioB
 				
 		Map response1 = [:]
 		

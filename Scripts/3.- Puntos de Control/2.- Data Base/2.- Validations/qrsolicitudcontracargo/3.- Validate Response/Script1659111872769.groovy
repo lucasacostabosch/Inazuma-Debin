@@ -15,24 +15,29 @@ def Accion = GlobalVariable.Accion
 Map respuesta
 
 if (response != null) {
+		
+	def id_hash = response.id
 	
-	def codigo = response.respuesta.codigo
-								
-	Map select = CustomKeywords.'sql.DML.select'('DEBIN', '*', 'DEBIN_ACTIVAS', 'DAC_ID_HASH =\''+response.id.toUpperCase()+'\'', '')[0]
+	Map select = CustomKeywords.'sql.DML.select'('DEBIN', '*, DATEDIFF (Minute, DAC_ADD_DT, DAC_FECHA_EXPIRACION) as TIEMPOEXPIRACION', 'DEBIN_ACTIVAS', 'DAC_ID_HASH =\''+id_hash+'\'', '')[0]
 	
 	if (select != null) {
 	
 		String tipo, id, fecha_negocio
-		
-		if(select.get('DAC_TIPO').toLowerCase()=='CONTRACARGOQR') {
-			tipo 			= 		'CONTRACARGO'
+				
+		if(select.get('DAC_TIPO') == 'CONTRACARGOQR') {
+			tipo	= 	'contraCargo'
 		}else {
-			tipo 			= 		select.get('DAC_TIPO').toLowerCase()
+			tipo 	= 	select.get('DAC_TIPO').toLowerCase()
 		}
 		
-		id 				= 		select.get('DAC_ID_HASH')
-		fecha_negocio 	= 		select.get('DAC_FECHA_NEGOCIO')
+		id	= 	select.get('DAC_ID_HASH')
 		
+		if (response.fecha_negocio == '0001-01-01T00:00:00') {
+			fecha_negocio 	=	'0001-01-01' 		
+		}else {
+			fecha_negocio 	=	select.get('DAC_FECHA_NEGOCIO') 	
+		}
+
 		Map dato_db = [:]
 		
 		dato_db.tipo			= 	tipo
@@ -52,7 +57,7 @@ if (response != null) {
 		response1.tipo				=	tipoB
 		response1.id				= 	idB
 		response1.fecha_negocio 	= 	fecha_negocioB
-					
+		
 		errores = coelsa.Util.validar(response1, dato_db)
 		
 		respuesta = [
