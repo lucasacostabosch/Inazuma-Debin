@@ -16,7 +16,7 @@ Map respuesta1
 
 if (response != null) {
 	
-	Map select = CustomKeywords.'sql.DML.select'('DEBIN', '*, DATEDIFF (Minute, DAC_ADD_DT, DAC_FECHA_EXPIRACION) as TIEMPOEXPIRACION', 'DEBIN_ACTIVAS', 'DAC_ID_HASH =\''+DebinId+'\'', '')[0]
+	Map select = CustomKeywords.'sql.DML.select'('DEBIN', '*', 'DEBIN_ACTIVAS', 'DAC_ID_HASH =\''+DebinId+'\'', '')[0]
 				
 	if(select != null) {
 										
@@ -101,9 +101,6 @@ if (response != null) {
 		contracargo.operacionOriginal			= operacionOriginal
 		contracargo.comprador					= comprador
 		contracargo.vendedor					= vendedor
-				
-		//TODO
-		// Campos que faltan definir
 		
 		String importeBody = Body.operacionOriginal.detalle.importe		
 		String importeB
