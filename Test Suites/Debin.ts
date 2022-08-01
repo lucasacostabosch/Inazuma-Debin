@@ -21,11 +21,7 @@
          <id>fefa74bc-c998-49c9-80e4-a3acb3630a0c</id>
          <iterationEntity>
             <iterationType>SPECIFIC</iterationType>
-<<<<<<< HEAD
-            <value>1</value>
-=======
             <value>4</value>
->>>>>>> c663840aa66e16e6c83258bd03148211bfdda885
          </iterationEntity>
          <testDataId>Data Files/Debin</testDataId>
       </testDataLink>

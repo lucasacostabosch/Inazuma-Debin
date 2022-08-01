@@ -24,7 +24,12 @@ if (response != null) {
 	
 		String tipo, id, fecha_negocio
 		
-		tipo 			= 		select.get('DAC_TIPO').toLowerCase()
+		if(select.get('DAC_TIPO').toLowerCase()=='CONTRACARGOQR') {
+			tipo 			= 		'CONTRACARGO'
+		}else {
+			tipo 			= 		select.get('DAC_TIPO').toLowerCase()
+		}
+		
 		id 				= 		select.get('DAC_ID_HASH')
 		fecha_negocio 	= 		select.get('DAC_FECHA_NEGOCIO')
 		
