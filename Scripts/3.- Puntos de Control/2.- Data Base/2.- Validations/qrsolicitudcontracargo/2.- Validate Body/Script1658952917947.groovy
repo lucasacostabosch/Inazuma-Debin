@@ -68,7 +68,6 @@ if (response != null) {
 		operacion_original.detalle 			= detalle
 		operacion_original.vendedor			= vendedor
 		operacion_original.qr_id_trx		= qr_id_trx
-		//operacion_original.id				= id
 							
 		Map contracargoqr = [:]
 		contracargoqr.operacion_original	= operacion_original
@@ -81,8 +80,6 @@ if (response != null) {
 		
 		Body.operacion_original.remove('tipo')
 		Body.operacion_original.detalle.remove('importe')
-		
-		//Body.remove('objeto')
 		
 		errores = coelsa.Util.validar(contracargoqr, Body)				
 		respuesta1 = [
