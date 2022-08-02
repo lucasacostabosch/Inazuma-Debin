@@ -1,5 +1,8 @@
 {
     "operacion":{
+       "administrador": {
+      		"cuit": "20123857829"
+    },
         "vendedor":{
              "cuit":"20000001008",
              "cbu":"0000210500200000010083",
