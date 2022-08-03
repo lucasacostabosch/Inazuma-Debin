@@ -20,7 +20,11 @@
          <combinationType>ONE</combinationType>
          <id>fefa74bc-c998-49c9-80e4-a3acb3630a0c</id>
          <iterationEntity>
+<<<<<<< HEAD
             <iterationType>SPECIFIC</iterationType>
+=======
+            <iterationType>ALL</iterationType>
+>>>>>>> 3bc3dfa7aa7a808d568389d340f748063f749fe7
             <value>8</value>
          </iterationEntity>
          <testDataId>Data Files/Debin</testDataId>
