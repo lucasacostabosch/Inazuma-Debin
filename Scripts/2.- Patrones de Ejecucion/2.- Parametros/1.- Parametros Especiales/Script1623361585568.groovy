@@ -6,7 +6,7 @@ if(Parametros.id.equals('debin.id')) {
 
 if(Parametros.objeto != null) {
 	if(Parametros.objeto.ori_trx_id != null) {
-		if(Parametros.objeto.ori_trx_id.toLowerCase().equals("nuevo")) {
+		if(Parametros.objeto.ori_trx_id.toString().toLowerCase().equals("nuevo")) {
 			GlobalVariable.Debin.debin_trx++
 			Parametros.objeto.ori_trx_id = GlobalVariable.Debin.debin_trx
 		}

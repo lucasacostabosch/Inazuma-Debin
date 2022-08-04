@@ -5,6 +5,12 @@
    <tag></tag>
    <comment></comment>
    <testCaseGuid>8b34ab08-f298-4dd1-aba2-8b6a897c87b4</testCaseGuid>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>234329e8-b0f4-4aa9-b902-fdac80ca302c</variableId>
+   </variableLinks>
    <variable>
       <defaultValue>[:]</defaultValue>
       <description></description>
