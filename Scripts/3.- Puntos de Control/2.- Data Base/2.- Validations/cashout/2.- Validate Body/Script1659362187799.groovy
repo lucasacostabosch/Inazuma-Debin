@@ -16,13 +16,13 @@ Map respuesta1
 
 if (response != null) {
 	
-	def id_hash = response.id
+	Map select = CustomKeywords.'sql.DML.select'('DEBIN', '*', 'DEBIN_ACTIVAS', 'DAC_ID_HASH =\''+response.id+'\'', '')[0]
 	
-	Map select = CustomKeywords.'sql.DML.select'('DEBIN', '*, DATEDIFF (Minute, DAC_ADD_DT, DAC_FECHA_EXPIRACION) as TIEMPOEXPIRACION', 'DEBIN_ACTIVAS', 'DAC_ID_HASH =\''+id_hash+'\'', '')[0]
+	println select
 	
 	if(select != null) {
 										
-		String tipo, endpoint_id, ori_trx_id
+		/*String tipo, endpoint_id, ori_trx_id
 			
 		tipo		=	select.get('')
 		endpoint_id	=	select.get('')
@@ -194,6 +194,7 @@ if (response != null) {
 					],
 				errores:	errores
 			]	
+		*/
 			
 	}else {
 
