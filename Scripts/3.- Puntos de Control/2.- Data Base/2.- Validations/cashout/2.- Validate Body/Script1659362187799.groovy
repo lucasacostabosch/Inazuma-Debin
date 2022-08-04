@@ -14,7 +14,11 @@ def DebinId 	= GlobalVariable.Debin.id
 Map Body = GlobalVariable.Body
 Map respuesta1
 
+println response
+
 if (response != null) {
+	
+	println "si"
 	
 	Map select = CustomKeywords.'sql.DML.select'('DEBIN', '*', 'DEBIN_ACTIVAS', 'DAC_ID_HASH =\''+response.id+'\'', '')[0]
 	
