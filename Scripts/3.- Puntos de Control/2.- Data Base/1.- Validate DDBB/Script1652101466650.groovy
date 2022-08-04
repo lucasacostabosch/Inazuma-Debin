@@ -9,8 +9,10 @@ String TestCase = "3.- Puntos de Control/2.- Data Base/2.- Validations/$Accion/1
 def dato = [('db'): [:], ('errores'): []]
 
 try {
-	dato = WebUI.callTestCase(findTestCase(TestCase),
-		[('response') : response], FailureHandling.STOP_ON_FAILURE)
+	if(GlobalVariable.Debin.sql) {
+		dato = WebUI.callTestCase(findTestCase(TestCase),
+				[('response') : response], FailureHandling.STOP_ON_FAILURE)		
+	}
 }
 catch (Exception e) {
 	String message = "Cannot find test case \'Test Cases/$TestCase\'"
