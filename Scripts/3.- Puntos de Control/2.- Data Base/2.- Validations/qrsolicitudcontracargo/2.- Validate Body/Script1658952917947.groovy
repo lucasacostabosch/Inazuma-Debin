@@ -72,8 +72,16 @@ if (response != null) {
 		Map contracargoqr = [:]
 		contracargoqr.operacion_original	= operacion_original
 		contracargoqr.objeto				= objeto
-				
-		int ori_trx_id_b = Body.objeto.ori_trx_id.toInteger()
+		
+		def ori_trx_id_body = Body.objeto.ori_trx_id.toString()
+		def ori_trx_id_b
+		
+		if (ori_trx_id_body.substring(0, 2) == "00") {
+			ori_trx_id_b = Body.objeto.ori_trx_id.toInteger()
+		}else {
+			ori_trx_id_body.substring(0, 3)
+			ori_trx_id_b = Body.objeto.ori_trx_id
+		}
 		
 		//TODO		
 		Body.objeto.ori_trx_id = ori_trx_id_b
