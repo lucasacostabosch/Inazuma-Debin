@@ -20,6 +20,12 @@
                 "password" : "Coelsa123"
 			},
 			{
+			    "bank" : "044",
+                "product" : "debin",
+                "username" : "DEBIN044",
+                "password" : "Coelsa123"
+			},
+			{
 				"bank" : "998",
 				"product" : "iso",
 				"username" : "CoelsaISO8583",
