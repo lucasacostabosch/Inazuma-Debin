@@ -4,12 +4,5 @@
    <name>1.- Parametros Especiales</name>
    <tag></tag>
    <comment></comment>
-   <testCaseGuid>8b34ab08-f298-4dd1-aba2-8b6a897c87b4</testCaseGuid>
-   <variable>
-      <defaultValue>[:]</defaultValue>
-      <description></description>
-      <id>234329e8-b0f4-4aa9-b902-fdac80ca302c</id>
-      <masked>false</masked>
-      <name>Parametros</name>
-   </variable>
+   <testCaseGuid>454a2197-effb-4ae6-8795-ba7c236f1b4a</testCaseGuid>
 </TestCaseEntity>
