@@ -11,10 +11,6 @@
    <isInternalPath>true</isInternalPath>
    <query></query>
    <secureUserAccount>false</secureUserAccount>
-<<<<<<< HEAD
    <sheetName>CONTRACARGOQR</sheetName>
-=======
-   <sheetName>CASHOUT</sheetName>
->>>>>>> d53b527e498b4bfb5d717a031bff107a5544bb13
    <usingGlobalDBSetting>false</usingGlobalDBSetting>
 </DataFileEntity>

@@ -8,6 +8,8 @@ String TestCase = "3.- Puntos de Control/2.- Data Base/2.- Validations/$Accion/1
 
 def dato = [('db'): [:], ('errores'): []]
 
+println GlobalVariable.Debin
+
 try {
 	if(GlobalVariable.Debin.sql) {
 		dato = WebUI.callTestCase(findTestCase(TestCase),

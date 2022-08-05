@@ -14,6 +14,7 @@ def DebinId 	= GlobalVariable.Debin.id
 Map Body = GlobalVariable.Body
 Map respuesta1
 
+println 'pasamos'
 println response
 
 if (response != null) {
