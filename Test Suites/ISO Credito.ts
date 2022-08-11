@@ -21,7 +21,7 @@
          <id>0ba84989-509d-4b13-aa8d-4f91e48c63f5</id>
          <iterationEntity>
             <iterationType>SPECIFIC</iterationType>
-            <value>3</value>
+            <value>7</value>
          </iterationEntity>
          <testDataId>Data Files/ISO Credito</testDataId>
       </testDataLink>

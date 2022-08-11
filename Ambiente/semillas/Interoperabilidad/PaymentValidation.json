@@ -8,19 +8,19 @@
     },
     "payer": {
         "name": "Coelsa Cuenta",
-        "identification_number": "20000000222",
+        "identification_number": "23202020208",
         "document": {
             "type": "DNI",
-            "number": "00000022"
+            "number": "20202020"
         },
         "account": {
-            "cbu": "9981522200000000000192",
-            "cvu": ""
+            "cbu": "",
+            "cvu": "0000210500000000212452"
         },
         "wallet": {
             "name": "PAYPAUL",
             "cuit": "20000000346",
-            "bcra_id": "00000"
+            "bcra_id": "05050"
         }
     },
     "acquirer": {

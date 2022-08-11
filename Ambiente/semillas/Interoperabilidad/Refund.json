@@ -1,0 +1,46 @@
+{
+    "original_transaction": {
+        "authorization_code": "0540E3",
+        "trace_id": "6d0f4d635cf764ce",
+        "datetime": "2022-02-24T19:49:32.044Z",
+        "type": "CCT",
+        "amount": {
+            "value": 10.0,
+            "currency": "ARS"
+        }
+    },
+    "authorization_code": "0540E3",
+    "amount": {
+        "value": 10.0,
+        "currency": "ARS"
+    },
+    "payer": {
+        "name": "Prueba",
+        "identification_number": "23202020208",
+        "document": {
+            "type": "DNI",
+            "number": "20202020"
+        },
+        "account": {
+            "cbu": "null",
+            "cvu": "0000210500000000212452"
+        },
+        "wallet": {
+            "name": "Responder",
+            "cuit": "23000009989",
+            "bcra_id" : "00005"
+        }
+    },
+    "acquirer": {
+        "reverse_domain": "com.todopago",
+        "cuit": "30714600288"
+    },
+    "merchant": {
+        "soft_descriptor": "Prueba 100",
+        "cuit": "20000001008",
+        "account": {
+            "cbu": null,
+            "cvu": "0000210500200000010083"
+        }
+    }
+}
