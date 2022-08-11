@@ -1,7 +1,6 @@
 {
 	"objeto": {
     	"tipo": "CASHOUT",
-    	"endpoint_id": "",
     	"ori_trx_id": 56
   	},
   	"credito": {

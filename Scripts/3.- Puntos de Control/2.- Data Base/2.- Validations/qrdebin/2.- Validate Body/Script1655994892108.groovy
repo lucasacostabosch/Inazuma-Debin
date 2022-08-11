@@ -18,85 +18,93 @@ if (response != null) {
 	Map select = CustomKeywords.'sql.DML.select'('DEBIN', '*, DATEDIFF (Minute, DAC_ADD_DT, DAC_FECHA_EXPIRACION) as TIEMPOEXPIRACION', 'DEBIN_ACTIVAS', 'DAC_ID_HASH =\''+response.debin.id+'\'', '')[0]
 			
 	if(select != null) {
-				
+		
+		String cuit_administrador
+		
+		cuit_administrador	=	select.get('DAC_ORI_RED')
+		
+		Map administrador = [
+			('cuit'):	cuit_administrador
+			]
+		
 		String cbvu, cuit, banco, terminal
 		if(Body.operacion.vendedor.cbu.substring(0, 3) == "000") {
-			cuit = select.get('DAC_CREDITO_CVU_CUIT').toString()
-			cbvu = select.get('DAC_CREDITO_CVU').toString()
-			banco = "000"
+			cuit	= 	select.get('DAC_CREDITO_CVU_CUIT')
+			cbvu 	= 	select.get('DAC_CREDITO_CVU')
+			banco 	= 	"000"
 		}else {
-			cuit = select.get('DAC_CREDITO_CUIT').toString()
-			cbvu = select.get('DAC_CREDITO_CBU').toString()
-			banco = select.get('DAC_CREDITO_BANCOCOD').toString()
+			cuit 	= 	select.get('DAC_CREDITO_CUIT')
+			cbvu 	= 	select.get('DAC_CREDITO_CBU')
+			banco 	= 	select.get('DAC_CREDITO_BANCOCOD')
 		}
 		
-		sucursal = select.get('DAC_CREDITO_BANCOSUC').toString()
-		terminal = select.get('DAC_CREDITO_TERMINAL')
+		sucursal 	= 	select.get('DAC_CREDITO_BANCOSUC')
+		terminal 	= 	select.get('DAC_CREDITO_TERMINAL')
 		
 		Map vendedor = [
-			('cuit'):				cuit,
-			('cbu'):				cbvu,
-			('banco'):				banco,
-			('sucursal'):			sucursal,
-			('terminal'):			terminal
+			('cuit'):		cuit,
+			('cbu'):		cbvu,
+			('banco'):		banco,
+			('sucursal'):	sucursal,
+			('terminal'):	terminal
 			]
 						
 		if(Body.operacion.comprador.cuenta.cbu != "") {
 			if(Body.operacion.comprador.cuenta.cbu.substring(0, 3) == "000") {
-				cuit = select.get('DAC_DEBITO_CVU_CUIT').toString()
-				cbvu = select.get('DAC_DEBITO_CVU').toString()
+				cuit 	= 	select.get('DAC_DEBITO_CVU_CUIT')
+				cbvu 	= 	select.get('DAC_DEBITO_CVU')
 			}else {
-				cuit = select.get('DAC_DEBITO_CUIT').toString()
-				cbvu = select.get('DAC_DEBITO_CBU').toString()
+				cuit 	= 	select.get('DAC_DEBITO_CUIT')
+				cbvu 	= 	select.get('DAC_DEBITO_CBU')
 			}
 		}else {
-			cuit = select.get('DAC_DEBITO_CUIT').toString()
+			cuit 	= 	select.get('DAC_DEBITO_CUIT')
 		}
 		
-		def alias = select.get('DAC_DEBITO_ALIAS').toString()
+		def alias 	= 	select.get('DAC_DEBITO_ALIAS')
 
 		//Lógica para comparar alias o cbu, según sea el caso.
-		def cbuBody 	= Body.operacion.comprador.cuenta.cbu
-		def aliasBody	= Body.operacion.comprador.cuenta.alias
+		def cbuBody 	= 	Body.operacion.comprador.cuenta.cbu
+		def aliasBody	= 	Body.operacion.comprador.cuenta.alias
 		
 		Map datos_cuentas
 				
 		if(cbuBody != "" && aliasBody != "") {
 			datos_cuentas = [
-				('cbu'):			cbvu,
-				('alias'):			alias
+				('cbu'):	cbvu,
+				('alias'):	alias
 				]
 		}else if(cbuBody != "" && aliasBody == ""){
 			datos_cuentas = [
-				('cbu'):		cbvu,
-				('alias'):		""
+				('cbu'):	cbvu,
+				('alias'):	""
 			]
 		}else if(cbuBody == "" && aliasBody != "") {
 			datos_cuentas = [
-				('cbu'):		"",
-				('alias'):		alias
+				('cbu'):	"",
+				('alias'):	alias
 			]
 		}	
 			
 		Map comprador = [
-			('cuenta'): 			datos_cuentas,
-			('cuit'):				cuit,
+			('cuenta'): datos_cuentas,
+			('cuit'):	cuit,
 			]
 					
-		def tiempoExpiracion = select.get('TIEMPOEXPIRACION')
+		def tiempoExpiracion 	= 	select.get('TIEMPOEXPIRACION')
 		def moneda 
 		
 		if(select.get('DAC_CREDITO_TIPO_MONEDA') == "str") {
-			moneda = "string"
+			moneda 	= 	"string"
 		}else {
-			moneda = select.get('DAC_CREDITO_TIPO_MONEDA').toString()
+			moneda 	= 	select.get('DAC_CREDITO_TIPO_MONEDA').toString()
 		}		
 				
-		String importe = select.get('DAC_IMPORTE')	
-		String[] s = importe.split("\\.")			  
-		String[] dec = s[1]							
-		Integer a = s[1].length()					
-		String decimal = ''							
+		String importe 	= 	select.get('DAC_IMPORTE')	
+		String[] s 		= 	importe.split("\\.")			  
+		String[] dec 	= 	s[1]							
+		Integer a 		= 	s[1].length()					
+		String decimal 	= 	''							
 			
 		for(i = 0; i < a; i++) {					
 			if(dec[i]!=0)							
@@ -104,9 +112,9 @@ if (response != null) {
 		}
 		
 		if(decimal=='0000') {
-			importe = s[0]
+			importe 	= 	s[0]
 		}else {
-			importe = s[0]+"."+decimal
+			importe 	= 	s[0]+"."+decimal
 		}
 							
 		Map detalle = [
@@ -144,6 +152,7 @@ if (response != null) {
 		if(datos_generador.imei == "               ")	datos_generador.imei = ""
 		
 		Map operacion = [:]
+		operacion.adminitrador		= administrador
 		operacion.vendedor			= vendedor
 		operacion.comprador			= comprador
 		operacion.detalle 			= detalle
@@ -151,7 +160,7 @@ if (response != null) {
 		
 		Map debin = [:]
 		
-		debin.operacion				= operacion
+		debin.operacion	= operacion
 		
 		//TODO
 		// Se remueve hasta encontrar como normalizar body contra bd
@@ -161,35 +170,35 @@ if (response != null) {
 		Body.operacion.detalle.remove('descripcion')
 		//Body.operacion.detalle.remove('importe')
 	
-		String importeBody = Body.operacion.detalle.importe		//Valor del importe enviado desde el body
+		String importeBody 	= 	Body.operacion.detalle.importe		//Valor del importe enviado desde el body
 		String importeB
 	
 		if(importeBody.contains(".")) {
-			String[] e = importeBody.split("\\.")				//Split para tomar el valor de los decimales del importe	
-			String[] r = e[1]									//Array de los digitos de los decimales
-			String f = e[1]										//Valor de los decimales del importe
-			Integer y = e[1].length()							//Cantidad de digitos de decimales
-			Integer dif											//Variable inicializada para la diferencia de los digitos enviados contra los esperados 
-			String t = ''										//Variable inicializada para el valor final de los decimales despues de recorrerlos
-			String z = ''										
+			String[] e 	= 	importeBody.split("\\.")					
+			String[] r 	= 	e[1]									
+			String f 	= 	e[1]										
+			Integer y 	= 	e[1].length()							
+			Integer dif											
+			String t 	= ''										
+			String z 	= ''										
 			
-			if(y<4) {											//Se valida si la cantidad de decimales es inferior es a 4 (la cantidad esperada)	
-				for (i = y; i < 4; i++) {						//Bucle para cargar los digitos necesarios
-					z += 0										//Se irán concatenado 0, según las veces que se pase por el bucle
+			if(y<4) {												
+				for (i = y; i < 4; i++) {						
+					z += 0										
 				}
-				t = f+z											//Variable donde se concatena los digitos enviados, con los 0 necesarios para completar los 4 digitos
-			}else {												//Si los digitos decimales enviados son los necesarios 4
-				for(i = 0; i < a; i++) {						//Bucle para cargar cada digito de los decimales					
+				t = f+z											
+			}else {												
+				for(i = 0; i < a; i++) {									
 					if(r[i]!=0)
 						t += r[i]
 				}
 			}
-			importeB = e[0]+'.'+t			
+			importeB 	= 	e[0]+'.'+t			
 		}else {
-			importeB = importeBody
+			importeB 	= 	importeBody
 		}
 		
-		Body.operacion.detalle.importe = importeB
+		Body.operacion.detalle.importe 	= 	importeB
 		
 		errores = coelsa.Util.validar(debin, Body)
 		

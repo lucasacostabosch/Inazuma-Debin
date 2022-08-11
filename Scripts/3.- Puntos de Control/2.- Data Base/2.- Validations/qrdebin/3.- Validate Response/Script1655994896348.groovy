@@ -17,29 +17,30 @@ Map respuesta
 
 if (response != null) {
 	
-	def codigo = response.respuesta.codigo
+	def codigo 	= 	response.respuesta.codigo
 							
-	Map select = CustomKeywords.'sql.DML.select'('DEBIN', '*', 'DEBIN_ACTIVAS', 'DAC_ID_HASH =\''+response.debin.id.toUpperCase()+'\'', '')[0]
+	Map select 	= 	CustomKeywords.'sql.DML.select'('DEBIN', '*', 'DEBIN_ACTIVAS', 'DAC_ID_HASH =\''+response.debin.id.toUpperCase()+'\'', '')[0]
 			
 	if (select != null) {
 		
-		def fecha1bd = select.get('DAC_ADD_DT').toString()
-		def dac_add_dt = fecha1bd.replaceAll(' -', '-')
+		String fecha1bd, dac_add_dt, fecha2bd, dac_fecha_expiracion
 		
-		def fecha2bd = select.get('DAC_FECHA_EXPIRACION').toString()
-		def dac_fecha_expiracion = fecha2bd.replaceAll(' -', '-')
+		fecha1bd 				= 	select.get('DAC_ADD_DT')
+		dac_add_dt 				= 	fecha1bd.replaceAll(' -', '-')
+		fecha2bd 				= 	select.get('DAC_FECHA_EXPIRACION')
+		dac_fecha_expiracion 	= 	fecha2bd.replaceAll(' -', '-')
 		
 		String dac_scoring1, dac_reglas 
 		if(select.get('DAC_SCORING1') == null || select.get('DAC_SCORING1') == 0) {
-			dac_scoring1 = 0
+			dac_scoring1 	=	 0
 		}else {
-			dac_scoring1 = select.get('DAC_SCORING1').toString()
+			dac_scoring1 	= 	select.get('DAC_SCORING1')
 		}
 			
 		if(select.get('DAC_REGLAS') == null || select.get('DAC_REGLAS') == "") {
-			dac_reglas = ""
+			dac_reglas 	= 	""
 		}else {
-			dac_reglas = select.get('DAC_REGLAS').toString()
+			dac_reglas 	= 	select.get('DAC_REGLAS')
 		}
 					
 		Map dato_db = [:]
@@ -50,15 +51,15 @@ if (response != null) {
 					('puntaje'):dac_scoring1,
 					('reglas'):dac_reglas
 				]
+				
+		String	fecha1response, addDtB, fecha2response, fechaExpiracionB, puntaje, reglas		
 					
-		def fecha1response = response.debin.addDt.toString()
-		def addDtB = fecha1response.replaceAll('T', ' ')
-			
-		def fecha2response = response.debin.fechaExpiracion.toString()
-		def fechaExpiracionB = fecha2response.replaceAll('T', ' ')
-			
-		def puntaje = response.evaluacion.puntaje.toString()
-		def reglas = response.evaluacion.reglas.toString()
+		fecha1response 		= 	response.debin.addDt
+		addDtB 				= 	fecha1response.replaceAll('T', ' ')
+		fecha2response 		= 	response.debin.fechaExpiracion
+		fechaExpiracionB 	= 	fecha2response.replaceAll('T', ' ')
+		puntaje 			=	response.evaluacion.puntaje
+		reglas 				= 	response.evaluacion.reglas
 			
 		Map response1 = [:]
 			
