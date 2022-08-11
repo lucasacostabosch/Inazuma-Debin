@@ -1,49 +1,49 @@
 {
-	"objeto": {
-    	"tipo": "CASHOUT",
-    	"ori_trx_id": 56
-  	},
-  	"credito": {
-    	"cuit": "20333048494",
-    	"banco": "000",
-    	"sucursal": "0001",
-    	"cuenta": {
-      		"cbu": "0000001700000000008455"
-    	},
-    	"titular": "PABECAS VENDE PESO"
-  	},
-  	"debito": {
-    	"cuit": "20000000222",
-    	"banco": "000",
-    	"sucursal": "0207",
-    	"cuenta": {
-      		"cbu": "0000207500000000000055"
-    	},
-    	"titular": "PRUEBAS COELSA CASHOUT"
-  	},
-  	"concepto": "VAR",
-  	"descripcion": "",
-  	"idUsuario": 0,
-  	"idComprobante": 0,
-  	"importe": {
-    	"moneda": "032",
-    	"importe": 10
-  	},
-  	"mismoTitular": 0,
-  	"tiempoExpiracion": 10,
-  	"ori_trx": "",
-  	"ori_terminal": null,
-  	"ori_adicional": "",
-  	"datosGenerador": {
-    	"ipCliente": "",
-    	"tipoDispositivo": "",
-    	"plataforma": "",
-    	"imsi": "",
-    	"imei": "",
-    	"ubicacion": {
-      		"lat": 0,
-      		"lng": 0,
-      		"precision": 0
-    	}
-  	}
+  "objeto": {
+    "tipo": "CASHOUT",
+    "ori_trx_id": 1141
+  },
+  "credito": {
+    "cuit": "20333048494",
+    "banco": "998",
+    "sucursal": "8851",
+    "cuenta": {
+      "cbu": "9988851800000000000628"
+    },
+    "titular": ""
+  },
+  "debito": {
+    "cuit": "20000009963",
+    "banco": "998",
+    "sucursal": "4788",
+    "cuenta": {
+      "cbu": "9984788700000000000420"
+    },
+    "titular": "PRUEBAS COELSA CASHOUT"
+  },
+  "concepto": "VAR",
+  "descripcion": "",
+  "idUsuario": 0,
+  "idComprobante": 0,
+  "importe": {
+    "moneda": "032",
+    "importe": 10
+  },
+  "mismoTitular": 0,
+  "tiempoExpiracion": 10,
+  "ori_trx": "",
+  "ori_terminal": null,
+  "ori_adicional": "",
+  "datosGenerador": {
+    "ipCliente": "",
+    "tipoDispositivo": "",
+    "plataforma": "",
+    "imsi": "",
+    "imei": "",
+    "ubicacion": {
+      "lat": 0,
+      "lng": 0,
+      "precision": 0
+    }
+  }
 }
