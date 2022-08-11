@@ -62,13 +62,15 @@ if (response != null) {
 		String cuit_debito, banco_debito, sucursal_debito, cbu_debito, titular_debito
 		
 		if(Body.debito.cuenta.cbu.substring(0, 3) == "000") {
-			cuit_debito 	= 	select.get('DAC_DEBITO_CVU_CUIT')
-			cbu_debito 		= 	select.get('DAC_DEBITO_CVU')
-			banco_debito	=	"000"
+			cuit_debito 		= 	select.get('DAC_DEBITO_CVU_CUIT')
+			cbu_debito 			= 	select.get('DAC_DEBITO_CVU')
+			banco_debito		=	"000"
+			sucursal_debito		=	select.get('DAC_DEBITO_CVU_PSP')
 		}else {
-			cuit_debito 	= 	select.get('DAC_DEBITO_CUIT')
-			cbu_debito 		= 	select.get('DAC_DEBITO_CBU')
-			banco_debito	= 	select.get('DAC_DEBITO_BANCOCOD')
+			cuit_debito 		= 	select.get('DAC_DEBITO_CUIT')
+			cbu_debito 			= 	select.get('DAC_DEBITO_CBU')
+			banco_debito		= 	select.get('DAC_DEBITO_BANCOCOD')
+			sucursal_debito		=	select.get('DAC_DEBITO_BANCOSUC')
 		}
 		
 		Map cuenta_debito = [
@@ -76,7 +78,7 @@ if (response != null) {
 			]
 		
 		//banco_debito		=	select.get('DAC_DEBITO_BANCOCOD')
-		sucursal_debito		=	select.get('DAC_DEBITO_BANCOSUC')
+		
 		titular_debito		=	select.get('DAC_DEBITO_TITULAR')
 		
 		Map debito = [
