@@ -16,50 +16,151 @@ Map respuesta
 
 if (response != null) {
 		
-	def id_hash = response.id
+	def id_hash = response.objeto.id
 	
 	Map select = CustomKeywords.'sql.DML.select'('DEBIN', '*, DATEDIFF (Minute, DAC_ADD_DT, DAC_FECHA_EXPIRACION) as TIEMPOEXPIRACION', 'DEBIN_ACTIVAS', 'DAC_ID_HASH =\''+id_hash+'\'', '')[0]
 	
 	if (select != null) {
 	
-		String tipo, id, fecha_negocio
+		//// 	Crédito		////
+		String cuit, banco, sucursal, cbu
+		
+		cuit 		=	select.get('DAC_CREDITO_CUIT')
+		banco	 	=	select.get('DAC_CREDITO_BANCOCOD')
+		sucursal 	= 	select.get('DAC_CREDITO_BANCOSUC')
+		cbu 		=	select.get('DAC_CREDITO_CBU')
+		
+		Map cuenta = [
+			('cbu'):		cbu
+			]
+		
+		Map credito = [
+			('cuit'):		cuit,
+			('banco'):		banco,
+			('sucursal'):	sucursal,
+			('cuenta'):		cuenta
+			]
+		
+		////	Importe		////
+		String moneda, importe1
+		
+		moneda 		=	select.get('DAC_CREDITO_TIPO_MONEDA')
+		//Hay que revisar importe
+		importe1	=	select.get('DAC_IMPORTE')
+		
+		Map importe = [
+			('moneda'):		moneda,
+			('importe'):	importe1
+			]
+						
+		String fechaHoraEjecucion, fechaNegocio, dest_trx, dest_terminal, dest_adicional, dest_ori_trx_id, tipo, id, codigo, descripcion
+		 		
+		//fechaHoraEjecucion 	= 	select.get('') Hay que evaluar
+		fechaNegocio		= 	select.get('DAC_FECHA_NEGOCIO') 
+		dest_trx			=	select.get('DAC_ORI_TRX')
+		
+		println select.get('DAC_CREDITO_TERMINAL').toString()
 				
-		if(select.get('DAC_TIPO') == 'CONTRACARGOQR') {
-			tipo	= 	'contraCargo'
+		if(select.get('DAC_CREDITO_TERMINAL').toString() == 'null' || select.get('DAC_CREDITO_TERMINAL').toString() == null || select.get('DAC_CREDITO_TERMINAL').toString() == '') {
+			dest_terminal		=	null
 		}else {
-			tipo 	= 	select.get('DAC_TIPO').toLowerCase()
+			dest_terminal		=	select.get('DAC_CREDITO_TERMINAL')
 		}
 		
-		id	= 	select.get('DAC_ID_HASH')
+		dest_adicional		=	select.get('DAC_ORI_ADICIONAL')
+		dest_ori_trx_id		= 	select.get('DAC_ORI_TRX_ID')
 		
-		if (response.fecha_negocio == '0001-01-01T00:00:00') {
-			fecha_negocio 	=	'0001-01-01' 		
+		println dest_ori_trx_id.getProperties()
+		
+		////	Objeto	////
+		codigo 		= 	select.get('DAC_ESTADO_ID')
+		//descripcion =	select.get('')
+		
+		Map estado = [
+			('codigo'):			codigo,
+			//('descripcion'):	descripcion
+			]
+			
+		tipo 	=	select.get('DAC_TIPO')
+		id 		= 	select.get('DAC_ID_HASH')
+		
+		Map objeto = [
+			('tipo'):		tipo,
+			('id'):			id,
+			//('estado'):		estado
+			]
+		
+		////	Evaluación		////	
+		String reglas
+		Integer puntaje
+		
+		if (select.get('DAC_REGLAS') == 'null' || select.get('DAC_REGLAS') == null) {
+			reglas 	= 	''
 		}else {
-			fecha_negocio 	=	select.get('DAC_FECHA_NEGOCIO') 	
+			reglas 	= 	select.get('DAC_REGLAS')
 		}
-
+		
+		if (select.get('DAC_SCORING1') == 'null' || select.get('DAC_SCORING1') == null) {
+			puntaje = 	0
+		}else {	
+			puntaje	=	select.get('DAC_SCORING1')
+		}
+		
+		Map evaluacion = [
+			('puntaje'):	puntaje,
+			('reglas'):		reglas
+			]
+						
 		Map dato_db = [:]
 		
-		dato_db.tipo			= 	tipo
-		dato_db.id				= 	id
-		dato_db.fecha_negocio	=	fecha_negocio	
+		dato_db.credito				=	credito
+		dato_db.importe				= 	importe
+		dato_db.fechaNegocio		=	fechaNegocio
+		dato_db.dest_trx			= 	dest_trx
+		dato_db.dest_terminal		=	dest_terminal
+		dato_db.dest_adicional		=	dest_adicional
+		dato_db.dest_ori_trx_id		=	dest_ori_trx_id
+		dato_db.objeto				=	objeto
+		dato_db.evaluacion			=	evaluacion		
 		
-		String tipoB, idB, fecha_negocioB1
+		response.remove('respuesta')
+		response.remove('fechaHoraEjecucion')
+		response.objeto.estado.remove('descripcion')
+		response.objeto.remove('estado')
 		
-		tipoB 						= 	response.tipo
-		idB 						= 	response.id
-		fecha_negocioB1 			= 	response.fecha_negocio
-		String[] fecha_negocioB2	= 	fecha_negocioB1.split("T")
-		String fecha_negocioB		= 	fecha_negocioB2[0]	
-				
-		Map response1 = [:]
+		String importeBody = response.importe.importe		
+		String importeB
+	
+		if(importeBody.contains(".")) {
+			String[] e = importeBody.split("\\.")
+			String[] r = e[1]
+			String f = e[1]
+			Integer y = e[1].length()
+			Integer dif
+			String t = ''
+			String z = ''
+			
+			if(y<4) {
+				for (i = y; i < 4; i++) {
+					z += 0
+				}
+				t = f+z
+			}else {
+				for(i = 0; i < a; i++) {
+					if(r[i]!=0)
+						t += r[i]
+				}
+			}
+			importeB = e[0]+'.'+t
+		}else {
+			importeB = importeBody
+		}
 		
-		response1.tipo				=	tipoB
-		response1.id				= 	idB
-		response1.fecha_negocio 	= 	fecha_negocioB
-		
-		errores = coelsa.Util.validar(response1, dato_db)
-		
+		response.importe.importe = importeB
+		response.dest_ori_trx_id = response.dest_ori_trx_id.toString()
+
+		//errores = ''
+		errores = coelsa.Util.validar(response, dato_db)
 		respuesta = [
 				db:[
 					querybody:	"SELECT * FROM DEBIN_ACTIVAS WHERE DAC_ID_HASH =\'$response.id\'",

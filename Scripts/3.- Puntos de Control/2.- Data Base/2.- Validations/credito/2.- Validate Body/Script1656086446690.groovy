@@ -149,9 +149,7 @@ if (response != null) {
 		credin.ori_terminal			= ori_terminal
 		credin.ori_adicional		= ori_adicional
 		credin.datosGenerador		= datosGenerador
-		credin.descripcion			= descripcion
-		
-		println credin							
+		credin.descripcion			= descripcion				
 		
 		//TODO
 		// Campos que faltan definir
