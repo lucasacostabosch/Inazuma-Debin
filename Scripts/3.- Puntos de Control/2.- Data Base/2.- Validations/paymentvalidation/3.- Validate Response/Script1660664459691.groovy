@@ -24,8 +24,9 @@ if (response != null) {
 	if(select != null) {
 		
 		String qr_id
+		qr_id 	= 	select.get('DAC_ID')
 		
-		def value = select.get('DAC_ADD_DT')
+		def value = select.get('DAC_IMPORTE')
 		//def currency
 		
 		Map amount = [
@@ -35,27 +36,27 @@ if (response != null) {
 		
 		String code, description
 		
-		code			=	select.get('')
-		description		=	select.get('')
+		//code			=	select.get('')
+		//description		=	select.get('')
 		
-		Map on_error = [
+		/*Map on_error = [
 			('code'):			code,
 			('description'):	description
 			]
-		
+		*/
 		String status
 		
-		status 	=	select.get('')
+		//status 	=	select.get('')
 				
-		Map validation_status = [
-			('status'):		status,
-			('on_error'):	on_error
-			]
+		//Map validation_status = [
+			//('status'):		status,
+			//('on_error'):	on_error
+			//]
 			
 		String cbu, cvu
 		
-		cbu =	select.get('')
-		cvu	=	select.get('')	
+		cbu =	select.get('DAC_CREDITO_CBU')
+		cvu	=	select.get('DAC_CREDITO_CVU')	
 		
 		Map account = [
 			('cbu'): 	cbu,
@@ -64,25 +65,24 @@ if (response != null) {
 			
 		String soft_descriptor, cuit, field_of_activity, transaction_reference_id
 		
-		soft_descriptor				=	select.get('')
-		cuit						=	select.get('')
-		field_of_activity			=	select.get('')
-		transaction_reference_id	=	select.get('')
+		//soft_descriptor				=	select.get('???')
+		cuit						=	select.get('DAC_CREDITO_CVU_CUIT')
+		//field_of_activity			=	select.get('')
+		//transaction_reference_id	=	select.get('')
 					
 		Map merchant = [
-			('soft_descriptor'):			soft_descriptor,
+			//('soft_descriptor'):			soft_descriptor,
 			('cuit'):						cuit,
-			('field_of_activity'):			field_of_activity,
-			('transaction_reference_id'):	transaction_reference_id,
+			//('field_of_activity'):			field_of_activity,
+			//('transaction_reference_id'):	transaction_reference_id,
 			('account'):					account
 			]
 			
-		String 	merchant, credit_account, identification_number, transaction_type
+		String 	credit_account, identification_number, transaction_type
 		
-		merchant				=	select.get('')	
-		credit_account			=	select.get('')
-		identification_number	=	select.get('')
-		transaction_type		=	select.get('')
+		credit_account			=	select.get('DAC_DEBITO_CTA_PUENTE_CBU')
+		identification_number	=	select.get('DAC_DEBITO_CTA_PUENTE_CUIT')
+		transaction_type		=	select.get('DAC_CONCEPTO')
 				
 		Map validation_data = [
 			('merchant'):				merchant,
@@ -93,34 +93,18 @@ if (response != null) {
 							
 		Map dato_db = [:]
 		dato_db.qr_id				=	qr_id
-		dato_db.amount				=	amount
-		dato_db.validation_status	=	validation_status
+		//dato_db.amount				=	amount
+		//dato_db.validation_status	=	validation_status
 		dato_db.validation_data		=	validation_data
+	
+		println response
+		println dato_db
 
-				
-		/*String	fecha1response, addDtB, fecha2response, fechaExpiracionB, puntaje, reglas		
-					
-		fecha1response 		= 	response.debin.addDt
-		addDtB 				= 	fecha1response.replaceAll('T', ' ')
-		fecha2response 		= 	response.debin.fechaExpiracion
-		fechaExpiracionB 	= 	fecha2response.replaceAll('T', ' ')
-		puntaje 			=	response.evaluacion.puntaje
-		reglas 				= 	response.evaluacion.reglas*/
-			
-		/*Map response1 = [:]
-			
-		response1 = [
-						('addDt'):addDtB,
-						('fechaExpiracion'):fechaExpiracionB,
-						('puntaje'):puntaje,
-						('reglas'):reglas
-					]*/
-							
-		//errores = coelsa.Util.validar(response, dato_db)
-		errores = ''				
+		//errores = ''				
+		errores = coelsa.Util.validar(response, dato_db)
 		respuesta = [
 					db:[
-						querybody:	"SELECT * FROM DEBIN_ACTIVAS WHERE DAC_ID_HASH =\'$response.debin.id\'",
+						querybody:	"SELECT * FROM DEBIN_ACTIVAS WHERE DAC_ID_HASH =\'$qr_id_r\'",
 						selectresponse: select
 						],
 						errores: errores
@@ -129,7 +113,7 @@ if (response != null) {
 		errores = 'Response: Consulta sin resultados '
 		respuesta = [
 						db: [
-							querybody:	"SELECT * FROM DEBIN_ACTIVAS WHERE DAC_ID_HASH =\'$response.debin.id\'",
+							querybody:	"SELECT * FROM DEBIN_ACTIVAS WHERE DAC_ID_HASH =\'$qr_id_r\'",
 							selectbody:	select
 							],
 						errores: errores

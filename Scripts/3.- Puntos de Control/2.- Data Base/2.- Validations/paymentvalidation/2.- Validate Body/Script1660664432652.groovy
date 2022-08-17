@@ -44,10 +44,10 @@ if (response != null) {
 		//type 	= 	select.get('')
 		number 	= 	select.get('DAC_DEBITO_CVU_CUIT')
 		
-		Map document = [
+		//Map document = [
 			//('type'):	type,
 			//('number'): number
-			]
+			//]
 		
 		String account_cbu, account_cvu
 		
@@ -79,7 +79,7 @@ if (response != null) {
 		Map payer = [
 			('name'):					payer_name,
 			('identification_number'):	identification_number,
-			('document'):				document,
+			//('document'):				document,
 			('account'):				account,
 			('wallet'):					wallet	
 			]
@@ -93,8 +93,7 @@ if (response != null) {
 			('reverse_domain'):	reverse_domain,
 			('cuit'):			acquirer_cuit	
 			]
-		
-		
+				
 		String merchant_account_cbu, merchant_account_cvu
 		
 		merchant_account_cbu	=	select.get('DAC_CREDITO_CBU')
@@ -127,8 +126,9 @@ if (response != null) {
 		//Body.objeto.ori_trx_id = ori_trx_id_b
 		//Body.operacion_original.remove('tipo')
 		Body.amount.remove('currency')
-		Body.payer.document.remove('type')
-		Body.payer.document.remove('number')
+		Body.payer.remove('document')
+		//Body.payer.document.remove('type')
+		//Body.payer.document.remove('number')
 		Body.payer.wallet.remove('bcra_id')
 		
 		String valueBody 	= 	Body.amount.value		
