@@ -84,6 +84,7 @@ switch (Accion) {
 
 
 'Payments'
+
 switch (Accion) {
 	case 'paymentvalidation':
 		'Configuracion rest:\r\n\t* Metodo: [POST, GET, DELETE, PUT]\r\n\t* Endpoint: url del metodo a ejecutar.\r\n\t* Semilla: Path donde se creo el archivo para el body. (Se debe usar contra barra \\ )\r\n\t* Respuesta Esperada: La respuesta que espero cuando el caso sale ok.\r\n'
@@ -92,6 +93,7 @@ switch (Accion) {
 
 		'Corte, todo lo que cree debe ir por encima de esta sentencia.'
 		break
+		
 	case 'payment':
 		'Configuracion rest:\r\n\t* Metodo: [POST, GET, DELETE, PUT]\r\n\t* Endpoint: url del metodo a ejecutar.\r\n\t* Semilla: Path donde se creo el archivo para el body. (Se debe usar contra barra \\ )\r\n\t* Respuesta Esperada: La respuesta que espero cuando el caso sale ok.\r\n'
 		CustomKeywords.'coelsa.Accion.rest'(Configuracion, 'POST', '/administrators/payments', 'Interoperabilidad\\payment.json',
@@ -110,6 +112,7 @@ switch (Accion) {
 
 		'Corte, todo lo que cree debe ir por encima de esta sentencia.'
 		break
+		
 	case 'refund':
 		'Configuracion rest:\r\n\t* Metodo: [POST, GET, DELETE, PUT]\r\n\t* Endpoint: url del metodo a ejecutar.\r\n\t* Semilla: Path donde se creo el archivo para el body. (Se debe usar contra barra \\ )\r\n\t* Respuesta Esperada: La respuesta que espero cuando el caso sale ok.\r\n'
 		CustomKeywords.'coelsa.Accion.rest'(Configuracion, 'POST', '/administrators/refunds', 'Interoperabilidad\\Refund.json',

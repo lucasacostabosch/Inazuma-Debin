@@ -21,7 +21,7 @@
          <id>4ec48e0a-978b-419b-a639-39f546d904f8</id>
          <iterationEntity>
             <iterationType>SPECIFIC</iterationType>
-            <value>2</value>
+            <value>8, 10</value>
          </iterationEntity>
          <testDataId>Data Files/Credin</testDataId>
       </testDataLink>
