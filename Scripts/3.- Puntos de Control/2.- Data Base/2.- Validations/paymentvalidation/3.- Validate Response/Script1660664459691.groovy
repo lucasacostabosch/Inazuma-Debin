@@ -7,7 +7,6 @@ import com.kms.katalon.core.util.KeywordUtil
 import java.util.Date
 import java.text.SimpleDateFormat
 import java.util.Calendar
-//import java.util.GregorianCalendar
 
 def jsonSlurper = new JsonSlurper()
 
@@ -24,103 +23,20 @@ if (response != null) {
 	if(select != null) {
 		
 		String qr_id
-		
-		def value = select.get('DAC_ADD_DT')
-		//def currency
+		qr_id 	= 	select.get('DAC_ID')
+		def value = select.get('DAC_IMPORTE')
 		
 		Map amount = [
-			('value'):		value,
-			//('currency'):	currency
+			('value'):		value
 			]
 		
-		String code, description
-		
-		code			=	select.get('')
-		description		=	select.get('')
-		
-		Map on_error = [
-			('code'):			code,
-			('description'):	description
-			]
-		
-		String status
-		
-		status 	=	select.get('')
-				
-		Map validation_status = [
-			('status'):		status,
-			('on_error'):	on_error
-			]
-			
-		String cbu, cvu
-		
-		cbu =	select.get('')
-		cvu	=	select.get('')	
-		
-		Map account = [
-			('cbu'): 	cbu,
-			('cvu'):	cvu
-			]
-			
-		String soft_descriptor, cuit, field_of_activity, transaction_reference_id
-		
-		soft_descriptor				=	select.get('')
-		cuit						=	select.get('')
-		field_of_activity			=	select.get('')
-		transaction_reference_id	=	select.get('')
-					
-		Map merchant = [
-			('soft_descriptor'):			soft_descriptor,
-			('cuit'):						cuit,
-			('field_of_activity'):			field_of_activity,
-			('transaction_reference_id'):	transaction_reference_id,
-			('account'):					account
-			]
-			
-		String 	merchant, credit_account, identification_number, transaction_type
-		
-		merchant				=	select.get('')	
-		credit_account			=	select.get('')
-		identification_number	=	select.get('')
-		transaction_type		=	select.get('')
-				
-		Map validation_data = [
-			('merchant'):				merchant,
-			('credit_account'):			credit_account,
-			('identification_number'):	identification_number,
-			('transaction_type'):		transaction_type
-			]
-							
-		Map dato_db = [:]
-		dato_db.qr_id				=	qr_id
-		dato_db.amount				=	amount
-		dato_db.validation_status	=	validation_status
-		dato_db.validation_data		=	validation_data
+		dato_db 	= [:]
+		dato_db.qr_id	=	qr_id
 
-				
-		/*String	fecha1response, addDtB, fecha2response, fechaExpiracionB, puntaje, reglas		
-					
-		fecha1response 		= 	response.debin.addDt
-		addDtB 				= 	fecha1response.replaceAll('T', ' ')
-		fecha2response 		= 	response.debin.fechaExpiracion
-		fechaExpiracionB 	= 	fecha2response.replaceAll('T', ' ')
-		puntaje 			=	response.evaluacion.puntaje
-		reglas 				= 	response.evaluacion.reglas*/
-			
-		/*Map response1 = [:]
-			
-		response1 = [
-						('addDt'):addDtB,
-						('fechaExpiracion'):fechaExpiracionB,
-						('puntaje'):puntaje,
-						('reglas'):reglas
-					]*/
-							
-		//errores = coelsa.Util.validar(response, dato_db)
-		errores = ''				
+		errores = coelsa.Util.validar(response, dato_db)
 		respuesta = [
 					db:[
-						querybody:	"SELECT * FROM DEBIN_ACTIVAS WHERE DAC_ID_HASH =\'$response.debin.id\'",
+						querybody:	"SELECT * FROM DEBIN_ACTIVAS WHERE DAC_ID_HASH =\'$qr_id_r\'",
 						selectresponse: select
 						],
 						errores: errores
@@ -129,7 +45,7 @@ if (response != null) {
 		errores = 'Response: Consulta sin resultados '
 		respuesta = [
 						db: [
-							querybody:	"SELECT * FROM DEBIN_ACTIVAS WHERE DAC_ID_HASH =\'$response.debin.id\'",
+							querybody:	"SELECT * FROM DEBIN_ACTIVAS WHERE DAC_ID_HASH =\'$qr_id_r\'",
 							selectbody:	select
 							],
 						errores: errores
