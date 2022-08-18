@@ -23,7 +23,6 @@ if (response != null) {
 	if(select != null) {
 										
 		String 	authorization_code 
-		//Integer	qr_id, qr_raw
 		
 		authorization_code 		= 	select.get('DAC_CODIGO_AUTORIZACION')
 		def qr_id 				= 	select.get('DAC_ID')
@@ -32,43 +31,51 @@ if (response != null) {
 		String value, currency
 		
 		value 		=	select.get('DAC_IMPORTE')
-		//currency 	= 	select.get('')
 		
 		Map amount = [
 				('value'):		value
-				//('currency'):	currency
 			]
-		
-		String type, number
-		
-		//type 	= 	select.get('')
-		number 	= 	select.get('DAC_DEBITO_CVU_CUIT')
-		
-		//Map document = [
-			//('type'):	type,
-			//('number'): number
-			//]
 		
 		String account_cbu, account_cvu
 		
 		account_cbu	=	select.get('DAC_DEBITO_CBU')
 		account_cvu	=	select.get('DAC_DEBITO_CVU')
 		
+		if(account_cvu != '' || account_cvu != null) {
+			account_cbu	=	''
+			account_cvu	=	select.get('DAC_DEBITO_CVU')
+		}else {
+			account_cbu	=	select.get('DAC_DEBITO_CBU')
+			account_cvu	=	select.get('DAC_DEBITO_CVU')
+		}
+				
 		Map account = [
 			('cbu'):	account_cbu,
-			('cvu'):	account_cvu	
+			('cvu'):	account_cvu
 			]
-		
-		String wallet_name, wallet_cuit, wallet_bcra_id
+				
+		String wallet_name, wallet_cuit, wallet_bcra_id, wa_bcra
 		
 		wallet_name		=	select.get('DAC_WALLET_NAME')
 		wallet_cuit		=	select.get('DAC_WALLET_CUIT')
-		//wallet_bcra_id	=	select.get('')
+		wa_bcra 		= 	select.get('DAC_QR_ID_BILLETERA')
 		
+		if(wa_bcra.length()<5) {
+			String q 	= ''
+			String v 	= ''
+			for (i = wa_bcra.length(); i < 5; i++) {
+				q += 0
+			}
+			v = q+wa_bcra
+			wa_bcra = v
+		}else {
+			wa_bcra = wa_bcra
+		}	
+
 		Map wallet = [
 			('name'):		wallet_name,
-			('cuit'):		wallet_cuit
-			//('bcra_id'): 	wallet_bcra_id
+			('cuit'):		wallet_cuit,
+			('bcra_id'): 	wa_bcra
 			]
 		
 		String payer_name, identification_number
@@ -79,7 +86,6 @@ if (response != null) {
 		Map payer = [
 			('name'):					payer_name,
 			('identification_number'):	identification_number,
-			//('document'):				document,
 			('account'):				account,
 			('wallet'):					wallet	
 			]
@@ -123,12 +129,8 @@ if (response != null) {
 		paymentvalidation.merchant				= merchant		
 	
 		//TODO		
-		//Body.objeto.ori_trx_id = ori_trx_id_b
-		//Body.operacion_original.remove('tipo')
 		Body.amount.remove('currency')
 		Body.payer.remove('document')
-		//Body.payer.document.remove('type')
-		//Body.payer.document.remove('number')
 		Body.payer.wallet.remove('bcra_id')
 		
 		String valueBody 	= 	Body.amount.value		
@@ -162,7 +164,6 @@ if (response != null) {
 		Body.amount.value 	= 	valueB
 
 		errores = coelsa.Util.validar(paymentvalidation, Body)				
-		//errores = ''
 		respuesta1 = [
 				db: [
 					querybody:	"SELECT * FROM DEBIN_ACTIVAS WHERE DAC_ID =\'$qr_id_r\'",

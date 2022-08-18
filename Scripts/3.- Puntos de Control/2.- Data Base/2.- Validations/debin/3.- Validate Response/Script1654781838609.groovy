@@ -7,7 +7,6 @@ import com.kms.katalon.core.util.KeywordUtil
 import java.util.Date
 import java.text.SimpleDateFormat
 import java.util.Calendar
-//import java.util.GregorianCalendar
 
 def jsonSlurper = new JsonSlurper()
 

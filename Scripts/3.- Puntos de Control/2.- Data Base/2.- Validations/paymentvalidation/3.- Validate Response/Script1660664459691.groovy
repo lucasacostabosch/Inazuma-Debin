@@ -7,7 +7,6 @@ import com.kms.katalon.core.util.KeywordUtil
 import java.util.Date
 import java.text.SimpleDateFormat
 import java.util.Calendar
-//import java.util.GregorianCalendar
 
 def jsonSlurper = new JsonSlurper()
 
@@ -25,82 +24,15 @@ if (response != null) {
 		
 		String qr_id
 		qr_id 	= 	select.get('DAC_ID')
-		
 		def value = select.get('DAC_IMPORTE')
-		//def currency
 		
 		Map amount = [
-			('value'):		value,
-			//('currency'):	currency
+			('value'):		value
 			]
 		
-		String code, description
-		
-		//code			=	select.get('')
-		//description		=	select.get('')
-		
-		/*Map on_error = [
-			('code'):			code,
-			('description'):	description
-			]
-		*/
-		String status
-		
-		//status 	=	select.get('')
-				
-		//Map validation_status = [
-			//('status'):		status,
-			//('on_error'):	on_error
-			//]
-			
-		String cbu, cvu
-		
-		cbu =	select.get('DAC_CREDITO_CBU')
-		cvu	=	select.get('DAC_CREDITO_CVU')	
-		
-		Map account = [
-			('cbu'): 	cbu,
-			('cvu'):	cvu
-			]
-			
-		String soft_descriptor, cuit, field_of_activity, transaction_reference_id
-		
-		//soft_descriptor				=	select.get('???')
-		cuit						=	select.get('DAC_CREDITO_CVU_CUIT')
-		//field_of_activity			=	select.get('')
-		//transaction_reference_id	=	select.get('')
-					
-		Map merchant = [
-			//('soft_descriptor'):			soft_descriptor,
-			('cuit'):						cuit,
-			//('field_of_activity'):			field_of_activity,
-			//('transaction_reference_id'):	transaction_reference_id,
-			('account'):					account
-			]
-			
-		String 	credit_account, identification_number, transaction_type
-		
-		credit_account			=	select.get('DAC_DEBITO_CTA_PUENTE_CBU')
-		identification_number	=	select.get('DAC_DEBITO_CTA_PUENTE_CUIT')
-		transaction_type		=	select.get('DAC_CONCEPTO')
-				
-		Map validation_data = [
-			('merchant'):				merchant,
-			('credit_account'):			credit_account,
-			('identification_number'):	identification_number,
-			('transaction_type'):		transaction_type
-			]
-							
-		Map dato_db = [:]
-		dato_db.qr_id				=	qr_id
-		//dato_db.amount				=	amount
-		//dato_db.validation_status	=	validation_status
-		dato_db.validation_data		=	validation_data
-	
-		println response
-		println dato_db
+		dato_db 	= [:]
+		dato_db.qr_id	=	qr_id
 
-		//errores = ''				
 		errores = coelsa.Util.validar(response, dato_db)
 		respuesta = [
 					db:[
