@@ -26,6 +26,7 @@
   },
   "original_transaction": {
     "authorization_code": "0540E3",
+    "transaction_reference_id": "string",
     "trace_id": "6d0f4d635cf764ce", 
     "datetime": "2021-10-25T19:23:40.936Z",
     "type": "CCT",

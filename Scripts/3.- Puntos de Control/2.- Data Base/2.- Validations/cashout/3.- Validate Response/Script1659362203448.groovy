@@ -115,7 +115,7 @@ if (response != null) {
 		
 		dato_db.credito				=	credito
 		dato_db.importe				= 	importe
-		dato_db.fechaNegocio		=	fechaNegocio
+		//dato_db.fechaNegocio		=	fechaNegocio
 		dato_db.dest_trx			= 	dest_trx
 		dato_db.dest_terminal		=	dest_terminal
 		dato_db.dest_adicional		=	dest_adicional
@@ -125,6 +125,7 @@ if (response != null) {
 		
 		response.remove('respuesta')
 		response.remove('fechaHoraEjecucion')
+		response.remove('fechaNegocio')
 		response.objeto.estado.remove('descripcion')
 		response.objeto.remove('estado')
 		
@@ -159,7 +160,6 @@ if (response != null) {
 		response.importe.importe = importeB
 		response.dest_ori_trx_id = response.dest_ori_trx_id.toString()
 
-		//errores = ''
 		errores = coelsa.Util.validar(response, dato_db)
 		respuesta = [
 				db:[
