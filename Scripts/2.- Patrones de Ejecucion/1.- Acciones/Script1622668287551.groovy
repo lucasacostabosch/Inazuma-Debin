@@ -97,7 +97,7 @@ switch (Accion) {
 	case 'payment':
 		'Configuracion rest:\r\n\t* Metodo: [POST, GET, DELETE, PUT]\r\n\t* Endpoint: url del metodo a ejecutar.\r\n\t* Semilla: Path donde se creo el archivo para el body. (Se debe usar contra barra \\ )\r\n\t* Respuesta Esperada: La respuesta que espero cuando el caso sale ok.\r\n'
 		CustomKeywords.'coelsa.Accion.rest'(Configuracion, 'POST', '/administrators/payments', 'Interoperabilidad\\payment.json',
-			[('StatusCode') : 201, ('Mensaje') : '{"code":"APPROVED","description":"PAYMENT CREACION CORRECTA"}'])
+			[('StatusCode') : 201, ('Mensaje') : '{"transaction":{"code":"APPROVED","description":"PAYMENT CREACION CORRECTA"}}'])
 
 		'Corte, todo lo que cree debe ir por encima de esta sentencia.'
 		break	
@@ -166,6 +166,13 @@ switch (Accion) {
 
         'Corte, todo lo que cree debe ir por encima de esta sentencia.'
         break
+	case 'qrsolicitudcontracargopayment':
+		'Configuracion rest:\r\n\t* Metodo: [POST, GET, DELETE, PUT]\r\n\t* Endpoint: url del metodo a ejecutar.\r\n\t* Semilla: Path donde se creo el archivo para el body. (Se debe usar contra barra \\ )\r\n\t* Respuesta Esperada: La respuesta que espero cuando el caso sale ok.\r\n'
+		CustomKeywords.'coelsa.Accion.rest'(Configuracion, 'POST', '/apiDebinV1/QR/QRSolicitudContraCargo', 'QR\\QRSolicitudContraCargo.json',
+			[('StatusCode') : 200, ('Mensaje') : '{"respuesta": {"codigo": "5600","descripcion": "CONTRA-CARGO REALIZADO CORRECTAMENTE"}}'])
+
+		'Corte, todo lo que cree debe ir por encima de esta sentencia.'
+		break
     case 'altabilletera':
         'Configuracion rest:\r\n\t* Metodo: [POST, GET, DELETE, PUT]\r\n\t* Endpoint: url del metodo a ejecutar.\r\n\t* Semilla: Path donde se creo el archivo para el body. (Se debe usar contra barra \\ )\r\n\t* Respuesta Esperada: La respuesta que espero cuando el caso sale ok.\r\n'
         CustomKeywords.'coelsa.Accion.rest'(Configuracion, 'POST', '/apiDebinV1/QR/Billetera', 'QR\\Billetera\\AltaBilletera.json', 

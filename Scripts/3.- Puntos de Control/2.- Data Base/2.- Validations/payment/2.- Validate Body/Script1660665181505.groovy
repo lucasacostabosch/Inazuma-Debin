@@ -15,17 +15,17 @@ Map Body = GlobalVariable.Body
 Map respuesta1
 
 if (response != null) {
-	
+		
 	def qr_id_r = response.qr_id
 	
-	Map select = CustomKeywords.'sql.DML.select'('DEBIN', '*, DATEDIFF (Minute, DAC_ADD_DT, DAC_FECHA_EXPIRACION) as TIEMPOEXPIRACION', 'DEBIN_ACTIVAS', 'DAC_ID =\''+qr_id_r+'\'', '')[0]
+	Map select = CustomKeywords.'sql.DML.select'('DEBIN', '*, DATEDIFF (Minute, DAC_ADD_DT, DAC_FECHA_EXPIRACION) as TIEMPOEXPIRACION', 'DEBIN_ACTIVAS', 'DAC_QR_ID_TRX =\''+qr_id_r+'\'', '')[0]
 	
 	if(select != null) {
-										
-		String 	authorization_code 
+									
+		String 	authorization_code, qr_id
 		
 		authorization_code 		= 	select.get('DAC_CODIGO_AUTORIZACION')
-		def qr_id 				= 	select.get('DAC_ID')
+		qr_id 					= 	select.get('DAC_QR_ID_TRX')
 		def qr_raw 				= 	select.get('DAC_QR')
 		
 		String value, currency
@@ -119,14 +119,14 @@ if (response != null) {
 			('account'):	merchantaccount
 			]
 							
-		Map paymentvalidation = [:]
-		paymentvalidation.authorization_code	= authorization_code
-		paymentvalidation.qr_id					= qr_id
-		paymentvalidation.qr_raw				= qr_raw
-		paymentvalidation.amount 				= amount
-		paymentvalidation.payer					= payer
-		paymentvalidation.acquirer				= acquirer
-		paymentvalidation.merchant				= merchant		
+		Map payment = [:]
+		payment.authorization_code	= authorization_code
+		payment.qr_id				= qr_id
+		payment.qr_raw				= qr_raw
+		payment.amount 				= amount
+		payment.payer				= payer
+		payment.acquirer			= acquirer
+		payment.merchant			= merchant		
 	
 		//TODO		
 		Body.amount.remove('currency')
@@ -158,12 +158,13 @@ if (response != null) {
 			}
 			valueB 	= 	e[0]+'.'+t
 		}else {
-			valueB 	= 	valueB
+			valueB 	= 	valueBody+'.0000'
 		}
 		
 		Body.amount.value 	= 	valueB
-
-		errores = coelsa.Util.validar(paymentvalidation, Body)				
+		Body.qr_id			= 	Body.qr_id.toString()
+		
+		errores = coelsa.Util.validar(payment, Body)				
 		respuesta1 = [
 				db: [
 					querybody:	"SELECT * FROM DEBIN_ACTIVAS WHERE DAC_ID =\'$qr_id_r\'",
@@ -184,15 +185,6 @@ if (response != null) {
 					]
 	}
 	
-	/*errores = ''
-	respuesta1 = [
-					db: [
-						querybody:	"SELECT * FROM DEBIN_ACTIVAS WHERE DAC_ID =\'$qr_id_r\' ",
-						selectbody:	select
-						],
-					errores: errores
-				]*/
-		
 }else {
 	
 	errores = 'Respuesta vacia. '

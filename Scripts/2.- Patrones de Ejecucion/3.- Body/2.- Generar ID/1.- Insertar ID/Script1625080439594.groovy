@@ -23,7 +23,7 @@ if (Body.operacion != null) {
 	}
 }
 
-if(GlobalVariable.Accion.equals("payment") || GlobalVariable.Accion.equals("paymentvalidation") ) {
+if(GlobalVariable.Accion.equals("payment") || GlobalVariable.Accion.equals("paymentvalidation")) {
 	
 	if(GlobalVariable.ejecucion.InterOperable == null) {
 		Number inter = WebUI.callTestCase(findTestCase('3.- Puntos de Control/3.- Funciones/1.- Trx ID'),

@@ -32,6 +32,7 @@ if (response != null) {
 		
 		dato_db 	= [:]
 		dato_db.qr_id	=	qr_id
+		dato_db.amount	= 	amount
 
 		errores = coelsa.Util.validar(response, dato_db)
 		respuesta = [

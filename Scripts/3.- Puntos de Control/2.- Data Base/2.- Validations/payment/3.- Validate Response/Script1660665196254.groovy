@@ -18,21 +18,34 @@ if (response != null) {
 	
 	def qr_id_r = response.qr_id
 	
-	Map select = CustomKeywords.'sql.DML.select'('DEBIN', '*, DATEDIFF (Minute, DAC_ADD_DT, DAC_FECHA_EXPIRACION) as TIEMPOEXPIRACION', 'DEBIN_ACTIVAS', 'DAC_ID =\''+qr_id_r+'\'', '')[0]
+	Map select = CustomKeywords.'sql.DML.select'('DEBIN', '*, DATEDIFF (Minute, DAC_ADD_DT, DAC_FECHA_EXPIRACION) as TIEMPOEXPIRACION', 'DEBIN_ACTIVAS', 'DAC_QR_ID_TRX =\''+qr_id_r+'\'', '')[0]
 	
 	if(select != null) {
 		
 		String qr_id
-		qr_id 	= 	select.get('DAC_ID')
+		qr_id 	= 	select.get('DAC_QR_ID_TRX')
 		def value = select.get('DAC_IMPORTE')
 		
 		Map amount = [
 			('value'):		value
 			]
 		
-		dato_db 	= [:]
+		dato_db 		= [:]
 		dato_db.qr_id	=	qr_id
-
+		dato_db.amount	=	amount
+		
+		response.remove('merchant')
+		response.remove('payer')
+		response.transaction.remove('authorization_code')
+		response.transaction.remove('transaction_reference_id')
+		response.transaction.remove('on_rejection')
+		response.transaction.remove('datetime')
+		response.transaction.remove('type')
+		response.transaction.remove('amount')
+		
+		println response
+		println dato_db
+		
 		errores = coelsa.Util.validar(response, dato_db)
 		respuesta = [
 					db:[

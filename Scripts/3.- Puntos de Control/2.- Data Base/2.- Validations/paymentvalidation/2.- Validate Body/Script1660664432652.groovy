@@ -158,7 +158,7 @@ if (response != null) {
 			}
 			valueB 	= 	e[0]+'.'+t
 		}else {
-			valueB 	= 	valueB
+			valueB 	= 	valueBody+'.0000'
 		}
 		
 		Body.amount.value 	= 	valueB

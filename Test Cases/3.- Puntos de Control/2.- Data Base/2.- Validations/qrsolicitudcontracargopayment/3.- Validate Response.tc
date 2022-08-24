@@ -4,17 +4,17 @@
    <name>3.- Validate Response</name>
    <tag></tag>
    <comment></comment>
-   <testCaseGuid>c310309c-f647-4017-bc37-9a635c5b6478</testCaseGuid>
+   <testCaseGuid>b6205bde-9297-4ca0-b1b2-d9d5f3277984</testCaseGuid>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>8f76ea89-8db0-4f96-963a-3f59d0e5fab9</variableId>
+      <variableId>399b4fd1-89a2-4d23-90fd-902f5d84cbf6</variableId>
    </variableLinks>
    <variable>
       <defaultValue>[:]</defaultValue>
       <description></description>
-      <id>8f76ea89-8db0-4f96-963a-3f59d0e5fab9</id>
+      <id>399b4fd1-89a2-4d23-90fd-902f5d84cbf6</id>
       <masked>false</masked>
       <name>response</name>
    </variable>
