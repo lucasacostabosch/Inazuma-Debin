@@ -36,7 +36,7 @@
       <matchCondition>equals</matchCondition>
       <name>X-B3-TraceId</name>
       <type>Main</type>
-      <value>${GlobalVariable.ejecucion.InterOperable}</value>
+      <value>${GlobalVariable.Debin.InterOperable}</value>
       <webElementGuid>4949d128-1aa1-405d-b858-d7d023566749</webElementGuid>
    </httpHeaderProperties>
    <httpHeaderProperties>
@@ -44,7 +44,7 @@
       <matchCondition>equals</matchCondition>
       <name>X-B3-SpanId</name>
       <type>Main</type>
-      <value>${GlobalVariable.ejecucion.InterOperable}</value>
+      <value>${GlobalVariable.Debin.InterOperable}</value>
       <webElementGuid>e205a70d-580e-49ca-a283-af7581fdb80a</webElementGuid>
    </httpHeaderProperties>
    <katalonVersion>8.0.1</katalonVersion>

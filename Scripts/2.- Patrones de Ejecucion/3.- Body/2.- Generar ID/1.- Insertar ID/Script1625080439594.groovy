@@ -23,9 +23,13 @@ if (Body.operacion != null) {
 	}
 }
 
-if(GlobalVariable.Accion.equals("payment") || GlobalVariable.Accion.equals("paymentvalidation") ) {
+if( GlobalVariable.Accion.equals("payment")
+ || GlobalVariable.Accion.equals("paymentvalidation")
+ || GlobalVariable.Accion.equals("refund")
+ || GlobalVariable.Accion.equals("refundvalidation")
+ ) {
 	
-	if(GlobalVariable.ejecucion.InterOperable == null) {
+	if(GlobalVariable.Debin.InterOperable == null) {
 		Number inter = WebUI.callTestCase(findTestCase('3.- Puntos de Control/3.- Funciones/1.- Trx ID'),
 				[	('SELECT') : 'TOP 1 DAC_ID',
 				 	('WHERE') :  '',
@@ -33,10 +37,9 @@ if(GlobalVariable.Accion.equals("payment") || GlobalVariable.Accion.equals("paym
 				 	('SQL_var_name') : 'DAC_ID'],
 				FailureHandling.STOP_ON_FAILURE)
 				
-		GlobalVariable.ejecucion.InterOperable = inter
+		GlobalVariable.Debin.InterOperable = inter
 	}
-	Body.qr_id = GlobalVariable.ejecucion.InterOperable
+	Body.qr_id = GlobalVariable.Debin.InterOperable
 }
 
 return Body
-
