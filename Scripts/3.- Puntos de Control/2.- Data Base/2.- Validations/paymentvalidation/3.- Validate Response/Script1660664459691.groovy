@@ -18,12 +18,12 @@ if (response != null) {
 	
 	def qr_id_r = response.qr_id
 	
-	Map select = CustomKeywords.'sql.DML.select'('DEBIN', '*, DATEDIFF (Minute, DAC_ADD_DT, DAC_FECHA_EXPIRACION) as TIEMPOEXPIRACION', 'DEBIN_ACTIVAS', 'DAC_ID =\''+qr_id_r+'\'', '')[0]
+	Map select = CustomKeywords.'sql.DML.select'('DEBIN', '*, DATEDIFF (Minute, DAC_ADD_DT, DAC_FECHA_EXPIRACION) as TIEMPOEXPIRACION', 'DEBIN_ACTIVAS', 'DAC_QR_ID_TRX =\''+qr_id_r+'\'', '')[0]
 	
 	if(select != null) {
 		
 		String qr_id
-		qr_id 	= 	select.get('DAC_ID')
+		qr_id 	= 	select.get('DAC_QR_ID_TRX')
 		def value = select.get('DAC_IMPORTE')
 		
 		Map amount = [
@@ -37,7 +37,7 @@ if (response != null) {
 		errores = coelsa.Util.validar(response, dato_db)
 		respuesta = [
 					db:[
-						querybody:	"SELECT * FROM DEBIN_ACTIVAS WHERE DAC_ID_HASH =\'$qr_id_r\'",
+						querybody:	"SELECT * FROM DEBIN_ACTIVAS WHERE DAC_QR_ID_TRX =\'$qr_id_r\'",
 						selectresponse: select
 						],
 						errores: errores
@@ -46,7 +46,7 @@ if (response != null) {
 		errores = 'Response: Consulta sin resultados '
 		respuesta = [
 						db: [
-							querybody:	"SELECT * FROM DEBIN_ACTIVAS WHERE DAC_ID_HASH =\'$qr_id_r\'",
+							querybody:	"SELECT * FROM DEBIN_ACTIVAS WHERE DAC_QR_ID_TRX =\'$qr_id_r\'",
 							selectbody:	select
 							],
 						errores: errores

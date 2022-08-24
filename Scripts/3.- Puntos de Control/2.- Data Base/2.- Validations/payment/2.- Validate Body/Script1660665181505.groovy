@@ -167,7 +167,7 @@ if (response != null) {
 		errores = coelsa.Util.validar(payment, Body)				
 		respuesta1 = [
 				db: [
-					querybody:	"SELECT * FROM DEBIN_ACTIVAS WHERE DAC_ID =\'$qr_id_r\'",
+					querybody:	"SELECT * FROM DEBIN_ACTIVAS WHERE DAC_QR_ID_TRX =\'$qr_id_r\'",
 					selectbody:	select
 					],
 				errores:	errores
@@ -178,7 +178,7 @@ if (response != null) {
 		errores = 'Request: Consulta sin resultados. '
 		respuesta1 = [
 						db: [
-							querybody:	"SELECT * FROM DEBIN_ACTIVAS WHERE DAC_ID =\'$qr_id_r\' ",
+							querybody:	"SELECT * FROM DEBIN_ACTIVAS WHERE DAC_QR_ID_TRX =\'$qr_id_r\' ",
 							selectbody:	select
 							],
 						errores: errores

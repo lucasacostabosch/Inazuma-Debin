@@ -49,7 +49,7 @@ if (response != null) {
 		errores = coelsa.Util.validar(response, dato_db)
 		respuesta = [
 					db:[
-						querybody:	"SELECT * FROM DEBIN_ACTIVAS WHERE DAC_ID_HASH =\'$qr_id_r\'",
+						querybody:	"SELECT * FROM DEBIN_ACTIVAS WHERE DAC_QR_ID_TRX =\'$qr_id_r\'",
 						selectresponse: select
 						],
 						errores: errores
@@ -58,7 +58,7 @@ if (response != null) {
 		errores = 'Response: Consulta sin resultados '
 		respuesta = [
 						db: [
-							querybody:	"SELECT * FROM DEBIN_ACTIVAS WHERE DAC_ID_HASH =\'$qr_id_r\'",
+							querybody:	"SELECT * FROM DEBIN_ACTIVAS WHERE DAC_QR_ID_TRX =\'$qr_id_r\'",
 							selectbody:	select
 							],
 						errores: errores

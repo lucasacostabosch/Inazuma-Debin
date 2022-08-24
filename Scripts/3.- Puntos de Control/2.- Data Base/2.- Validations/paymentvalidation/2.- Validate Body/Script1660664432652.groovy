@@ -18,14 +18,14 @@ if (response != null) {
 	
 	def qr_id_r = response.qr_id
 	
-	Map select = CustomKeywords.'sql.DML.select'('DEBIN', '*, DATEDIFF (Minute, DAC_ADD_DT, DAC_FECHA_EXPIRACION) as TIEMPOEXPIRACION', 'DEBIN_ACTIVAS', 'DAC_ID =\''+qr_id_r+'\'', '')[0]
+	Map select = CustomKeywords.'sql.DML.select'('DEBIN', '*, DATEDIFF (Minute, DAC_ADD_DT, DAC_FECHA_EXPIRACION) as TIEMPOEXPIRACION', 'DEBIN_ACTIVAS', 'DAC_QR_ID_TRX =\''+qr_id_r+'\'', '')[0]
 	
 	if(select != null) {
 										
-		String 	authorization_code 
+		String 	authorization_code, qr_id 
 		
 		authorization_code 		= 	select.get('DAC_CODIGO_AUTORIZACION')
-		def qr_id 				= 	select.get('DAC_ID')
+		qr_id 					= 	select.get('DAC_QR_ID_TRX')
 		def qr_raw 				= 	select.get('DAC_QR')
 		
 		String value, currency
@@ -37,9 +37,6 @@ if (response != null) {
 			]
 		
 		String account_cbu, account_cvu
-		
-		account_cbu	=	select.get('DAC_DEBITO_CBU')
-		account_cvu	=	select.get('DAC_DEBITO_CVU')
 		
 		if(account_cvu != '' || account_cvu != null) {
 			account_cbu	=	''
@@ -162,11 +159,12 @@ if (response != null) {
 		}
 		
 		Body.amount.value 	= 	valueB
+		Body.qr_id			= 	Body.qr_id.toString()
 
 		errores = coelsa.Util.validar(paymentvalidation, Body)				
 		respuesta1 = [
 				db: [
-					querybody:	"SELECT * FROM DEBIN_ACTIVAS WHERE DAC_ID =\'$qr_id_r\'",
+					querybody:	"SELECT * FROM DEBIN_ACTIVAS WHERE DAC_QR_ID_TRX =\'$qr_id_r\'",
 					selectbody:	select
 					],
 				errores:	errores
@@ -177,7 +175,7 @@ if (response != null) {
 		errores = 'Request: Consulta sin resultados. '
 		respuesta1 = [
 						db: [
-							querybody:	"SELECT * FROM DEBIN_ACTIVAS WHERE DAC_ID =\'$qr_id_r\' ",
+							querybody:	"SELECT * FROM DEBIN_ACTIVAS WHERE DAC_QR_ID_TRX =\'$qr_id_r\' ",
 							selectbody:	select
 							],
 						errores: errores
