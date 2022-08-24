@@ -1,0 +1,36 @@
+{
+    "authorization_code": "mYKSoP",
+    "qr_id": "0123456789123001",
+    "qr_raw": "00020101021143520016com.mercadolibre0128https://mpago.la/pos/242971350150011306858497515204970053030325802AR5917DIA ARGENTINA S A6015CAPITAL FEDERAL6304B7A8",
+    "amount": {
+        "value": 1000,
+        "currency": "ARS"
+    },
+    "payer": {
+        "name": "Coelsa Cuenta",
+        "identification_number": "23202020208",
+        "document": {
+            "type": "DNI",
+            "number": "20202020"
+        },
+        "account": {
+            "cbu": "",
+            "cvu": "0000210500000000212452"
+        },
+        "wallet": {
+            "name": "PAYPAUL",
+            "cuit": "20000000346"
+        }
+    },
+    "acquirer": {
+        "reverse_domain": "com.mercadolibre",
+        "cuit": "30703088534"
+    },
+    "merchant": {
+        "cuit": "20374372689",
+        "account": {
+            "cbu": "0168888100008273570145",
+            "cvu": "0000084000000000000024"
+        }
+    }
+}

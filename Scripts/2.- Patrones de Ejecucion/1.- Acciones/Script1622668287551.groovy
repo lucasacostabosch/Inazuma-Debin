@@ -101,6 +101,22 @@ switch (Accion) {
 
 		'Corte, todo lo que cree debe ir por encima de esta sentencia.'
 		break	
+		
+	case 'paymentvalidationbcraid':
+		'Configuracion rest:\r\n\t* Metodo: [POST, GET, DELETE, PUT]\r\n\t* Endpoint: url del metodo a ejecutar.\r\n\t* Semilla: Path donde se creo el archivo para el body. (Se debe usar contra barra \\ )\r\n\t* Respuesta Esperada: La respuesta que espero cuando el caso sale ok.\r\n'
+		CustomKeywords.'coelsa.Accion.rest'(Configuracion, 'POST', '/administrators/payments/validations', 'Interoperabilidad\\PaymentValidationbcra.json', [('StatusCode') : 200
+				, ('Mensaje') : '{"validation_status": {"status":"PASS"}}'])
+
+		'Corte, todo lo que cree debe ir por encima de esta sentencia.'
+		break
+		
+	case 'paymentbcraid':
+		'Configuracion rest:\r\n\t* Metodo: [POST, GET, DELETE, PUT]\r\n\t* Endpoint: url del metodo a ejecutar.\r\n\t* Semilla: Path donde se creo el archivo para el body. (Se debe usar contra barra \\ )\r\n\t* Respuesta Esperada: La respuesta que espero cuando el caso sale ok.\r\n'
+		CustomKeywords.'coelsa.Accion.rest'(Configuracion, 'POST', '/administrators/payments', 'Interoperabilidad\\Paymentbcra.json',
+			[('StatusCode') : 201, ('Mensaje') : '{"code":"APPROVED","description":"PAYMENT CREACION CORRECTA"}'])
+
+		'Corte, todo lo que cree debe ir por encima de esta sentencia.'
+		break
 }
 
 'Refunds'
@@ -120,6 +136,23 @@ switch (Accion) {
 
 		'Corte, todo lo que cree debe ir por encima de esta sentencia.'
 		break
+	
+		case 'refundvalidationbcra':
+		'Configuracion rest:\r\n\t* Metodo: [POST, GET, DELETE, PUT]\r\n\t* Endpoint: url del metodo a ejecutar.\r\n\t* Semilla: Path donde se creo el archivo para el body. (Se debe usar contra barra \\ )\r\n\t* Respuesta Esperada: La respuesta que espero cuando el caso sale ok.\r\n'
+		CustomKeywords.'coelsa.Accion.rest'(Configuracion, 'POST', '/administrators/refunds/validations', 'Interoperabilidad\\RefundValidationbcra.json', [('StatusCode') : 200
+				, ('Mensaje') : '{"validation_status": {"status":"PASS"}}'])
+
+		'Corte, todo lo que cree debe ir por encima de esta sentencia.'
+		break
+		
+	case 'refundbcra':
+		'Configuracion rest:\r\n\t* Metodo: [POST, GET, DELETE, PUT]\r\n\t* Endpoint: url del metodo a ejecutar.\r\n\t* Semilla: Path donde se creo el archivo para el body. (Se debe usar contra barra \\ )\r\n\t* Respuesta Esperada: La respuesta que espero cuando el caso sale ok.\r\n'
+		CustomKeywords.'coelsa.Accion.rest'(Configuracion, 'POST', '/administrators/refunds', 'Interoperabilidad\\Refundbcra.json',
+			[('StatusCode') : 201, ('Mensaje') : '{"code":"APPROVED","description":"REFUND REALIZADO CORRECTAMENTE"}'])
+
+		'Corte, todo lo que cree debe ir por encima de esta sentencia.'
+		break
+
 }
 
 'QR'
@@ -131,6 +164,21 @@ switch (Accion) {
 
         'Corte, todo lo que cree debe ir por encima de esta sentencia.'
         break
+		
+	case 'qrdebininteroperable':
+		'Configuracion rest:\r\n\t* Metodo: [POST, GET, DELETE, PUT]\r\n\t* Endpoint: url del metodo a ejecutar.\r\n\t* Semilla: Path donde se creo el archivo para el body. (Se debe usar contra barra \\ )\r\n\t* Respuesta Esperada: La respuesta que espero cuando el caso sale ok.\r\n'
+		CustomKeywords.'coelsa.Accion.rest'(Configuracion, 'POST', '/apiDebinV1/QR/QRDebin', 'QR\\QRDebininteroperable.json', [('StatusCode') : 200
+				, ('Mensaje') : '{"respuesta": {"codigo": "7100","descripcion": "CREACION CORRECTA"}}'])
+
+		'Corte, todo lo que cree debe ir por encima de esta sentencia.'
+		break
+	case 'qrdebininteroperable':
+		'Configuracion rest:\r\n\t* Metodo: [POST, GET, DELETE, PUT]\r\n\t* Endpoint: url del metodo a ejecutar.\r\n\t* Semilla: Path donde se creo el archivo para el body. (Se debe usar contra barra \\ )\r\n\t* Respuesta Esperada: La respuesta que espero cuando el caso sale ok.\r\n'
+		CustomKeywords.'coelsa.Accion.rest'(Configuracion, 'POST', '/apiDebinV1/QR/QRDebin', 'QR\\QRDebininteroperable.json', [('StatusCode') : 200
+				, ('Mensaje') : '{"respuesta": {"codigo": "7164","descripcion": "DATOS INVALIDOS RED (INTEROPERABLE)"}}'])
+
+		'Corte, todo lo que cree debe ir por encima de esta sentencia.'
+		break
     case 'confirmadebito':
         'Configuracion rest:\r\n\t* Metodo: [POST, GET, DELETE, PUT]\r\n\t* Endpoint: url del metodo a ejecutar.\r\n\t* Semilla: Path donde se creo el archivo para el body. (Se debe usar contra barra \\ )\r\n\t* Respuesta Esperada: La respuesta que espero cuando el caso sale ok.\r\n'
         CustomKeywords.'coelsa.Accion.rest'(Configuracion, 'POST', '/apiDebinV1/Debin/ConfirmaDebito', 'Debin\\ConfirmaDebito.json', 
