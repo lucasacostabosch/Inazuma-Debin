@@ -1,48 +1,49 @@
 {
-  "objeto": {
-    "tipo": "TRANSFERENCIA",
-    "ori_trx_id": "0000012349991"
-  },
-  "credito": {
-    "cuit": "20000001008",
-    "banco": "000",
-    "sucursal": "0210",
-    "cuenta": {
-      "cbu": "0000210500200000010083"
-    },
-    "titular": "string"
-  },
-  "debito": {
-    "cuit": "23202020208",
-    "banco": "000",
-    "sucursal": "0210",
-    "cuenta": {
-      "cbu": "0000210500000000212452"
-    },
-    "titular": "string"
-  },
-  "concepto": "VAR",
-  "descripcion": "Varios",
-  "idUsuario": 11231,
-  "idComprobante": 9228098,
-  "importe": {
-    "moneda": "032",
-    "importe": 1000
-  },
-  "mismoTitular": 0,
-  "ori_trx": "",
-  "ori_terminal": "",
-  "ori_adicional": "",
-  "datosGenerador": {
-    "ipCliente": "",
-    "tipoDispositivo": "",
-    "plataforma": "",
-    "imsi": "",
-    "imei": "",
-    "ubicacion": {
-      "lat": 0,
-      "lng": 0,
-      "precision": 0
-    }
-}
+	"objeto": {
+    	"tipo": "TRANSFERENCIA",
+    	"ori_trx_id": "0000012349991"
+  	},
+  	"credito": {
+    	"cuit": "20000001008",
+    	"banco": "000",
+    	"sucursal": "0210",
+    	"cuenta": {
+      		"cbu": "0000210500200000010083"
+    	},
+    	"titular": "string"
+  	},
+  	"debito": {
+    	"cuit": "23202020208",
+    	"banco": "000",
+    	"sucursal": "0210",
+    	"cuenta": {
+      		"cbu": "0000210500000000212452"
+    	},
+    	"titular": "string"
+  	},
+  	"concepto": "VAR",
+  	"descripcion": "Varios",
+  	"idUsuario": 11231,
+  	"idComprobante": 9228098,
+  	"importe": {
+    	"moneda": "032",
+    	"importe": 1000
+  	},
+  	"mismoTitular": 0,
+  	"ori_trx": "",
+  	"ori_terminal": "",
+  	"ori_adicional": "",
+  	"datosGenerador": {
+    	"ipCliente": "",
+    	"tipoDispositivo": "",
+    	"plataforma": "",
+    	"imsi": "",
+    	"imei": "",
+    	"ubicacion": {
+      		"lat": 0,
+      		"lng": 0,
+      		"precision": 0
+    	}
+	}
+	"umbral_riesgo": 0
 }
