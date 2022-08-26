@@ -21,7 +21,9 @@ if (response != null) {
 		
 		def tipo = select.get('DAC_TIPO').toString()
 		
-		Map objeto = [
+		Map objeto = [:]
+		
+		objeto = [
 			('tipo'):				tipo.toUpperCase(),
 			('ori_trx_id'):			select.get('DAC_ORI_TRX_ID')
 			]
@@ -154,6 +156,7 @@ if (response != null) {
 		//TODO
 		// Campos que faltan definir
 		Body.importe.remove('moneda')
+		Body.remove('umbral_riesgo')
 		Body.importe.importe = Body.importe.importe.toString()
 		
 		errores = coelsa.Util.validar(credin, Body)
