@@ -13,6 +13,8 @@ def jsonSlurper = new JsonSlurper()
 Map Body = GlobalVariable.Body
 Map respuesta
 
+println Body
+
 if (response != null) {
 
 	Map select = CustomKeywords.'sql.DML.select'('DEBIN', '*, DATEDIFF (Minute, DAC_ADD_DT, DAC_FECHA_EXPIRACION) as TIEMPOEXPIRACION', 'DEBIN_ACTIVAS', 'DAC_ID_HASH =\''+response.objeto.id+'\'', '')[0]
@@ -21,9 +23,7 @@ if (response != null) {
 		
 		def tipo = select.get('DAC_TIPO').toString()
 		
-		Map objeto = [:]
-		
-		objeto = [
+		Map objeto = [
 			('tipo'):				tipo.toUpperCase(),
 			('ori_trx_id'):			select.get('DAC_ORI_TRX_ID')
 			]
@@ -151,7 +151,10 @@ if (response != null) {
 		credin.ori_terminal			= ori_terminal
 		credin.ori_adicional		= ori_adicional
 		credin.datosGenerador		= datosGenerador
-		credin.descripcion			= descripcion				
+		credin.descripcion			= descripcion		
+		
+		println credin
+		println Body		
 		
 		//TODO
 		// Campos que faltan definir
