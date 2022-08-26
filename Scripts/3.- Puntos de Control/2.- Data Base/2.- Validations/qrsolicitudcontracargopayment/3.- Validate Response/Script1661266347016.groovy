@@ -18,9 +18,11 @@ Map respuesta
 if (response != null) {
 	
 	def qr_id_trx_body1 = Body.operacion_original.qr_id_trx
-	//def ori_trx_id_body = response.id
+	def ori_trx_id_body1 = Body.objeto.ori_trx_id
 	
-	Map select = CustomKeywords.'sql.DML.select'('DEBIN', '*, DATEDIFF (Minute, DAC_ADD_DT, DAC_FECHA_EXPIRACION) as TIEMPOEXPIRACION', 'DEBIN_ACTIVAS', 'DAC_QR_ID_TRX =\''+qr_id_trx_body1+'\'', '')[0]
+	//Map select = CustomKeywords.'sql.DML.select'('DEBIN', '*, DATEDIFF (Minute, DAC_ADD_DT, DAC_FECHA_EXPIRACION) as TIEMPOEXPIRACION', 'DEBIN_ACTIVAS', 'DAC_QR_ID_TRX =\''+qr_id_trx_body1+'\'', '')[0]
+	Map select = CustomKeywords.'sql.DML.select'('DEBIN', '*, DATEDIFF (Minute, DAC_ADD_DT, DAC_FECHA_EXPIRACION) as TIEMPOEXPIRACION', 'DEBIN_ACTIVAS', 'DAC_QR_ID_TRX =\''+qr_id_trx_body1+'\' AND DAC_ORI_TRX_ID =\''+ori_trx_id_body1+'\'', '')[0]
+	
 	
 	if (select != null) {
 	
@@ -64,7 +66,7 @@ if (response != null) {
 		
 		respuesta = [
 				db:[
-					querybody:	"SELECT * FROM DEBIN_ACTIVAS WHERE DAC_QR_ID_TRX =\'$qr_id_trx_body1\'",
+					querybody:	"SELECT * FROM DEBIN_ACTIVAS WHERE DAC_QR_ID_TRX =\'$qr_id_trx_body1\' AND DAC_ORI_TRX_ID = \'$ori_trx_id_body1\'",
 					selectresponse: select
 					],
 					errores: errores
@@ -73,7 +75,7 @@ if (response != null) {
 		errores = 'Response: Consulta sin resultados. '
 		respuesta = [
 						db: [
-							querybody:	"SELECT * FROM DEBIN_ACTIVAS WHERE DAC_QR_ID_TRX =\'$qr_id_trx_body1\'",
+							querybody:	"SELECT * FROM DEBIN_ACTIVAS WHERE DAC_QR_ID_TRX =\'$qr_id_trx_body1\' AND DAC_ORI_TRX_ID = \'$ori_trx_id_body1\'",
 							selectbody:	select
 							],
 						errores: errores

@@ -20,7 +20,7 @@
          <combinationType>ONE</combinationType>
          <id>4ec48e0a-978b-419b-a639-39f546d904f8</id>
          <iterationEntity>
-            <iterationType>SPECIFIC</iterationType>
+            <iterationType>ALL</iterationType>
             <value>1</value>
          </iterationEntity>
          <testDataId>Data Files/Credin</testDataId>
