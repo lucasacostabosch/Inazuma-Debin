@@ -96,7 +96,7 @@ if (response != null) {
 		errores = coelsa.Util.validar(contracargoqr, Body)				
 		respuesta1 = [
 				db: [
-					querybody:	"SELECT * FROM DEBIN_ACTIVAS WHERE DAC_QR_ID_TRX =\'$qr_id_trx_body1\' AND DAC_ORI_TRX_ID = \$ori_trx_id_body1\'",
+					querybody:	"SELECT * FROM DEBIN_ACTIVAS WHERE DAC_QR_ID_TRX =\'$qr_id_trx_body1\' AND DAC_ORI_TRX_ID = \'$ori_trx_id_body1\'",
 					selectbody:	select
 					],
 				errores:	errores
@@ -107,7 +107,7 @@ if (response != null) {
 		errores = 'Request: Consulta sin resultados. '
 		respuesta1 = [
 						db: [
-							querybody:	"SELECT * FROM DEBIN_ACTIVAS WHERE DAC_QR_ID_TRX =\'$qr_id_trx_body1\' AND DAC_ORI_TRX_ID = \$ori_trx_id_body1\'",
+							querybody:	"SELECT * FROM DEBIN_ACTIVAS WHERE DAC_QR_ID_TRX =\'$qr_id_trx_body1\' AND DAC_ORI_TRX_ID = \'$ori_trx_id_body1\'",
 							selectbody:	select
 							],
 						errores: errores
