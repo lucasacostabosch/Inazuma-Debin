@@ -45,5 +45,5 @@
       		"precision": 0
     	}
 	},
-	"umbral_riesgo": 0
+	"umbral_riesgo": 100
 }

@@ -20,8 +20,13 @@
          <combinationType>ONE</combinationType>
          <id>4ec48e0a-978b-419b-a639-39f546d904f8</id>
          <iterationEntity>
+<<<<<<< HEAD
+            <iterationType>SPECIFIC</iterationType>
+            <value>3</value>
+=======
             <iterationType>ALL</iterationType>
             <value>1</value>
+>>>>>>> 7add00649f78216718ec255adadbbacc95aca36d
          </iterationEntity>
          <testDataId>Data Files/Credin</testDataId>
       </testDataLink>
