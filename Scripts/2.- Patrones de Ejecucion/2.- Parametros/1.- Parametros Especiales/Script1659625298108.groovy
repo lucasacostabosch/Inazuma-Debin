@@ -23,4 +23,6 @@ if(Parametros.sql != null) {
 	}
 }
 	
+GlobalVariable.Debin.Parametros = Parametros
+
 return Parametros

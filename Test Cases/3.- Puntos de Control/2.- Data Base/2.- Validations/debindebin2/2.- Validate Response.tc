@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestCaseEntity>
    <description></description>
-   <name>1.- Body Data</name>
+   <name>2.- Validate Response</name>
    <tag></tag>
    <comment></comment>
-   <testCaseGuid>83d26261-fab7-415d-ab7c-59f1686c52cc</testCaseGuid>
+   <testCaseGuid>e33854ba-975a-4dec-bfac-078d4913352b</testCaseGuid>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>8ca33fd2-6a20-4c39-9820-27e1cd4d0439</variableId>
+      <variableId>12921e33-3223-4552-9d53-c6a9ac346ac4</variableId>
    </variableLinks>
    <variable>
       <defaultValue>[:]</defaultValue>
       <description></description>
-      <id>8ca33fd2-6a20-4c39-9820-27e1cd4d0439</id>
+      <id>12921e33-3223-4552-9d53-c6a9ac346ac4</id>
       <masked>false</masked>
-      <name>Body</name>
+      <name>response</name>
    </variable>
 </TestCaseEntity>
