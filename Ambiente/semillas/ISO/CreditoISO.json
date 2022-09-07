@@ -7,22 +7,22 @@
         "ori_red": "L"
     },
     "credito": {
-        "cuit": "20201003009",
-        "banco": "998",
+        "cuit": "20000000095",
+        "banco": "044",
         "sucursal": "0000",
         "cuenta": {
-            "cbu": "9980000400000135724688"
+            "cbu": "0440000400000000000093"
         },
-        "titular": "AltaLink998.1"
+        "titular": "Test    20000000095"
     },
     "debito": {
-        "cuit": "20201003009",
-        "banco": "998",
+        "cuit": "20000000095",
+        "banco": "044",
         "sucursal": "0000",
         "cuenta": {
-            "cbu": "9980000400000246813578"
+            "cbu": "0440000400000000000109"
         },
-        "titular": "AltaLink998.1"
+        "titular": "Test    20000000095"
     },
     "concepto": "VAR",
     "descripcion": "string",

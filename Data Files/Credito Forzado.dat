@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <DataFileEntity>
    <description></description>
-   <name>Debin</name>
+   <name>Credito Forzado</name>
    <tag></tag>
    <containsHeaders>true</containsHeaders>
    <csvSeperator></csvSeperator>
-   <dataFileGUID>dd9cd4ec-cac6-4eb5-8934-5c66855bb0cf</dataFileGUID>
-   <dataSourceUrl>Ambiente/Debin - Escenarios y Casos de Pruebas.xlsx</dataSourceUrl>
+   <dataFileGUID>b3fc5c52-e89f-4102-a7f0-ae8ef5d34600</dataFileGUID>
+   <dataSourceUrl>C:\Katalon Studio\Inazuma 3 - Debin\Ambiente\Debin - CREDITO FORZADO- Escenarios y Casos de Pruebas.xlsx</dataSourceUrl>
    <driver>ExcelFile</driver>
-   <isInternalPath>true</isInternalPath>
+   <isInternalPath>false</isInternalPath>
    <query></query>
    <secureUserAccount>false</secureUserAccount>
-   <sheetName>GetsDebin</sheetName>
+   <sheetName>CREDITO FORZADO</sheetName>
    <usingGlobalDBSetting>false</usingGlobalDBSetting>
 </DataFileEntity>
