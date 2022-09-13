@@ -7,22 +7,22 @@
         "ori_red": "L"
     },
     "credito": {
-        "cuit": "20000000095",
-        "banco": "044",
+        "cuit": "20000001202",
+        "banco": "998",
         "sucursal": "0000",
         "cuenta": {
-            "cbu": "0440000400000000000093"
+            "cbu": "9980000400000000000000"
         },
-        "titular": "Test    20000000095"
+        "titular": "Test 20000001202"
     },
     "debito": {
-        "cuit": "20000000095",
-        "banco": "044",
+        "cuit": "20000001210",
+        "banco": "998",
         "sucursal": "0000",
         "cuenta": {
-            "cbu": "0440000400000000000109"
+            "cbu": "9980000400000000000192"
         },
-        "titular": "Test    20000000095"
+        "titular": "Test 20000001210"
     },
     "concepto": "VAR",
     "descripcion": "string",

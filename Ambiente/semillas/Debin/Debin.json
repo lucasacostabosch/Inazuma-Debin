@@ -1,18 +1,18 @@
 {
   "operacion": {
     "vendedor": {
-      "cuit": "20000001008",
-      "cbu": "0000210500200000010083",
-      "banco": "000",
-      "sucursal": "0210",
+      "cuit": "20000001202",
+      "cbu": "9980000400000000000000",
+      "banco": "998",
+      "sucursal": "0000",
       "terminal": "2",
       "recurrencia": false,
       "prestacion":""
     },
     "comprador": {
-      "cuit": "23202020208",
+      "cuit": "20000001210",
       "cuenta": {
-        "cbu": "0000210500000000212452",
+        "cbu": "9980000400000000000192",
         "alias": ""
       }
     },

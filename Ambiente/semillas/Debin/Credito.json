@@ -4,22 +4,22 @@
     	"ori_trx_id": "0000012349991"
   	},
   	"credito": {
-    	"cuit": "20000001008",
-    	"banco": "000",
-    	"sucursal": "0210",
+    	"cuit": "20000001202",
+    	"banco": "998",
+    	"sucursal": "0000",
     	"cuenta": {
-      		"cbu": "0000210500200000010083"
+      		"cbu": "9980000400000000000000"
     	},
-    	"titular": "string"
+    	"titular": "Test 20000001202"
   	},
   	"debito": {
-    	"cuit": "23202020208",
-    	"banco": "000",
+    	"cuit": "20000001210",
+    	"banco": "998",
     	"sucursal": "0210",
     	"cuenta": {
-      		"cbu": "0000210500000000212452"
+      		"cbu": "9980000400000000000192"
     	},
-    	"titular": "string"
+    	"titular": "Test 20000001210"
   	},
   	"concepto": "VAR",
   	"descripcion": "Varios",

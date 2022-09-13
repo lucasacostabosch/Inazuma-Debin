@@ -15,6 +15,12 @@
 			},
 			{
 				"bank" : "998",
+				"product" : "iso",
+				"username" : "CoelsaISO8583",
+				"password" : "Coelsa123"
+			},
+			{
+				"bank" : "998",
 				"product" : "responder",
 				"username" : "DEBIN998",
 				"password" : "Coelsa123"
@@ -24,6 +30,10 @@
 	"API" : [
 		{
 		"name" : "debin",
+		"urlBase" : "https://testdebin.coelsa.com.ar"
+		},
+		{
+		"name" : "iso",
 		"urlBase" : "https://testdebin.coelsa.com.ar"
 		},
 		{
