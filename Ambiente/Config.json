@@ -24,7 +24,7 @@
 	"API" : [
 		{
 		"name" : "debin",
-		"urlBase" : "https://qadebin.coelsa.com.ar"
+		"urlBase" : "https://testdebin.coelsa.com.ar"
 		},
 		{
 		"name" : "responder",
