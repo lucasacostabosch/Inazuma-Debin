@@ -3,7 +3,7 @@
 	"Bank" : "998",
 	"Firma" : false,
 	"Token":{
-		"URL" : "https://qaauth.coelsa.com.ar/apiAuthV1/auth",
+		"URL" : "https://testauth.coelsa.com.ar/apiAuthV1/auth",
 		"Authorization" : "Basic MldMOEdZeVVtd295RGdVRTQxajVGZzpPWldWNHFwSDhTOWJ3Q3cyTi45ZDM5bTZnUXVR",
 		"Durability": 25,
 		"Users" : [
@@ -11,42 +11,6 @@
 				"bank" : "998",
 				"product" : "debin",
 				"username" : "DEBIN998",
-				"password" : "Coelsa123"
-			},
-			{
-			    "bank" : "999",
-                "product" : "debin",
-                "username" : "DEBIN999",
-                "password" : "Coelsa123"
-			},
-			{
-			    "bank" : "044",
-                "product" : "debin",
-                "username" : "DEBIN044",
-                "password" : "Coelsa123"
-			},
-				{
-			    "bank" : "016",
-                "product" : "debin",
-                "username" : "DEBIN016",
-                "password" : "Coelsa123"
-			},
-			{
-                "bank" : "902",
-                "product" : "debin",
-                "username" : "DEBIN902",
-                "password" : "Coelsa123"
-            },
-			{
-                "bank" : "903",
-                "product" : "debin",
-                "username" : "DEBIN903",
-                "password" : "Coelsa123"
-            },
-			{
-				"bank" : "998",
-				"product" : "iso",
-				"username" : "CoelsaISO8583",
 				"password" : "Coelsa123"
 			},
 			{
@@ -63,10 +27,6 @@
 		"urlBase" : "https://qadebin.coelsa.com.ar"
 		},
 		{
-		"name" : "iso",
-		"urlBase" : "https://qadebin.coelsa.com.ar"
-		},
-		{
 		"name" : "responder",
 		"urlBase" : "http://10.66.0.10:3000"
 		}
@@ -78,7 +38,7 @@
 			"alias" : "debin",
 			"server" : "10.36.0.4",
 			"port" : "1433",
-			"dbname" : "DEBIN_QA",
+			"dbname" : "DEBIN",
 			"username" : "test_sa",
 			"password" : "a70tiv67lzFviPtcLyWBzQ",
 			"driver" : "com.microsoft.sqlserver.jdbc.SQLServerDriver"

@@ -1,0 +1,8 @@
+{
+    "endPointAlta": {
+        "id": "",
+        "descripcion": "Responder server QA",
+        "primario": "",
+        "endpoint_forzado": true
+    }
+}
