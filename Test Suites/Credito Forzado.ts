@@ -20,8 +20,8 @@
          <combinationType>ONE</combinationType>
          <id>5ec57477-61b0-4d6b-b0eb-32605305f210</id>
          <iterationEntity>
-            <iterationType>RANGE</iterationType>
-            <value>48-49</value>
+            <iterationType>ALL</iterationType>
+            <value>60</value>
          </iterationEntity>
          <testDataId>Data Files/Credito Forzado</testDataId>
       </testDataLink>
