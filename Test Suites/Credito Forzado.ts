@@ -21,7 +21,7 @@
          <id>5ec57477-61b0-4d6b-b0eb-32605305f210</id>
          <iterationEntity>
             <iterationType>SPECIFIC</iterationType>
-            <value>55, 56, 57</value>
+            <value>60</value>
          </iterationEntity>
          <testDataId>Data Files/Credito Forzado</testDataId>
       </testDataLink>
