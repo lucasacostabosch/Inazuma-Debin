@@ -11,6 +11,10 @@
    <isInternalPath>true</isInternalPath>
    <query></query>
    <secureUserAccount>false</secureUserAccount>
+<<<<<<< HEAD
    <sheetName>PAYMENTS</sheetName>
+=======
+   <sheetName>GETs</sheetName>
+>>>>>>> 0bf7247bacccdd98fe9e4ae2393e72371bb0d2b0
    <usingGlobalDBSetting>false</usingGlobalDBSetting>
 </DataFileEntity>
