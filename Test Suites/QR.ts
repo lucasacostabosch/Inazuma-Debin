@@ -21,11 +21,7 @@
          <id>fefa74bc-c998-49c9-80e4-a3acb3630a0c</id>
          <iterationEntity>
             <iterationType>SPECIFIC</iterationType>
-<<<<<<< HEAD
-            <value>13</value>
-=======
-            <value>1</value>
->>>>>>> 0bf7247bacccdd98fe9e4ae2393e72371bb0d2b0
+            <value>9</value>
          </iterationEntity>
          <testDataId>Data Files/QR</testDataId>
       </testDataLink>
