@@ -87,7 +87,7 @@ import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase
 import com.kms.katalon.core.model.FailureHandling
 import com.kms.katalon.core.webservice.verification.WSResponseManager
-
+import internal.GlobalVariable as GlobalVariable
 import groovy.json.JsonSlurper
 
 RequestObject request = WSResponseManager.getInstance().getCurrentRequest()
@@ -99,14 +99,22 @@ Map RespuestaEsperada = variables.get('RespuestaEsperada')
 String Body = variables.get('Body')
 String Endpoint = variables.get('Endpoint')
 Map StatusCode = [&quot;Recibido&quot;:response.getStatusCode(), &quot;Esperado&quot;: RespuestaEsperada.StatusCode]
+Map head = [:]
+
+if(GlobalVariable.Debin.InterOperable != null)	{
+	head = [
+		&quot;X-B3-TraceId&quot; : GlobalVariable.Debin.InterOperable,
+		&quot;X-B3-SpanId&quot;  : GlobalVariable.Debin.InterOperable
+		]
+}
 
 WebUI.callTestCase(findTestCase('3.- Puntos de Control/1.- Response/1.- Validate'),
-	[	('Endpoint') : Endpoint,
-		('Headers') : [:],
-		('Enviado') : Body,
-		('Esperado') : RespuestaEsperada.Mensaje,
-		('Obtenido') : responseText,
-		('StatusCode') : StatusCode],
+	[	('Endpoint')	: Endpoint,
+		('Headers')		: head,
+		('Enviado')		: Body,
+		('Esperado')	: RespuestaEsperada.Mensaje,
+		('Obtenido')	: responseText,
+		('StatusCode')	: StatusCode],
 	FailureHandling.STOP_ON_FAILURE)
 
 def jsonSlurper = new JsonSlurper()
