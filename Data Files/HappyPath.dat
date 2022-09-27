@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <DataFileEntity>
    <description></description>
-   <name>QR</name>
+   <name>HappyPath</name>
    <tag></tag>
    <containsHeaders>true</containsHeaders>
    <csvSeperator></csvSeperator>
-   <dataFileGUID>8f56c0eb-a3b9-4dd3-83f7-3e3075cc1b9b</dataFileGUID>
-   <dataSourceUrl>Ambiente/Debin - QR - Escenarios y Casos de Pruebas.xlsx</dataSourceUrl>
+   <dataFileGUID>909d3ac8-ce81-4ed7-b853-423db85187ac</dataFileGUID>
+   <dataSourceUrl>C:\Katalon Studio\Inazuma 3 - Debin\Ambiente\Debin - Happy Path.xlsx</dataSourceUrl>
    <driver>ExcelFile</driver>
-   <isInternalPath>true</isInternalPath>
+   <isInternalPath>false</isInternalPath>
    <query></query>
    <secureUserAccount>false</secureUserAccount>
-   <sheetName>QR</sheetName>
+   <sheetName>HP</sheetName>
    <usingGlobalDBSetting>false</usingGlobalDBSetting>
 </DataFileEntity>
