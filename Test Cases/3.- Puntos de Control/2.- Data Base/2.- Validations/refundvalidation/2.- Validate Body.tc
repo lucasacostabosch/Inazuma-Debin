@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>2.- Validate Body</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>81a4c883-202f-4945-bea6-6fa92074fdab</testCaseGuid>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>ff2c97b5-a9ed-46fd-b76a-a233eeef01db</variableId>
+   </variableLinks>
+   <variable>
+      <defaultValue>''</defaultValue>
+      <description></description>
+      <id>ff2c97b5-a9ed-46fd-b76a-a233eeef01db</id>
+      <masked>false</masked>
+      <name>response</name>
+   </variable>
+</TestCaseEntity>

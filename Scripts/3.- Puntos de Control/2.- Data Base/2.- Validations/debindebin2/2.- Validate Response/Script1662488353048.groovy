@@ -21,10 +21,17 @@ if (response != null) {
 	if (select != null) {
 		
 		String id, garantiaOk, tipo, fechaNegocio
+		Integer	loteId
 		
-		id 				= 	select.get('DAC_ID_HASH')
-		tipo			=	select.get('DAC_TIPO')
-		def loteId		=	select.get('DAC_LOTE_ID')
+		id 		= 	select.get('DAC_ID_HASH')
+		tipo	=	select.get('DAC_TIPO')
+		
+		if(select.get('DAC_LOTE_ID')!=null) {
+			loteId	=	select.get('DAC_LOTE_ID')
+		}else {
+			loteId	=	0
+		}	
+		
 		fechaNegocio	=	select.get('DAC_FECHA_NEGOCIO')
 		
 		String codigo_co, titular_co, cuit_co
@@ -36,8 +43,19 @@ if (response != null) {
 		
 		banco_cuenta		=	select.get('DAC_DEBITO_BANCOCOD')
 		sucursal_cuenta		=	select.get('DAC_DEBITO_BANCOSUC')
-		terminal_cuenta		=	select.get('DAC_ORI_TERMINAL')
-		alias_cuenta		=	select.get('DAC_DEBITO_ALIAS')
+		
+		if(select.get('DAC_ORI_TERMINAL')!=	null) {
+			terminal_cuenta	=	select.get('DAC_ORI_TERMINAL')
+		}else {
+			terminal_cuenta	=	''
+		}
+		
+		if(select.get('DAC_DEBITO_ALIAS')!= null) {
+			alias_cuenta	=	select.get('DAC_DEBITO_ALIAS')
+		}else {
+			alias_cuenta	=	''
+		}				
+		
 		cbu_cuenta			=	select.get('DAC_DEBITO_CBU')
 		moneda_cuenta		=	select.get('DAC_DEBITO_TIPO_MONEDA')
 		tipo_cuenta			=	select.get('DAC_DEBITO_TIPO_CUENTA')
@@ -67,7 +85,7 @@ if (response != null) {
 			('cuenta'):		cuenta_co,
 			]
 			
-		String concepto_det, moneda_det, descripcion_det, idOperacionOriginal_det, paymentReference_det, codigoPostal_det, mcc_det, fecha1_det, fecha_det, fechaExpiracion1_det, fechaExpiracion_det   
+		String concepto_det, moneda_det, descripcion_det, idOperacionOriginal_det, paymentReference_det, codigoPostal_det, mcc_det, fecha1_det, fecha_det, fechaExpiracion1_det, fechaExpiracion_det1, fechaExpiracion_det   
 		
 		def idUsuario_det
 		def idComprobante_det
@@ -78,8 +96,20 @@ if (response != null) {
 		def devolucionParcial_det
 		
 		concepto_det			=	select.get('DAC_CONCEPTO')
-		idUsuario_det			=	select.get('DAC_USUARIO')
-		idComprobante_det		=	select.get('DAC_COMPROBANTE')
+		
+		if (select.get('DAC_USUARIO') != null) {
+			idUsuario_det	=	select.get('DAC_USUARIO')
+		}else {
+			idUsuario_det	=	0
+		}
+		
+		println select.get('DAC_COMPROBANTE')
+		if (select.get('DAC_COMPROBANTE')!= null) {
+			idComprobante_det	=	select.get('DAC_COMPROBANTE')
+		}else {
+			idComprobante_det	=	0
+		}
+		
 		importe_det				=	select.get('DAC_IMPORTE')
 		devolucion_det			=	select.get('DAC_DEVOLUCION')
 		if(select.get('DAC_IMPORTE_COMISION').toString() != "null") {
@@ -108,11 +138,15 @@ if (response != null) {
 		}else {
 			devolucionParcial_det	=	false
 		}
-		fecha1_det				=	select.get('DAC_ADD_DT')
-		fecha_det 				=	fecha1_det.replaceAll(' -', '-')
-		fechaExpiracion1_det	=	select.get('DAC_FECHA_EXPIRACION')
-		fechaExpiracion_det		=	fechaExpiracion1_det.replaceAll(' -', '-')
+		fecha1_det						=	select.get('DAC_ADD_DT')
+		fecha_det 						=	fecha1_det.replaceAll(' -', '-')
+		fechaExpiracion1_det			=	select.get('DAC_FECHA_EXPIRACION')
+		fechaExpiracion_det1			=	fechaExpiracion1_det.replaceAll(' -', '-')
+		String[] fechaExpiracion_det2	=	fechaExpiracion_det1.split(" ")
+		fechaExpiracion_det				=	fechaExpiracion_det2[0]
 		
+		println fechaExpiracion_det
+				
 		Map detalle = [:]
 		
 		detalle = [
@@ -132,8 +166,7 @@ if (response != null) {
 			]
 			
 		String codigo_ve, titular_ve, cuit_ve
-		
-		
+				
 		titular_ve	=	select.get('DAC_CREDITO_TITULAR')
 		cuit_ve		=	select.get('DAC_CREDITO_CUIT')
 		
@@ -141,8 +174,19 @@ if (response != null) {
 		
 		banco_ve		=	select.get('DAC_CREDITO_BANCOCOD')
 		sucursal_ve		=	select.get('DAC_CREDITO_BANCOSUC')
-		terminal_ve		=	select.get('DAC_CREDITO_TERMINAL')
-		alias_ve		=	select.get('DAC_CREDITO_ALIAS')
+		
+		if(select.get('DAC_CREDITO_TERMINAL')!= null) {
+			terminal_ve	=	select.get('DAC_CREDITO_TERMINAL')
+		}else {
+			terminal_ve	=	''
+		}
+		
+		if(select.get('DAC_CREDITO_ALIAS') !=null) {
+			alias_ve	=	select.get('DAC_CREDITO_ALIAS')
+		}else {
+			alias_ve	=	''
+		}
+		
 		cbu_ve			=	select.get('DAC_CREDITO_CBU')
 		moneda_ve		=	select.get('DAC_CREDITO_TIPO_MONEDA')
 		tipo_ve			=	select.get('DAC_CREDITO_TIPO_CUENTA')
@@ -164,7 +208,6 @@ if (response != null) {
 		Map vendedor = [:]
 		
 		vendedor = [
-			//('codigo'):		codigo_ve,
 			('titular'):	titular_ve,
 			('cuit'):		cuit_ve,
 			('cuenta'):		cuenta_ve
@@ -187,9 +230,19 @@ if (response != null) {
 			]
 		
 		String reglas
+		Integer puntaje
 		
-		def puntaje =	select.get('DAC_SCORING1')
-		reglas		=	select.get('DAC_REGLAS')
+		if (select.get('DAC_SCORING1')!=null) {
+			puntaje	=	select.get('DAC_SCORING1')
+		}else {
+			puntaje	=	0
+		}
+		
+		if (select.get('DAC_REGLAS')!=null) {
+			reglas	=	select.get('DAC_REGLAS')
+		}else {
+			reglas	=	''
+		}
 		
 		Map evaluacion = [:]
 		
@@ -224,20 +277,21 @@ if (response != null) {
 		response.remove('preautorizado')
 		response.remove('respuesta')
 		
-		String	fecha1response, fecha_response, fechaExpiracion1response, fechaExpiracionExpiracion, fechaNegocioresponse
+		String	fecha1response, fecha_response, fechaExpiracion1response, fechaExpiracionExpiracion1, fechaExpiracionExpiracion, fechaNegocioresponse
 		
 		fecha1response 					= 	response.operacion.detalle.fecha
 		fecha_response 					= 	fecha1response.replaceAll('T', ' ')
 		fechaExpiracion1response		= 	response.operacion.detalle.fechaExpiracion
-		fechaExpiracionExpiracion 		= 	fechaExpiracion1response.replaceAll('T', ' ')
+		fechaExpiracionExpiracion1 		= 	fechaExpiracion1response.replaceAll('T', ' ')
+		String[] fechaExpiracion2		=	fechaExpiracionExpiracion1.split(" ")
+		fechaExpiracionExpiracion		=	fechaExpiracion2[0]
 		String[] fechaNegocio1response 	= 	response.operacion.fechaNegocio.split("T")
 		fechaNegocioresponse			= 	fechaNegocio1response[0]
-		
+				
 		response.operacion.detalle.fecha				=	fecha_response
 		response.operacion.detalle.fechaExpiracion		=	fechaExpiracionExpiracion
 		response.operacion.fechaNegocio					=	fechaNegocioresponse
 	
-		
 		errores = coelsa.Util.validar(response, dato_db)
 		respuesta = [
 				db:[
