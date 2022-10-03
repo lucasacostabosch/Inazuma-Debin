@@ -21,7 +21,11 @@
          <id>fefa74bc-c998-49c9-80e4-a3acb3630a0c</id>
          <iterationEntity>
             <iterationType>SPECIFIC</iterationType>
+<<<<<<< HEAD
             <value>77</value>
+=======
+            <value>6</value>
+>>>>>>> 38ec92f1e98a9f1c81e1c1c59e7dbb646b916bdc
          </iterationEntity>
          <testDataId>Data Files/QR</testDataId>
       </testDataLink>

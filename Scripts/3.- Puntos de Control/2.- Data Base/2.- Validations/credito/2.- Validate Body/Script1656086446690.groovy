@@ -13,9 +13,10 @@ def jsonSlurper = new JsonSlurper()
 Map Body = GlobalVariable.Body
 Map respuesta
 
-println Body
 
 if (response != null) {
+	
+	println response
 
 	Map select = CustomKeywords.'sql.DML.select'('DEBIN', '*, DATEDIFF (Minute, DAC_ADD_DT, DAC_FECHA_EXPIRACION) as TIEMPOEXPIRACION', 'DEBIN_ACTIVAS', 'DAC_ID_HASH =\''+response.objeto.id+'\'', '')[0]
 			
@@ -176,7 +177,7 @@ if (response != null) {
 		errores = 'Request: Consulta sin resultados. '
 		respuesta = [
 						db: [
-							querybody:	"SELECT * FROM DEBIN_ACTIVAS WHERE DAC_ID_HASH =\'$response.debin.id\'",
+							querybody:	"SELECT * FROM DEBIN_ACTIVAS WHERE DAC_ID_HASH =\'$response.objeto.id\'",
 							selectbody:	select
 							],
 						errores: errores
